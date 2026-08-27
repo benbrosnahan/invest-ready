@@ -29,4 +29,4 @@ Scaffolded from the Loan Lab folder, which is why an earlier version of this fil
 was a verbatim copy of Loan Lab's spec describing the wrong product. Replaced
 2026-08-26. Loan Lab is a separate product at https://loan-lab.vercel.app.
 
-Stack: Next.js App Router, TypeScript, Tailwind, Framer Motion. Built with Claude Code.
+Stack: Next.js App Router, TypeScript, Tailwind, Framer Motion.
