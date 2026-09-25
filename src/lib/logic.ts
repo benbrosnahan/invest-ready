@@ -77,7 +77,7 @@ const ROTH_IRA_LINKS = [
 
 const BROKERAGE_LINKS = [
   { label: "Open at Fidelity", url: "https://www.fidelity.com/open-account/overview" },
-  { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/taxable-investment-accounts/overview" },
+  { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/brokerage-accounts" },
   { label: "Open at Schwab", url: "https://www.schwab.com/brokerage" },
 ];
 

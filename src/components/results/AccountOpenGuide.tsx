@@ -60,7 +60,9 @@ export default function AccountOpenGuide({ accountType, openLinks }: Props) {
                 1. Choose a provider
               </p>
               <p className="text-sm text-slate-600">
-                Fidelity, Vanguard, and Schwab are all free with no minimums for most accounts.
+                {accountType === "hysa"
+                  ? "Wealthfront, Marcus, and SoFi all offer online high-yield savings accounts. Compare current rates before choosing."
+                  : "Fidelity, Vanguard, and Schwab are all free with no minimums for most accounts."}
               </p>
             </div>
 

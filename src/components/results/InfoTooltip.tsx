@@ -27,13 +27,15 @@ export default function InfoTooltip({ content, fee, provider }: InfoTooltipProps
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="w-4 h-4 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 text-[10px] font-bold flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        className="group w-9 h-9 -m-2.5 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
         aria-label="Learn more"
       >
-        i
+        <span className="w-4 h-4 rounded-full bg-slate-200 group-hover:bg-slate-300 text-slate-600 text-[10px] font-bold flex items-center justify-center transition-colors">
+          i
+        </span>
       </button>
       {open && (
-        <div className="absolute z-20 bottom-6 left-1/2 -translate-x-1/2 w-64 bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl leading-relaxed">
+        <div className="absolute z-20 bottom-6 -left-2 w-64 max-w-[calc(100vw-7rem)] bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl leading-relaxed">
           <p>{content}</p>
           {(fee || provider) && (
             <p className="mt-1.5 text-slate-400">
@@ -42,7 +44,7 @@ export default function InfoTooltip({ content, fee, provider }: InfoTooltipProps
               {provider && <span>{provider}</span>}
             </p>
           )}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900" />
+          <div className="absolute top-full left-3 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900" />
         </div>
       )}
     </div>
