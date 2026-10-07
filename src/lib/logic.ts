@@ -72,12 +72,14 @@ const ALL_FUNDS: Record<string, Fund> = {
 const ROTH_IRA_LINKS = [
   { label: "Open at Fidelity", url: "https://www.fidelity.com/retirement-ira/roth-ira" },
   { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/iras/roth-ira" },
+  { label: "Open at Robinhood", url: "https://robinhood.com/us/en/about/retirement/" },
   { label: "Open at Schwab", url: "https://www.schwab.com/ira/roth-ira" },
 ];
 
 const BROKERAGE_LINKS = [
   { label: "Open at Fidelity", url: "https://www.fidelity.com/open-account/overview" },
   { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/brokerage-accounts" },
+  { label: "Open at Robinhood", url: "https://robinhood.com/us/en/invest/" },
   { label: "Open at Schwab", url: "https://www.schwab.com/brokerage" },
 ];
 
