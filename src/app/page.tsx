@@ -1,211 +1,131 @@
 "use client";
 
-import { useReducer, useCallback, Suspense } from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import Nav from "@/components/shared/Nav";
-import QuizShell from "@/components/quiz/QuizShell";
-import StepIncome from "@/components/quiz/StepIncome";
-import StepEmergency from "@/components/quiz/StepEmergency";
-import StepDebt from "@/components/quiz/StepDebt";
-import StepGoal from "@/components/quiz/StepGoal";
-import StepRisk from "@/components/quiz/StepRisk";
-import {
-  QuizState,
-  QuizAnswers,
-  INITIAL_ANSWERS,
-  TOTAL_STEPS,
-  IncomeAnswer,
-  EmergencyAnswer,
-  DebtAnswer,
-  GoalAnswer,
-  RiskAnswer,
-} from "@/types";
-import { getResult } from "@/lib/logic";
-import { storage } from "@/lib/utils";
+import ProgressLadder from "@/components/quiz/ProgressLadder";
+import QuestionStep from "@/components/quiz/QuestionStep";
+import { QUESTIONS } from "@/lib/questions";
+import { endsQuiz } from "@/lib/logic";
+import { ANSWERS_KEY, storage } from "@/lib/utils";
+import { TOTAL_STEPS, type Answers, type Question, type QuizAnswers } from "@/types";
+
+interface State {
+  step: number;
+  answers: Answers;
+}
 
 type Action =
-  | { type: "NEXT" }
-  | { type: "BACK" }
-  | { type: "SET_ANSWER"; field: keyof QuizAnswers; value: QuizAnswers[keyof QuizAnswers] };
+  | { type: "ANSWER"; question: Question; value: string }
+  // `from` is the step the move was made on. A move from a step the quiz has already left is ignored, so a
+  // double-click, or a click during the transition, can never skip a question (audits/REPORT.md, MONEY-01).
+  | { type: "NEXT"; from: number }
+  | { type: "BACK" };
 
-function reducer(state: QuizState, action: Action): QuizState {
+function reducer(state: State, action: Action): State {
   switch (action.type) {
+    case "ANSWER":
+      return { ...state, answers: { ...state.answers, [action.question]: action.value } };
     case "NEXT":
-      return { ...state, step: Math.min(state.step + 1, TOTAL_STEPS), direction: 1 };
+      if (action.from !== state.step) return state;
+      return { ...state, step: Math.min(state.step + 1, TOTAL_STEPS) };
     case "BACK":
-      return { ...state, step: Math.max(state.step - 1, 1), direction: -1 };
-    case "SET_ANSWER":
-      return { ...state, answers: { ...state.answers, [action.field]: action.value } };
-    default:
-      return state;
+      return { ...state, step: Math.max(state.step - 1, 1) };
   }
 }
 
-const initialState: QuizState = { step: 1, direction: 1, answers: INITIAL_ANSWERS };
+// Long enough to see the choice land, short enough not to feel slow.
+const ADVANCE_MS = 200;
 
-const slideVariants = {
-  enter: (direction: number) => ({ x: direction > 0 ? 56 : -56, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (direction: number) => ({ x: direction > 0 ? -56 : 56, opacity: 0 }),
-};
-
-function routeToResults(answers: Partial<QuizAnswers>, router: ReturnType<typeof useRouter>) {
-  const result = getResult(answers);
-  storage.set("invest-ready-result", JSON.stringify(result));
-  router.push("/results");
-}
-
-function QuizContent() {
+export default function QuizPage() {
   const router = useRouter();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, { step: 1, answers: {} });
+  const pending = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const finishing = useRef(false);
+  const firstRender = useRef(true);
 
-  const setField = useCallback(
-    <K extends keyof QuizAnswers>(field: K, value: QuizAnswers[K]) => {
-      dispatch({ type: "SET_ANSWER", field, value });
+  const question = QUESTIONS[state.step - 1];
+
+  const answer = useCallback(
+    (value: string) => {
+      if (finishing.current) return;
+      const q = question.id;
+      const step = state.step;
+      const answers = { ...state.answers, [q]: value } as Answers;
+      dispatch({ type: "ANSWER", question: q, value });
+      // The last click wins: a second click before the move replaces the first.
+      if (pending.current) clearTimeout(pending.current);
+      pending.current = setTimeout(() => {
+        pending.current = null;
+        if (endsQuiz(q, value as QuizAnswers[typeof q])) {
+          finishing.current = true;
+          // Only the answers on the way to this result are kept, so an earlier run's later answers never leak in.
+          const order = QUESTIONS.map((x) => x.id);
+          const kept = Object.fromEntries(order.slice(0, step).map((k) => [k, answers[k]]));
+          storage.set(ANSWERS_KEY, JSON.stringify(kept));
+          router.push("/results");
+        } else {
+          dispatch({ type: "NEXT", from: step });
+        }
+      }, ADVANCE_MS);
     },
-    []
+    [question.id, state.step, state.answers, router]
   );
 
-  const handleIncomeNext = useCallback(
-    (income: IncomeAnswer) => {
-      if (income === "none") {
-        routeToResults({ ...state.answers, income }, router);
-      } else {
-        dispatch({ type: "NEXT" });
-      }
-    },
-    [state.answers, router]
-  );
-
-  const handleEmergencyNext = useCallback(
-    (emergency: EmergencyAnswer) => {
-      if (emergency === "none" || emergency === "partial") {
-        routeToResults({ ...state.answers, emergency }, router);
-      } else {
-        dispatch({ type: "NEXT" });
-      }
-    },
-    [state.answers, router]
-  );
-
-  const handleDebtNext = useCallback(
-    (debt: DebtAnswer) => {
-      if (debt === "high_interest") {
-        routeToResults({ ...state.answers, debt }, router);
-      } else {
-        dispatch({ type: "NEXT" });
-      }
-    },
-    [state.answers, router]
-  );
-
-  const handleGoalNext = useCallback(
-    (goal: GoalAnswer) => {
-      if (goal === "soon") {
-        routeToResults({ ...state.answers, goal }, router);
-      } else {
-        dispatch({ type: "NEXT" });
-      }
-    },
-    [state.answers, router]
-  );
-
-  const handleFinalStep = useCallback(
-    (riskOverride?: RiskAnswer) => {
-      const answers = riskOverride
-        ? { ...state.answers, risk: riskOverride }
-        : state.answers;
-      routeToResults(answers, router);
-    },
-    [state.answers, router]
-  );
-
-  const renderStep = () => {
-    switch (state.step) {
-      case 1:
-        return (
-          <StepIncome
-            value={state.answers.income}
-            onChange={(v: IncomeAnswer) => setField("income", v)}
-            onNext={handleIncomeNext}
-          />
-        );
-      case 2:
-        return (
-          <StepEmergency
-            value={state.answers.emergency}
-            onChange={(v: EmergencyAnswer) => setField("emergency", v)}
-            onNext={handleEmergencyNext}
-          />
-        );
-      case 3:
-        return (
-          <StepDebt
-            value={state.answers.debt}
-            onChange={(v: DebtAnswer) => setField("debt", v)}
-            onNext={handleDebtNext}
-          />
-        );
-      case 4:
-        return (
-          <StepGoal
-            value={state.answers.goal}
-            onChange={(v: GoalAnswer) => setField("goal", v)}
-            onNext={(v: GoalAnswer) => handleGoalNext(v)}
-          />
-        );
-      case 5:
-        return (
-          <StepRisk
-            value={state.answers.risk}
-            onChange={(v: RiskAnswer) => setField("risk", v)}
-            onNext={handleFinalStep}
-          />
-        );
-      default:
-        return null;
-    }
+  const back = () => {
+    if (pending.current) clearTimeout(pending.current);
+    pending.current = null;
+    dispatch({ type: "BACK" });
   };
+
+  useEffect(() => () => {
+    if (pending.current) clearTimeout(pending.current);
+  }, []);
+
+  // After a move, put focus on the new question so keyboard and screen reader users start there.
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    document.getElementById(`q-${QUESTIONS[state.step - 1].id}`)?.focus();
+  }, [state.step]);
 
   return (
     <>
       <Nav />
-      <QuizShell currentStep={state.step}>
+      <main className="mx-auto w-full max-w-2xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+        <h1 className="font-display text-xl font-bold leading-tight text-slate-900 sm:text-2xl">
+          Are you ready to start investing?
+        </h1>
+        {state.step === 1 && (
+          <p className="mt-1.5 max-w-prose text-base leading-relaxed text-slate-700">
+            Five questions. You get a yes or a not yet, and one next step.
+          </p>
+        )}
+
+        <div className="mt-6">
+          <ProgressLadder step={state.step} />
+        </div>
+
+        <div className="mt-8">
+          <QuestionStep
+            key={question.id}
+            question={question}
+            value={state.answers[question.id]}
+            onAnswer={answer}
+          />
+        </div>
+
         {state.step > 1 && (
-          <button
-            type="button"
-            onClick={() => dispatch({ type: "BACK" })}
-            className="mb-4 flex items-center gap-1 text-sm text-slate-400 hover:text-slate-600 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <button type="button" onClick={back} className="mt-6 inline-flex min-h-[44px] items-center gap-1.5 rounded-full px-3 py-2 -ml-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2">
+            <svg aria-hidden className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back
           </button>
         )}
-        <AnimatePresence mode="wait" custom={state.direction}>
-          <motion.div
-            key={state.step}
-            custom={state.direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-          >
-            {renderStep()}
-          </motion.div>
-        </AnimatePresence>
-      </QuizShell>
+      </main>
     </>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense>
-      <QuizContent />
-    </Suspense>
   );
 }

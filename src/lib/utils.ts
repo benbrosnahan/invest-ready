@@ -5,41 +5,25 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function parseDollarInput(formatted: string): number {
-  const digits = formatted.replace(/[^\d]/g, "");
-  return digits ? Number(digits) : 0;
-}
+/** The answers live in this tab's sessionStorage only, so closing the tab clears them. */
+export const ANSWERS_KEY = "invest-ready-answers";
 
-export function formatDollarInput(value: string): string {
-  const digits = value.replace(/[^\d]/g, "");
-  if (!digits) return "";
-  return Number(digits).toLocaleString("en-US");
-}
-
-function safeSessionGet(key: string): string | null {
-  try {
-    return sessionStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function safeSessionSet(key: string, value: string): void {
-  try {
-    sessionStorage.setItem(key, value);
-  } catch {
-    // Safari private browsing or storage full
-  }
-}
-
-function safeSessionRemove(key: string): void {
-  try {
-    sessionStorage.removeItem(key);
-  } catch {}
-}
+// When storage is blocked (some private modes), a copy in memory still carries the answers from the quiz to the
+// result, because that move is a client-side navigation. Only a reload of the result is lost.
+const memory = new Map<string, string>();
 
 export const storage = {
-  get: safeSessionGet,
-  set: safeSessionSet,
-  remove: safeSessionRemove,
+  get(key: string): string | null {
+    try {
+      return sessionStorage.getItem(key) ?? memory.get(key) ?? null;
+    } catch {
+      return memory.get(key) ?? null;
+    }
+  },
+  set(key: string, value: string): void {
+    memory.set(key, value);
+    try {
+      sessionStorage.setItem(key, value);
+    } catch {}
+  },
 };

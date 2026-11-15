@@ -1,133 +1,107 @@
 "use client";
 
 import { useState } from "react";
+import { SAVINGS_ACCOUNTS } from "@/lib/data";
+import { ExternalIcon } from "@/components/shared/ui";
+import { cn } from "@/lib/utils";
 
 interface Props {
   accountType: "roth_ira" | "brokerage" | "hysa";
   openLinks: { label: string; url: string }[];
 }
 
-const HYSA_LINKS = [
-  { label: "Open at Wealthfront", url: "https://www.wealthfront.com" },
-  { label: "Open at Marcus", url: "https://www.marcus.com/us/en" },
-  { label: "Open at SoFi", url: "https://www.sofi.com/banking/high-yield-savings-account" },
-];
+const SAVINGS_LINKS = SAVINGS_ACCOUNTS.map((a) => ({ label: `Open at ${a.name.split(" ")[0]}`, url: a.url }));
 
 const WHAT_YOU_NEED = [
-  "Social Security Number",
-  "Date of birth",
-  "Home address",
-  "Bank account and routing number",
-  "State ID or driver's license (sometimes required)",
+  "Social Security number",
+  "Date of birth and home address",
+  "A bank account to move money from",
+  "A photo ID, sometimes",
 ];
 
-const ROTH_NOTE =
-  "To contribute to a Roth IRA, you need earned income in the year you contribute. The 2026 annual limit is $7,500.";
-
+/** The yes path does not end at a blank page: what you need and where to open the account. */
 export default function AccountOpenGuide({ accountType, openLinks }: Props) {
   const [open, setOpen] = useState(false);
-  const links = accountType === "hysa" ? HYSA_LINKS : openLinks;
+  const links = accountType === "hysa" ? SAVINGS_LINKS : openLinks;
+  const provider =
+    accountType === "hysa"
+      ? "Compare the rates above, and check the account is FDIC insured."
+      : "Any of these four works for a first account. Compare their fees before you pick. Vanguard charges $25 a year unless you choose e-delivery.";
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-      >
-        <div>
-          <p className="font-bold text-slate-900 text-sm">How to open your account</p>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Takes about 10 minutes. Free with no minimums.
-          </p>
-        </div>
-        <svg
-          className={`w-4 h-4 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
+    <section className="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
+      <h2>
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls="open-guide"
+          onClick={() => setOpen((o) => !o)}
+          className="flex min-h-[64px] w-full items-center justify-between gap-3 px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy sm:px-7"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          <span>
+            <span className="block font-display text-xl font-bold text-slate-900">How to open your account</span>
+            <span className="mt-0.5 block text-sm text-slate-700">About 10 minutes, online.</span>
+          </span>
+          <svg
+            aria-hidden
+            className={cn("h-5 w-5 flex-shrink-0 text-slate-700 transition-transform", open && "rotate-180")}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </h2>
 
-      {open && (
-        <div className="px-5 pb-5 border-t border-slate-100">
-          <div className="mt-4 space-y-4">
-            <div>
-              <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
-                1. Choose a provider
-              </p>
-              <p className="text-sm text-slate-600">
-                {accountType === "hysa"
-                  ? "Wealthfront, Marcus, and SoFi all offer online high-yield savings accounts. Compare current rates before choosing."
-                  : "Fidelity, Vanguard, Robinhood, and Schwab are all free with no minimums for most accounts."}
-              </p>
+      <div id="open-guide" hidden={!open} className="border-t border-line px-5 pb-6 sm:px-7">
+        <ol className="mt-5 space-y-5">
+          <li>
+            <p className="text-base font-semibold text-slate-900">1. Pick a provider</p>
+            <p className="mt-1 text-sm leading-relaxed text-slate-700">{provider}</p>
+          </li>
+          <li>
+            <p className="text-base font-semibold text-slate-900">2. Have these ready</p>
+            <ul className="mt-1.5 space-y-1">
+              {WHAT_YOU_NEED.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                  <svg aria-hidden className="mt-0.5 h-4 w-4 flex-shrink-0 text-navy" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+              Under 18, or no Social Security number? Ask the provider first. You may need a custodial account or an
+              ITIN.
+            </p>
+          </li>
+          <li>
+            <p className="text-base font-semibold text-slate-900">3. Open it</p>
+            <div className="mt-2 grid gap-2 sm:grid-cols-2">
+              {links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[48px] items-center justify-between gap-2 rounded-full bg-navy px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-navy-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
+                >
+                  {link.label}
+                  <ExternalIcon />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              ))}
             </div>
-
-            <div>
-              <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
-                2. What you will need
-              </p>
-              <ul className="space-y-1">
-                {WHAT_YOU_NEED.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                    <span className="text-brand mt-0.5 shrink-0">
-                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {accountType === "roth_ira" && (
-              <div className="bg-amber-50 rounded-xl px-3 py-2.5">
-                <p className="text-xs text-amber-800">{ROTH_NOTE}</p>
-              </div>
-            )}
-
-            <div>
-              <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
-                3. Open your account
-              </p>
-              <div className="flex flex-col gap-2">
-                {links.map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between px-4 py-2.5 bg-brand text-white rounded-xl text-sm font-semibold hover:bg-brand-hover transition-colors"
-                  >
-                    {link.label}
-                    <svg
-                      className="w-3.5 h-3.5 opacity-70"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+          </li>
+        </ol>
+      </div>
+    </section>
   );
 }

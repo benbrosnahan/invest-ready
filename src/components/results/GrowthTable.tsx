@@ -1,73 +1,74 @@
 "use client";
 
 import { useState } from "react";
-import { futureValue, GROWTH_YEARS, formatCompact, formatFull } from "@/lib/compound";
+import { futureValue, GROWTH_YEARS, formatDollars, MAX_MONTHLY } from "@/lib/compound";
+import { Card } from "@/components/shared/ui";
 
-export default function GrowthTable() {
-  const [monthly, setMonthly] = useState(200);
+/**
+ * What a steady monthly amount could grow to. Quiet on purpose: one assumption, said plainly, and an honest
+ * caveat for bond-heavy mixes. Amounts are in roughly today's dollars because 7% is an after-inflation figure.
+ */
+export default function GrowthTable({ bondHeavy = false }: { bondHeavy?: boolean }) {
   const [raw, setRaw] = useState("200");
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const digits = e.target.value.replace(/[^\d]/g, "");
-    setRaw(digits);
-    const n = Number(digits) || 0;
-    setMonthly(n);
-  }
+  const monthly = Math.min(Number(raw) || 0, MAX_MONTHLY);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-5">
-      <h3 className="font-bold text-slate-900 text-base mb-1">How your money grows</h3>
-      <p className="text-xs text-slate-500 mb-4">
-        Assumes 7% average annual return (S&P 500 historical average). Illustrative only.
-      </p>
-
-      <div className="flex items-center gap-3 mb-5">
-        <label className="text-sm text-slate-600 whitespace-nowrap">Monthly investment:</label>
+    <Card aria-labelledby="growth-heading">
+      <h2 id="growth-heading" className="font-display text-2xl font-bold leading-tight text-slate-900">
+        How it could grow
+      </h2>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <label htmlFor="monthly" className="text-base font-semibold text-slate-900">
+          Each month
+        </label>
         <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">$</span>
+          <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-slate-700">
+            $
+          </span>
           <input
+            id="monthly"
             type="text"
             inputMode="numeric"
+            autoComplete="off"
+            maxLength={5}
             value={raw}
-            onChange={handleChange}
-            className="pl-6 pr-3 py-1.5 border border-slate-200 rounded-lg text-sm w-24 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
+            onChange={(e) => setRaw(e.target.value.replace(/[^\d]/g, "").slice(0, 5))}
+            aria-describedby="growth-note"
+            className="tnum min-h-[48px] w-32 rounded-full border border-slate-500 bg-white pl-8 pr-4 text-base text-slate-900 focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy"
           />
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-slate-100">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="bg-slate-50">
-              <th className="text-left px-4 py-2.5 font-semibold text-slate-600 text-xs">Years</th>
-              <th className="text-left px-4 py-2.5 font-semibold text-slate-600 text-xs">You invested</th>
-              <th className="text-right px-4 py-2.5 font-semibold text-slate-600 text-xs">Portfolio value</th>
+      <table className="mt-5 w-full text-left">
+        <caption className="sr-only">Growth of {formatDollars(monthly)} a month at 7% a year</caption>
+        <thead>
+          <tr className="border-b border-line text-sm text-slate-600">
+            <th scope="col" className="pb-2 font-semibold">After</th>
+            <th scope="col" className="pb-2 text-right font-semibold">You put in</th>
+            <th scope="col" className="pb-2 text-right font-semibold">Could be worth</th>
+          </tr>
+        </thead>
+        <tbody>
+          {GROWTH_YEARS.map((yr) => (
+            <tr key={yr} className="border-b border-line last:border-0">
+              <th scope="row" className="py-3 text-base font-semibold text-slate-900">
+                {yr} years
+              </th>
+              <td className="tnum py-3 text-right text-base text-slate-700">{formatDollars(monthly * yr * 12)}</td>
+              <td className="tnum py-3 text-right font-display text-lg font-bold text-slate-900">
+                {formatDollars(futureValue(monthly, yr))}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {GROWTH_YEARS.map((yr, i) => {
-              const fv = futureValue(monthly, yr);
-              const contributed = monthly * yr * 12;
-              return (
-                <tr
-                  key={yr}
-                  className={i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}
-                >
-                  <td className="px-4 py-3 font-medium text-slate-900">{yr} yrs</td>
-                  <td className="px-4 py-3 text-slate-500">{formatCompact(contributed)}</td>
-                  <td className="px-4 py-3 text-right font-bold text-brand">
-                    {formatFull(fv)}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
 
-      <p className="text-[10px] text-slate-400 mt-3">
-        Past returns do not guarantee future results.
+      <p id="growth-note" className="mt-4 text-sm leading-relaxed text-slate-700">
+        At 7% a year, close to what the S&amp;P 500 has averaged after inflation since 1928, so these are roughly
+        today&apos;s dollars. Before fees and taxes.{" "}
+        {bondHeavy ? "A bond-heavy mix like yours has usually grown less than this. " : ""}
+        Past returns do not promise future ones.
       </p>
-    </div>
+    </Card>
   );
 }

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   color: #275b2d;
   background: #fffcec;
@@ -12,5 +16,81 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Money must not jitter between rows. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* Entrances are CSS, not JavaScript. A script-driven fade starts content at opacity 0 and needs animation frames
+   to bring it back, so a background tab or a slow phone can leave the page blank. A CSS animation always ends in
+   its final state, and the server HTML is readable before any script runs. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.24s ease-out both;
+}
+
+/* The ladder: each rung lights in order, so the eye travels to where the answer stopped. --i is the rung's index. */
+@keyframes rung-on {
+  from {
+    opacity: 0.25;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rung-mark {
+  animation: rung-on 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+}
+@keyframes rail-fill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.rail-fill {
+  transform-origin: top;
+  animation: rail-fill 0.5s ease-out both;
+  animation-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Windows high contrast and other forced colours: keep the chosen answer and the ladder marks visible. */
+@media (forced-colors: active) {
+  [aria-pressed="true"] {
+    outline: 3px solid CanvasText;
+  }
+  .rung-mark {
+    border: 2px solid CanvasText;
   }
 }

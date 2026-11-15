@@ -1,197 +1,204 @@
-import type { QuizAnswers, QuizResult, Fund, HYSAAccount } from "@/types";
+// The readiness rules. The product lives here: the tool must be willing to answer "not yet", and it stops at the
+// first step that is not in place. Every figure it quotes comes from src/lib/data.ts.
 
-const HYSA_ACCOUNTS: HYSAAccount[] = [
-  {
-    name: "Wealthfront Cash",
-    apy: "3.30%",
-    note: "No minimum deposit, no fees.",
-    url: "https://www.wealthfront.com",
-  },
-  {
-    name: "Marcus by Goldman Sachs",
-    apy: "3.40%",
-    note: "No minimum deposit, no fees.",
-    url: "https://www.marcus.com/us/en",
-  },
-  {
-    name: "SoFi Savings",
-    apy: "3.10%",
-    note: "Higher rate available with direct deposit.",
-    url: "https://www.sofi.com/banking/high-yield-savings-account",
-  },
-];
+import {
+  BROKERAGE_LINKS,
+  CARD_RATE,
+  FUNDS,
+  HIGH_RATE_LINE,
+  IRA_LIMIT,
+  IRA_LIMIT_YEAR,
+  ROTH_IRA_LINKS,
+} from "@/lib/data";
+import {
+  QUESTION_ORDER,
+  type Answers,
+  type Fund,
+  type GoalAnswer,
+  type Question,
+  type QuizAnswers,
+  type QuizResult,
+  type RiskAnswer,
+} from "@/types";
 
-const ALL_FUNDS: Record<string, Fund> = {
-  VTI: {
-    ticker: "VTI",
-    name: "Vanguard Total Stock Market ETF",
-    description:
-      "Owns a slice of every major US company, from large names like Apple and Amazon down to smaller companies. One fund, broad coverage.",
-    fee: "0.03%/yr",
-    role: "primary",
-    provider: "Vanguard",
-  },
-  VT: {
-    ticker: "VT",
-    name: "Vanguard Total World Stock ETF",
-    description:
-      "Owns stocks from every country in one fund: US, Europe, Asia, and emerging markets. Maximum global diversification, one holding.",
-    fee: "0.07%/yr",
-    role: "primary",
-    provider: "Vanguard",
-  },
-  VXUS: {
-    ticker: "VXUS",
-    name: "Vanguard Total International Stock ETF",
-    description:
-      "International stocks only, covering markets outside the US. Pairs with VTI to give you global coverage.",
-    fee: "0.07%/yr",
-    role: "supporting",
-    provider: "Vanguard",
-  },
-  BND: {
-    ticker: "BND",
-    name: "Vanguard Total Bond Market ETF",
-    description:
-      "US government and corporate bonds. More stable than stocks with lower but more predictable returns. Reduces overall portfolio swings.",
-    fee: "0.03%/yr",
-    role: "bond",
-    provider: "Vanguard",
-  },
-  FSKAX: {
-    ticker: "FSKAX",
-    name: "Fidelity Total Market Index Fund",
-    description:
-      "Fidelity's equivalent of VTI. Covers the entire US stock market. Available only if you open an account at Fidelity.",
-    fee: "0.015%/yr",
-    role: "primary",
-    provider: "Fidelity",
-  },
+const VALID: { [K in Question]: readonly QuizAnswers[K][] } = {
+  income: ["consistent", "variable", "unearned", "none"],
+  emergency: ["funded", "partial", "none"],
+  debt: ["high_interest", "low_interest", "none"],
+  goal: ["retirement", "big_goal", "wealth", "soon"],
+  risk: ["conservative", "moderate", "growth"],
 };
 
-const ROTH_IRA_LINKS = [
-  { label: "Open at Fidelity", url: "https://www.fidelity.com/retirement-ira/roth-ira" },
-  { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/iras/roth-ira" },
-  { label: "Open at Robinhood", url: "https://robinhood.com/us/en/about/retirement/" },
-  { label: "Open at Schwab", url: "https://www.schwab.com/ira/roth-ira" },
-];
+/** Keeps only known answers, so a stale or edited sessionStorage value can never pick a result. */
+export function cleanAnswers(raw: unknown): Answers {
+  const out: Answers = {};
+  if (!raw || typeof raw !== "object") return out;
+  for (const q of QUESTION_ORDER) {
+    const v = (raw as Record<string, unknown>)[q];
+    if ((VALID[q] as readonly unknown[]).includes(v)) (out as Record<string, unknown>)[q] = v;
+  }
+  return out;
+}
 
-const BROKERAGE_LINKS = [
-  { label: "Open at Fidelity", url: "https://www.fidelity.com/open-account/overview" },
-  { label: "Open at Vanguard", url: "https://investor.vanguard.com/accounts-plans/brokerage-accounts" },
-  { label: "Open at Robinhood", url: "https://robinhood.com/us/en/invest/" },
-  { label: "Open at Schwab", url: "https://www.schwab.com/brokerage" },
-];
+/** True when this answer ends the quiz: a step that is not in place, a short-term goal, or the last question. */
+export function endsQuiz<K extends Question>(question: K, value: QuizAnswers[K]): boolean {
+  switch (question) {
+    case "income":
+      return value === "none";
+    case "emergency":
+      return value !== "funded";
+    case "debt":
+      return value === "high_interest";
+    case "goal":
+      return value === "soon";
+    default:
+      return true;
+  }
+}
 
-export function getResult(answers: Partial<QuizAnswers>): QuizResult {
+/** The questions that were answered on the way to the result, in order. */
+export function answeredPath(answers: Answers): Question[] {
+  const path: Question[] = [];
+  for (const q of QUESTION_ORDER) {
+    const v = answers[q];
+    if (v === undefined) break;
+    path.push(q);
+    if (endsQuiz(q, v as never)) break;
+  }
+  return path;
+}
+
+/**
+ * The result for a set of answers, or null when a question on the way to a result was never answered. A missing
+ * answer is never read as a good one: an unanswered debt question must not count as "no debt".
+ */
+export function getResult(answers: Answers): QuizResult | null {
   const { income, emergency, debt, goal, risk } = answers;
 
+  if (income === undefined) return null;
   if (income === "none") {
     return {
       type: "gate",
       gate: "no_income",
-      headline: "Not quite yet.",
+      headline: "Not yet. Income comes first.",
       message:
-        "Investing works best when you have steady income coming in. Without it, you'd be investing money you might need back soon, which often means selling at the wrong time.",
-      actionTitle: "What to do in the meantime",
-      actionMessage:
-        "If you have any savings sitting in a regular checking account, move them to a High-Yield Savings Account (HYSA). It earns interest automatically while you get settled, with no risk and no lock-up period.",
+        "Without money coming in, what you invest may be money you need back soon, and you could have to sell at a bad time.",
+      nextTitle: "Keep your savings safe and earning",
+      nextStep:
+        "Keep any savings in a high-yield savings account. It earns interest and does not swing with the market.",
+      aside: "Check that the account is FDIC insured before you open it.",
     };
   }
 
-  if (emergency === "none" || emergency === "partial") {
+  if (emergency === undefined) return null;
+  if (emergency !== "funded") {
     return {
       type: "gate",
       gate: "no_emergency",
-      headline: "Almost there.",
+      headline: "Not yet. Build a cushion first.",
       message:
-        "Before investing, it's worth building at least one month of expenses as a cushion. Without it, an unexpected bill could force you to sell investments at a bad time, which often locks in losses.",
-      actionTitle: "Your next move",
-      actionMessage:
-        "Open a High-Yield Savings Account and build that one-month cushion there. It earns interest while you save, and once it's funded, you'll be in a much stronger position to invest.",
+        "With a month of expenses saved, a surprise bill will not force you to sell investments at a loss.",
+      nextTitle: "Save one month of expenses",
+      nextStep:
+        "Open a high-yield savings account and build up one month of expenses. One month is the minimum to start. Keep going toward three to six months, or more if your pay varies.",
+      aside: `Carry a credit card balance? Paying it off comes next, before investing. Cards average about ${CARD_RATE} interest.`,
     };
   }
 
+  if (debt === undefined) return null;
   if (debt === "high_interest") {
     return {
       type: "gate",
       gate: "high_debt",
-      headline: "Pay off high-interest debt first.",
-      message:
-        "If your credit card charges 20 to 25% interest, paying off $1,000 of that balance is the same as earning a guaranteed 20 to 25% return on $1,000. Almost no investment can reliably beat that. Paying off high-interest debt is one of the best financial moves you can make.",
-      actionTitle: "Once the debt is gone",
-      actionMessage:
-        "Come back here and run through the quiz again. Once high-interest debt is cleared, you'll be in a strong position to start investing and your money will actually be working for you.",
+      headline: "Not yet. Pay off the costly debt first.",
+      message: `Paying off a card at ${CARD_RATE} is like earning a sure ${CARD_RATE} on that money. Investing rarely beats that.`,
+      nextTitle: "Pay down the costly debt",
+      nextStep: `Put extra money toward the highest rate first. When nothing above ${HIGH_RATE_LINE} is left, take the quiz again.`,
     };
   }
 
+  if (goal === undefined) return null;
   if (goal === "soon") {
     return {
       type: "plan",
       accountType: "hysa",
-      accountLabel: "High-Yield Savings Account",
+      headline: "Save it for now.",
+      message: "You may need this money within 5 years. That is too soon to risk it in stocks.",
+      accountLabel: "High-yield savings account",
       accountReason:
-        "Since you may need this money within the next couple of years, a High-Yield Savings Account is the right fit. Short-term investing may not provide returns that justify the risk. A HYSA keeps your money accessible and still earning interest.",
+        "It keeps the money safe and ready to use, and it still earns interest. Check that it is FDIC insured.",
       funds: [],
-      allocationLabel: "",
-      hysa: HYSA_ACCOUNTS,
+      mix: "",
       openLinks: [],
     };
   }
 
-  if (goal === "retirement") {
-    const funds = getFundsForRisk(risk, "retirement");
+  if (risk === undefined) return null;
+  const funds = fundsFor(risk, goal);
+  const mix = mixFor(risk, goal);
+  const message = "Based on your answers, the basics are in place.";
+
+  if (goal === "retirement" && income !== "unearned") {
     return {
       type: "plan",
       accountType: "roth_ira",
+      headline: "You look ready to invest.",
+      message,
       accountLabel: "Roth IRA",
       accountReason:
-        "A Roth IRA is ideal for retirement savings when you're young. You invest after-tax money now (when your tax rate is low) and pay zero taxes on all the growth when you withdraw it in retirement. The 2026 annual contribution limit is $7,500.",
+        "You put in money you have already paid tax on, and it can grow tax-free for retirement. With a low tax rate now, that is usually a good trade.",
+      rule: `A Roth IRA takes only money you earn from work. For ${IRA_LIMIT_YEAR} you can put in up to ${IRA_LIMIT}, or what you earned from work this year if that is less. Put in more and you owe a 6% tax on the extra every year until you take it out.`,
       funds,
-      allocationLabel: getAllocationLabel(risk, "retirement"),
+      mix,
       openLinks: ROTH_IRA_LINKS,
     };
   }
 
-  const funds = getFundsForRisk(risk, goal ?? "wealth");
+  const taxNote =
+    "No contribution limit, and no penalty to take money out. You may owe tax on gains when you sell, and it can be worth less when you need it.";
   return {
     type: "plan",
     accountType: "brokerage",
-    accountLabel: "Taxable Brokerage Account",
+    headline: "You look ready to invest.",
+    message,
+    accountLabel: "Brokerage account",
     accountReason:
-      goal === "big_goal"
-        ? "A taxable brokerage account gives you the flexibility to invest toward a specific goal without locking up your money. There are no penalties for withdrawing when you need it."
-        : "A taxable brokerage account is a flexible starting point. No contribution limits, no penalties for withdrawing, and your money stays invested and growing.",
+      goal === "retirement"
+        ? `A Roth IRA takes only pay from work, and money from family or aid does not count. A brokerage account has no such rule. ${taxNote}`
+        : taxNote,
+    rule:
+      goal === "retirement"
+        ? "Once you earn pay from work, a Roth IRA is worth a look for retirement money."
+        : undefined,
     funds,
-    allocationLabel: getAllocationLabel(risk, goal ?? "wealth"),
+    mix,
     openLinks: BROKERAGE_LINKS,
   };
 }
 
-function getFundsForRisk(risk: RiskAnswer | undefined, goal: string): Fund[] {
-  if (risk === "conservative") {
-    return [ALL_FUNDS.BND, ALL_FUNDS.VTI];
-  }
-  if (risk === "growth") {
-    return [ALL_FUNDS.VTI, ALL_FUNDS.VXUS, ALL_FUNDS.VT];
-  }
-  if (goal === "retirement") {
-    return [ALL_FUNDS.VTI, ALL_FUNDS.FSKAX, ALL_FUNDS.VT];
-  }
-  return [ALL_FUNDS.VTI, ALL_FUNDS.VT, ALL_FUNDS.BND];
+function fundsFor(risk: RiskAnswer, goal: Exclude<GoalAnswer, "soon">): Fund[] {
+  if (risk === "conservative") return [FUNDS.BND, FUNDS.VTI];
+  if (risk === "growth") return [FUNDS.VTI, FUNDS.VXUS, FUNDS.VT];
+  if (goal === "retirement") return [FUNDS.VTI, FUNDS.FSKAX, FUNDS.VT];
+  return [FUNDS.VTI, FUNDS.VT, FUNDS.BND];
 }
 
-type RiskAnswer = "conservative" | "moderate" | "growth";
-
-function getAllocationLabel(risk: RiskAnswer | undefined, goal: string): string {
+function mixFor(risk: RiskAnswer, goal: Exclude<GoalAnswer, "soon">): string {
+  const closer = goal === "big_goal" ? " As your date gets closer, move more into bonds or cash." : "";
   if (risk === "conservative") {
-    return "A bond-heavy mix keeps your portfolio stable. Something like 60% BND and 40% VTI, or adjust to your comfort level.";
+    return `A steadier mix: about 60% BND and 40% VTI. Bonds swing less than stocks, but they can still lose value.${closer}`;
   }
   if (risk === "growth") {
-    return "An equity-heavy approach maximizes long-term growth. Something like 80% VTI and 20% VXUS, or simplify with 100% VT.";
+    return `A stock-heavy mix: about 80% VTI and 20% VXUS, or 100% VT in one fund.${closer}`;
   }
   if (goal === "retirement") {
-    return "For retirement decades away, broad US or global equity funds are a strong core. Something like 100% VTI or 100% VT to keep it simple.";
+    return "With decades to go, one broad stock fund is enough: 100% VTI, FSKAX at Fidelity, or VT to own the world.";
   }
-  return "A balanced mix works well here. Something like 80% VTI and 20% BND, or swap VTI for VT if you want global exposure.";
+  return `A balanced mix: about 80% VTI and 20% BND. Swap VTI for VT to add the world.${closer}`;
 }
+
+export const ACCOUNT_IN_SENTENCE: Record<"roth_ira" | "brokerage" | "hysa", string> = {
+  roth_ira: "a Roth IRA",
+  brokerage: "a brokerage account",
+  hysa: "a high-yield savings account",
+};

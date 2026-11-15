@@ -1,4 +1,6 @@
-export type IncomeAnswer = "consistent" | "variable" | "none";
+// "unearned" is money coming in that is not pay from work: family support, scholarships, grants. It can be
+// invested, but it cannot go into a Roth IRA, which takes only taxable compensation (IRS Publication 590-A).
+export type IncomeAnswer = "consistent" | "variable" | "unearned" | "none";
 export type EmergencyAnswer = "funded" | "partial" | "none";
 export type DebtAnswer = "high_interest" | "low_interest" | "none";
 export type GoalAnswer = "retirement" | "big_goal" | "wealth" | "soon";
@@ -12,23 +14,27 @@ export interface QuizAnswers {
   risk: RiskAnswer;
 }
 
-export interface QuizState {
-  step: number;
-  direction: number;
-  answers: Partial<QuizAnswers>;
-}
+export type Answers = Partial<QuizAnswers>;
+export type Question = keyof QuizAnswers;
 
-export const TOTAL_STEPS = 5;
-
-export const INITIAL_ANSWERS: Partial<QuizAnswers> = {};
+/** The order of the questions, which is also the order money should go. */
+export const QUESTION_ORDER: Question[] = ["income", "emergency", "debt", "goal", "risk"];
+export const TOTAL_STEPS = QUESTION_ORDER.length;
 
 export interface Fund {
   ticker: string;
   name: string;
   description: string;
+  /** Expense ratio, as printed: "0.03%". */
   fee: string;
-  role: "primary" | "supporting" | "bond";
-  provider: string;
+  role: "core" | "world" | "bonds";
+}
+
+export interface SavingsAccount {
+  name: string;
+  apy: string;
+  note: string;
+  url: string;
 }
 
 export interface GateResult {
@@ -36,25 +42,24 @@ export interface GateResult {
   gate: "no_income" | "no_emergency" | "high_debt";
   headline: string;
   message: string;
-  actionTitle: string;
-  actionMessage: string;
-}
-
-export interface HYSAAccount {
-  name: string;
-  apy: string;
-  note: string;
-  url: string;
+  /** The next step as a short action, the heading of the next-step card. */
+  nextTitle: string;
+  nextStep: string;
+  /** A second line under the next step, when one matters. */
+  aside?: string;
 }
 
 export interface PlanResult {
   type: "plan";
   accountType: "roth_ira" | "brokerage" | "hysa";
+  headline: string;
+  message: string;
   accountLabel: string;
   accountReason: string;
+  /** A rule the student must know before acting. Shown on the result itself, never folded away. */
+  rule?: string;
   funds: Fund[];
-  allocationLabel: string;
-  hysa?: HYSAAccount[];
+  mix: string;
   openLinks: { label: string; url: string }[];
 }
 
