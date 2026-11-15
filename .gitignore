@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# audit screenshots stay on disk for review, out of git
+audits/screenshots/
