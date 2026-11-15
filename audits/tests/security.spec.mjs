@@ -1,7 +1,7 @@
 // Security and privacy: the headers the kit's scan scores, and the "On your device" promise checked in a real
-// journey. Next's version is checked as a known issue (SEC-02) so the upgrade stays on the list.
+// journey, and Next's version (SEC-02) so a downgrade is caught.
 import { readFileSync } from 'node:fs';
-import { test, expect, ROTH, resultFor, knownIssue } from './helpers.mjs';
+import { test, expect, ROTH, resultFor } from './helpers.mjs';
 
 test('SEC-01 pages send a CSP and the baseline security headers', async ({ request }) => {
   for (const path of ['/', '/results']) {
@@ -40,8 +40,12 @@ test('the answers are kept for this tab only, as answers, not in the URL', async
   expect(Object.keys(session).sort()).toEqual(['debt', 'emergency', 'goal', 'income', 'risk']);
 });
 
-test('SEC-02 Next.js is on a supported major version', () => {
-  knownIssue('SEC-02');
-  const pkg = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8'));
-  expect(Number(String(pkg.dependencies.next).replace(/^\D*/, '').split('.')[0])).toBeGreaterThanOrEqual(16);
+test('SEC-02 Next.js is on a supported major version, as declared and as installed', () => {
+  const read = path => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
+  const major = v => Number(String(v).replace(/^\D*/, '').split('.')[0]);
+  const pkg = read('../../package.json');
+  expect(major(pkg.dependencies.next)).toBeGreaterThanOrEqual(16);
+  expect(major(read('../../node_modules/next/package.json').version)).toBeGreaterThanOrEqual(16);
+  // Next 16 needs React 19.
+  expect(major(read('../../node_modules/react/package.json').version)).toBeGreaterThanOrEqual(19);
 });

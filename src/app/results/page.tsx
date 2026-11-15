@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/shared/Nav";
 import Footer from "@/components/shared/Footer";
@@ -13,24 +13,29 @@ import AccountOpenGuide from "@/components/results/AccountOpenGuide";
 import { cleanAnswers, getResult } from "@/lib/logic";
 import { FEES_CHECKED } from "@/lib/data";
 import { ANSWERS_KEY, storage } from "@/lib/utils";
-import type { Answers, GateResult, PlanResult, QuizResult } from "@/types";
+import type { Answers, GateResult, PlanResult } from "@/types";
+
+// The stored answers are read after hydration: undefined on the server and in the first client render, then the
+// tab's value (or null). Nothing in this tab changes them while the page is open, so there is nothing to subscribe to.
+const noSubscribe = () => () => {};
 
 export default function ResultsPage() {
   const router = useRouter();
-  const [state, setState] = useState<{ answers: Answers; result: QuizResult } | null>(null);
+  const raw = useSyncExternalStore(noSubscribe, () => storage.get(ANSWERS_KEY), () => undefined);
 
-  useEffect(() => {
+  const state = useMemo(() => {
+    if (raw === undefined) return undefined;
     let answers: Answers = {};
     try {
-      answers = cleanAnswers(JSON.parse(storage.get(ANSWERS_KEY) ?? "null"));
+      answers = cleanAnswers(JSON.parse(raw ?? "null"));
     } catch {}
     const result = getResult(answers);
-    if (!result) {
-      router.replace("/");
-      return;
-    }
-    setState({ answers, result });
-  }, [router]);
+    return result ? { answers, result } : null;
+  }, [raw]);
+
+  useEffect(() => {
+    if (state === null) router.replace("/");
+  }, [state, router]);
 
   if (!state) return <Nav />;
   const { answers, result } = state;
