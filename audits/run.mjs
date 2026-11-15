@@ -567,6 +567,9 @@ function evaluateBudgets(results, steps, ctx, bundle) {
       const loadError = s?.loadError ? { status: 'fail', note: `the page did not load: ${s.loadError.code}` } : {};
       const missing = s ? {} : { note: 'every run failed' };
       for (const [field, limit] of Object.entries(budgets.lighthouse?.[p.formFactor] ?? {})) {
+        // Invest Ready: /results is noindex on purpose (it is empty without a session), and Lighthouse's SEO score
+        // marks any noindex page down to about 66. The quiz page carries the SEO budget.
+        if (field === 'seo' && p.page === 'result') continue;
         check(`lighthouse.${key}.${field}`, `${CATEGORY_LABELS[field] ?? field}, ${pageLabel(key).toLowerCase()}`, s?.[field], limit, '>=', 'score', { ...missing, ...loadError });
       }
       for (const [field, limit] of Object.entries(budgets.metrics?.[p.formFactor] ?? {})) {
@@ -799,10 +802,10 @@ function budgetsSection(checks, targets, bundle, ctx) {
       : 'First-load JS is read from the local build, so it is checked only when the target is served from this machine.');
   }
   if (checks.some(c => c.id.startsWith('floor.') && c.id !== 'floor.readableFirstMs')) {
-    lines.push('Floors are not goals: they are the scores measured on 2026-11-02, so falling below one means something regressed.');
+    lines.push('Floors are not goals: they are the live site scores on 2026-11-15, before the audit fixes, so falling below one means something regressed.');
   }
   if (checks.some(c => c.id === 'floor.readableFirstMs')) {
-    lines.push('The readable floor is a time, so going over it fails. It sits well above the times measured on 2026-11-02, because throttled loads on a shared machine are noisy: a regression guard, not a goal.');
+    lines.push('The readable floor is a time, so going over it fails. It sits well above measured times, because throttled loads on a shared machine are noisy: a regression guard, not a goal.');
   }
   if (targets.length) {
     lines.push('', 'Targets, which never fail a run:', '');
@@ -944,10 +947,10 @@ function inpSection(inp) {
   return lines;
 }
 
-const READABLE_LABELS = { first: 'First visit', returning: 'Returning, eight loans' };
+const READABLE_LABELS = { first: 'First visit', returning: 'Returning, answers in the session' };
 
 function readableSection(readable, lighthouse) {
-  const lines = ['## What a borrower sees and when', ''];
+  const lines = ['## What a student sees and when', ''];
   if (!readable) return [...lines, 'Not run.'];
   lines.push(mdTable(['Scenario', 'First paint', 'Real content', 'Readable', 'LCP (in page)'], Object.entries(readable.scenarios).map(([name, s]) => {
     const failed = s.runs.filter(r => r.error).length;
@@ -958,7 +961,7 @@ function readableSection(readable, lighthouse) {
   const n = readable.runs;
   lines.push('', `${n === 1 ? 'One cold load' : `Median of ${n} cold loads`} per scenario, each in a fresh browser, on slow 4G and ${readable.throttle.cpu}x CPU applied for real with devtools throttling, at ${v.width}x${v.height} and DPR ${v.deviceScaleFactor}; ms from navigation start. First paint is Paint Timing's first-paint, the skeleton here. Real content is the first frame with \`main h1\` and no skeleton, readable the first frame with the first \`.rise\` block fully faded in. FCP and the other marks are in readable.json.`);
   const lhLcp = num(lighthouse?.pages?.['quiz-mobile']?.summary?.lcp);
-  lines.push('', `Lighthouse's simulated LCP sees only the skeleton for this app${lhLcp !== null ? ` (${fmt.ms(lhLcp)} on the quiz mobile page in this run)` : ''}, so the Scoreboard's LCP is not when a borrower can read anything: the Readable column is.`);
+  lines.push('', `Lighthouse's simulated LCP sees only the skeleton for this app${lhLcp !== null ? ` (${fmt.ms(lhLcp)} on the quiz mobile page in this run)` : ''}, so the Scoreboard's LCP is not when a student can read anything: the Readable column is.`);
   return lines;
 }
 

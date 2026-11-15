@@ -15,11 +15,18 @@ test('MONEY-01 a double-click answers once: the debt question is never skipped',
 
 test('MONEY-01 a quick second click on another answer does not skip ahead either', async ({ page }) => {
   await page.goto('/');
-  await option(page, A.steady).click();
-  await page.waitForTimeout(60);
-  await option(page, A.varies).click();
+  // Both clicks in one task, so machine load cannot let the first move land between them.
+  await page.evaluate(() => {
+    const cards = [...document.querySelectorAll('button, [role="radio"]')];
+    const find = start => cards.find(b => b.textContent.trim().startsWith(start));
+    find("Yes, it's consistent").click();
+    find('Yes, but it varies').click();
+  });
   await page.waitForTimeout(900);
   await expect(page.getByText(/(Question|Step) 2 of 5/)).toBeVisible();
+  // The last click is the answer kept.
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(option(page, A.varies)).toHaveAttribute('aria-pressed', 'true');
 });
 
 test('MONEY-02 a student whose only money is an allowance is not sent to a Roth IRA', async ({ page }) => {
