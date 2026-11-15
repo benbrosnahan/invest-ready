@@ -1,0 +1,376 @@
+{
+ "url": "http://localhost:3201/",
+ "journey": "Invest Ready core journey",
+ "formFactors": {
+  "mobile": {
+   "steps": [
+    {
+     "name": "First load (quiz)",
+     "gatherMode": "navigation",
+     "performance": 100,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": 755.023,
+     "fcp": 755.023,
+     "cls": 0,
+     "tbt": 5,
+     "si": 755.023,
+     "tti": 1613.023,
+     "inp": null,
+     "failing": [
+      {
+       "id": "unused-javascript",
+       "title": "Reduce unused JavaScript",
+       "score": 0.5,
+       "displayValue": "Est savings of 22 KiB"
+      },
+      {
+       "id": "legacy-javascript-insight",
+       "title": "Legacy JavaScript",
+       "score": 0.5,
+       "displayValue": "Est savings of 11 KiB"
+      },
+      {
+       "id": "network-dependency-tree-insight",
+       "title": "Network dependency tree",
+       "score": 0,
+       "displayValue": null
+      },
+      {
+       "id": "render-blocking-insight",
+       "title": "Render-blocking requests",
+       "score": 0,
+       "displayValue": "Est savings of 130 ms"
+      }
+     ],
+     "opportunities": [
+      {
+       "id": "unused-javascript",
+       "title": "Reduce unused JavaScript",
+       "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
+       "score": 0.5,
+       "scoreDisplayMode": "metricSavings",
+       "displayValue": "Est savings of 22 KiB",
+       "numericValue": null,
+       "numericUnit": "millisecond",
+       "savingsBytes": 22265,
+       "items": [
+        {
+         "url": "http://localhost:3201/_next/static/chunks/fd9d1056-7db8cb2cc282f170.js",
+         "wastedBytes": 22265,
+         "wastedMs": null,
+         "totalBytes": 53829
+        }
+       ]
+      }
+     ],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": null
+    },
+    {
+     "name": "Answer the five questions",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 69.032,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 4
+     }
+    },
+    {
+     "name": "Result (Roth IRA plan)",
+     "gatherMode": "snapshot",
+     "performance": 0,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": null,
+     "fcp": null,
+     "cls": null,
+     "tbt": null,
+     "si": null,
+     "tti": null,
+     "inp": null,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": null
+    },
+    {
+     "name": "Type a monthly amount",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 28.458,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 3
+     }
+    },
+    {
+     "name": "Open the account guide",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 16.775,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 1
+     }
+    },
+    {
+     "name": "Account guide open",
+     "gatherMode": "snapshot",
+     "performance": 0,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": null,
+     "fcp": null,
+     "cls": null,
+     "tbt": null,
+     "si": null,
+     "tti": null,
+     "inp": null,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "mobile",
+     "loadError": null,
+     "shiftEntries": null
+    }
+   ],
+   "warnings": []
+  },
+  "desktop": {
+   "steps": [
+    {
+     "name": "First load (quiz)",
+     "gatherMode": "navigation",
+     "performance": 100,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": 206.352,
+     "fcp": 206.352,
+     "cls": 0,
+     "tbt": 0,
+     "si": 206.352,
+     "tti": 206.352,
+     "inp": null,
+     "failing": [
+      {
+       "id": "unused-javascript",
+       "title": "Reduce unused JavaScript",
+       "score": 0.5,
+       "displayValue": "Est savings of 22 KiB"
+      },
+      {
+       "id": "legacy-javascript-insight",
+       "title": "Legacy JavaScript",
+       "score": 0.5,
+       "displayValue": "Est savings of 11 KiB"
+      },
+      {
+       "id": "network-dependency-tree-insight",
+       "title": "Network dependency tree",
+       "score": 0,
+       "displayValue": null
+      },
+      {
+       "id": "render-blocking-insight",
+       "title": "Render-blocking requests",
+       "score": 0.5,
+       "displayValue": null
+      }
+     ],
+     "opportunities": [
+      {
+       "id": "unused-javascript",
+       "title": "Reduce unused JavaScript",
+       "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
+       "score": 0.5,
+       "scoreDisplayMode": "metricSavings",
+       "displayValue": "Est savings of 22 KiB",
+       "numericValue": null,
+       "numericUnit": "millisecond",
+       "savingsBytes": 22265,
+       "items": [
+        {
+         "url": "http://localhost:3201/_next/static/chunks/fd9d1056-7db8cb2cc282f170.js",
+         "wastedBytes": 22265,
+         "wastedMs": null,
+         "totalBytes": 53829
+        }
+       ]
+      }
+     ],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": null
+    },
+    {
+     "name": "Answer the five questions",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 56.597,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 3
+     }
+    },
+    {
+     "name": "Result (Roth IRA plan)",
+     "gatherMode": "snapshot",
+     "performance": 0,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": null,
+     "fcp": null,
+     "cls": null,
+     "tbt": null,
+     "si": null,
+     "tti": null,
+     "inp": null,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": null
+    },
+    {
+     "name": "Type a monthly amount",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 21.609,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 3
+     }
+    },
+    {
+     "name": "Open the account guide",
+     "gatherMode": "timespan",
+     "performance": 100,
+     "accessibility": null,
+     "bestPractices": 100,
+     "seo": null,
+     "lcp": null,
+     "fcp": null,
+     "cls": 0,
+     "tbt": 0,
+     "si": null,
+     "tti": null,
+     "inp": 20.452,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": {
+      "counted": 0,
+      "excluded": 0
+     }
+    },
+    {
+     "name": "Account guide open",
+     "gatherMode": "snapshot",
+     "performance": 0,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": null,
+     "fcp": null,
+     "cls": null,
+     "tbt": null,
+     "si": null,
+     "tti": null,
+     "inp": null,
+     "failing": [],
+     "opportunities": [],
+     "diagnostics": [],
+     "formFactor": "desktop",
+     "loadError": null,
+     "shiftEntries": null
+    }
+   ],
+   "warnings": []
+  }
+ }
+}

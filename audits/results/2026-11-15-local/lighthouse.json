@@ -1,0 +1,337 @@
+{
+ "url": "http://localhost:3201/",
+ "runs": 1,
+ "medianBy": "performance",
+ "pages": {
+  "quiz-mobile": {
+   "page": "quiz",
+   "formFactor": "mobile",
+   "seeded": false,
+   "medianRun": 1,
+   "summary": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": 755.913,
+    "fcp": 755.913,
+    "cls": 0,
+    "tbt": 12.5,
+    "si": 755.913,
+    "tti": 1563.313,
+    "inp": null,
+    "failing": [
+     {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 0.99,
+      "displayValue": "80 ms"
+     },
+     {
+      "id": "unused-javascript",
+      "title": "Reduce unused JavaScript",
+      "score": 0.5,
+      "displayValue": "Est savings of 22 KiB"
+     },
+     {
+      "id": "legacy-javascript-insight",
+      "title": "Legacy JavaScript",
+      "score": 0.5,
+      "displayValue": "Est savings of 11 KiB"
+     },
+     {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0,
+      "displayValue": "Est savings of 90 ms"
+     }
+    ],
+    "opportunities": [
+     {
+      "id": "unused-javascript",
+      "title": "Reduce unused JavaScript",
+      "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
+      "score": 0.5,
+      "scoreDisplayMode": "metricSavings",
+      "displayValue": "Est savings of 22 KiB",
+      "numericValue": null,
+      "numericUnit": "millisecond",
+      "savingsBytes": 22265,
+      "items": [
+       {
+        "url": "http://localhost:3201/_next/static/chunks/fd9d1056-7db8cb2cc282f170.js",
+        "wastedBytes": 22265,
+        "wastedMs": null,
+        "totalBytes": 53829
+       }
+      ]
+     }
+    ],
+    "diagnostics": [],
+    "formFactor": "mobile",
+    "loadError": null
+   },
+   "runs": [
+    {
+     "run": 1,
+     "performance": 100,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": 755.913,
+     "fcp": 755.913,
+     "cls": 0,
+     "tbt": 12.5,
+     "si": 755.913,
+     "tti": 1563.313,
+     "loadError": null
+    }
+   ]
+  },
+  "quiz-desktop": {
+   "page": "quiz",
+   "formFactor": "desktop",
+   "seeded": false,
+   "medianRun": 1,
+   "summary": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": 214.008,
+    "fcp": 214.008,
+    "cls": 0,
+    "tbt": 0,
+    "si": 214.008,
+    "tti": 214.008,
+    "inp": null,
+    "failing": [
+     {
+      "id": "unused-javascript",
+      "title": "Reduce unused JavaScript",
+      "score": 0.5,
+      "displayValue": "Est savings of 22 KiB"
+     },
+     {
+      "id": "legacy-javascript-insight",
+      "title": "Legacy JavaScript",
+      "score": 0.5,
+      "displayValue": "Est savings of 11 KiB"
+     },
+     {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0.5,
+      "displayValue": null
+     }
+    ],
+    "opportunities": [
+     {
+      "id": "unused-javascript",
+      "title": "Reduce unused JavaScript",
+      "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
+      "score": 0.5,
+      "scoreDisplayMode": "metricSavings",
+      "displayValue": "Est savings of 22 KiB",
+      "numericValue": null,
+      "numericUnit": "millisecond",
+      "savingsBytes": 22324,
+      "items": [
+       {
+        "url": "http://localhost:3201/_next/static/chunks/fd9d1056-7db8cb2cc282f170.js",
+        "wastedBytes": 22324,
+        "wastedMs": null,
+        "totalBytes": 53829
+       }
+      ]
+     }
+    ],
+    "diagnostics": [],
+    "formFactor": "desktop",
+    "loadError": null
+   },
+   "runs": [
+    {
+     "run": 1,
+     "performance": 100,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 100,
+     "lcp": 214.008,
+     "fcp": 214.008,
+     "cls": 0,
+     "tbt": 0,
+     "si": 214.008,
+     "tti": 214.008,
+     "loadError": null
+    }
+   ]
+  },
+  "result-mobile": {
+   "page": "result",
+   "formFactor": "mobile",
+   "seeded": true,
+   "medianRun": 1,
+   "summary": {
+    "performance": 98,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 66,
+    "lcp": 2240.349,
+    "fcp": 758.349,
+    "cls": 0,
+    "tbt": 82,
+    "si": 758.349,
+    "tti": 2390.349,
+    "inp": null,
+    "failing": [
+     {
+      "id": "largest-contentful-paint",
+      "title": "Largest Contentful Paint",
+      "score": 0.94,
+      "displayValue": "2.2 s"
+     },
+     {
+      "id": "total-blocking-time",
+      "title": "Total Blocking Time",
+      "score": 0.99,
+      "displayValue": "80 ms"
+     },
+     {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 0.89,
+      "displayValue": "130 ms"
+     },
+     {
+      "id": "interactive",
+      "title": "Time to Interactive",
+      "score": 0.98,
+      "displayValue": "2.4 s"
+     },
+     {
+      "id": "is-crawlable",
+      "title": "Page is blocked from indexing",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "legacy-javascript-insight",
+      "title": "Legacy JavaScript",
+      "score": 0.5,
+      "displayValue": "Est savings of 11 KiB"
+     },
+     {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0,
+      "displayValue": "Est savings of 150 ms"
+     }
+    ],
+    "opportunities": [],
+    "diagnostics": [],
+    "formFactor": "mobile",
+    "loadError": null
+   },
+   "runs": [
+    {
+     "run": 1,
+     "performance": 98,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 66,
+     "lcp": 2240.349,
+     "fcp": 758.349,
+     "cls": 0,
+     "tbt": 82,
+     "si": 758.349,
+     "tti": 2390.349,
+     "loadError": null
+    }
+   ]
+  },
+  "result-desktop": {
+   "page": "result",
+   "formFactor": "desktop",
+   "seeded": true,
+   "medianRun": 1,
+   "summary": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 66,
+    "lcp": 507.241,
+    "fcp": 206.241,
+    "cls": 0,
+    "tbt": 0,
+    "si": 206.241,
+    "tti": 507.241,
+    "inp": null,
+    "failing": [
+     {
+      "id": "is-crawlable",
+      "title": "Page is blocked from indexing",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "legacy-javascript-insight",
+      "title": "Legacy JavaScript",
+      "score": 0,
+      "displayValue": "Est savings of 11 KiB"
+     },
+     {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+     },
+     {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0.5,
+      "displayValue": null
+     }
+    ],
+    "opportunities": [],
+    "diagnostics": [],
+    "formFactor": "desktop",
+    "loadError": null
+   },
+   "runs": [
+    {
+     "run": 1,
+     "performance": 100,
+     "accessibility": 100,
+     "bestPractices": 100,
+     "seo": 66,
+     "lcp": 507.241,
+     "fcp": 206.241,
+     "cls": 0,
+     "tbt": 0,
+     "si": 206.241,
+     "tti": 507.241,
+     "loadError": null
+    }
+   ]
+  }
+ }
+}

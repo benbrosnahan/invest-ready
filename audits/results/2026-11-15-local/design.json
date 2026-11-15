@@ -1,0 +1,6124 @@
+{
+ "url": "http://localhost:3201/",
+ "engineVersion": "1.3.0",
+ "siteType": "saas",
+ "viewports": {
+  "desktop": {
+   "width": 1440,
+   "height": 900,
+   "dpr": 1,
+   "isMobile": false
+  },
+  "mobile": {
+   "width": 375,
+   "height": 812,
+   "dpr": 1,
+   "isMobile": true
+  }
+ },
+ "states": {
+  "quiz": {
+   "engineVersion": "1.3.0",
+   "desktop": {
+    "report": {
+     "score": 91,
+     "grade": "A",
+     "buckets": {
+      "accessibility": {
+       "score": 26.4,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 60,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "wcagCriterion": "2.5.8"
+        }
+       ]
+      },
+      "consistency": {
+       "score": 17.6,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "18 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 18,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Question 1 of 5"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Income, current"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", current"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Cushion, not yet"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", not yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "contributors": [
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 28,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 6,
+       "sizes": [
+        13,
+        14,
+        16,
+        20,
+        24,
+        32
+       ],
+       "distinctLineHeights": 7,
+       "smallBodyCount": 0,
+       "smallBody": [],
+       "smallLabelCount": 18,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Question 1 of 5"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Income, current"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", current"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Cushion, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Debt, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Goal, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Risk, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 2,
+       "headingCount": 2,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 3,
+       "radii": [
+        6,
+        16,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 0,
+       "levels": 6,
+       "recipes": []
+      },
+      "states": {
+       "interactiveCount": 6,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 1,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 6,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": []
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/",
+      "title": "Invest Ready by Cense: am I ready to start investing?",
+      "timestamp": "2026-11-15T18:34:05.279Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 1440,
+       "height": 900,
+       "dpr": 1,
+       "isMobile": false,
+       "w": 1440,
+       "h": 900
+      },
+      "siteType": "saas",
+      "elementsScanned": 52,
+      "elementsTotal": 80,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 6.3
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "hoverProbe": [
+      {
+       "label": "Cense",
+       "selector": "a.rounded-md",
+       "changes": false
+      },
+      {
+       "label": "Yes, it's consistentA paycheck",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Yes, but it variesGig work, fr",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Only from family or aidAn allo",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Not right nowBetween jobs or n",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Cense",
+       "selector": "a.font-semibold",
+       "changes": false
+      }
+     ],
+     "reducedMotion": {
+      "emulated": true,
+      "snapshot": {
+       "count": 1,
+       "running": 0,
+       "anims": [
+        {
+         "target": "div.rise",
+         "name": "rise",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        }
+       ]
+      },
+      "ungatedCount": 0
+     }
+    },
+    "durationMs": 2228
+   },
+   "mobile": {
+    "report": {
+     "score": 91,
+     "grade": "A",
+     "buckets": {
+      "accessibility": {
+       "score": 26.4,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 54,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "wcagCriterion": "2.5.8"
+        }
+       ]
+      },
+      "consistency": {
+       "score": 17.6,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "18 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 18,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Question 1 of 5"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Income, current"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", current"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Cushion, not yet"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", not yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "contributors": [
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 28,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 6,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        28
+       ],
+       "distinctLineHeights": 7,
+       "smallBodyCount": 0,
+       "smallBody": [],
+       "smallLabelCount": 18,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Question 1 of 5"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Income, current"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", current"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Cushion, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Debt, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Goal, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Risk, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 2,
+       "headingCount": 2,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 3,
+       "radii": [
+        6,
+        16,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 0,
+       "levels": 6,
+       "recipes": []
+      },
+      "states": {
+       "interactiveCount": 6,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 1,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 54,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 6,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": []
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/",
+      "title": "Invest Ready by Cense: am I ready to start investing?",
+      "timestamp": "2026-11-15T18:34:14.442Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 375,
+       "height": 812,
+       "dpr": 1,
+       "isMobile": true,
+       "w": 375,
+       "h": 812
+      },
+      "siteType": "saas",
+      "elementsScanned": 52,
+      "elementsTotal": 80,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 4.4
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     }
+    },
+    "durationMs": 2223
+   },
+   "designScore": 91,
+   "designGrade": "A",
+   "measuredViewports": [
+    "desktop",
+    "mobile"
+   ],
+   "buckets": {
+    "accessibility": 88,
+    "consistency": 88,
+    "motion": 88,
+    "performance": 100
+   }
+  },
+  "quiz-debt": {
+   "engineVersion": "1.3.0",
+   "desktop": {
+    "report": {
+     "score": 91,
+     "grade": "A",
+     "buckets": {
+      "accessibility": {
+       "score": 26.4,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "3 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 60,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          },
+          {
+           "sig": "button.mt-6.inline-flex",
+           "tag": "button",
+           "w": 78,
+           "h": 44,
+           "sample": "Back",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "wcagCriterion": "2.5.8"
+        }
+       ]
+      },
+      "consistency": {
+       "score": 17.6,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "18 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 18,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Question 3 of 5"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Income, answered"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", answered"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Cushion, answered"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", answered"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "contributors": [
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 26,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 6,
+       "sizes": [
+        13,
+        14,
+        16,
+        20,
+        24,
+        32
+       ],
+       "distinctLineHeights": 7,
+       "smallBodyCount": 0,
+       "smallBody": [],
+       "smallLabelCount": 18,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Question 3 of 5"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Income, answered"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", answered"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Cushion, answered"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", answered"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Debt, current"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", current"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Goal, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Risk, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 2,
+       "headingCount": 2,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 3,
+       "radii": [
+        6,
+        16,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 0,
+       "levels": 6,
+       "recipes": []
+      },
+      "states": {
+       "interactiveCount": 6,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 1,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 3,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.mt-6.inline-flex",
+         "tag": "button",
+         "w": 78,
+         "h": 44,
+         "sample": "Back",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 3,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 6,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": []
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/",
+      "title": "Invest Ready by Cense: am I ready to start investing?",
+      "timestamp": "2026-11-15T18:34:22.872Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 1440,
+       "height": 900,
+       "dpr": 1,
+       "isMobile": false,
+       "w": 1440,
+       "h": 900
+      },
+      "siteType": "saas",
+      "elementsScanned": 48,
+      "elementsTotal": 75,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 9.4
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "hoverProbe": [
+      {
+       "label": "Cense",
+       "selector": "a.rounded-md",
+       "changes": false
+      },
+      {
+       "label": "Yes, some above 8%A card balan",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Only debt under 8%Like federal",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "No debtNothing owed",
+       "selector": "button.group",
+       "changes": false
+      },
+      {
+       "label": "Back",
+       "selector": "button.mt-6",
+       "changes": true
+      },
+      {
+       "label": "Cense",
+       "selector": "a.font-semibold",
+       "changes": false
+      }
+     ],
+     "reducedMotion": {
+      "emulated": true,
+      "snapshot": {
+       "count": 1,
+       "running": 0,
+       "anims": [
+        {
+         "target": "div.rise",
+         "name": "rise",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        }
+       ]
+      },
+      "ungatedCount": 0
+     }
+    },
+    "durationMs": 2232
+   },
+   "mobile": {
+    "report": {
+     "score": 91,
+     "grade": "A",
+     "buckets": {
+      "accessibility": {
+       "score": 26.4,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "3 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 54,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          },
+          {
+           "sig": "button.mt-6.inline-flex",
+           "tag": "button",
+           "w": 78,
+           "h": 44,
+           "sample": "Back",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "wcagCriterion": "2.5.8"
+        }
+       ]
+      },
+      "consistency": {
+       "score": 17.6,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "18 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 18,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Question 3 of 5"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Income, answered"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", answered"
+          },
+          {
+           "sig": "span.mt-1.5.block",
+           "px": 13,
+           "sample": "Cushion, answered"
+          },
+          {
+           "sig": "span.sr-only",
+           "px": 13,
+           "sample": ", answered"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "contributors": [
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 26,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 6,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        28
+       ],
+       "distinctLineHeights": 7,
+       "smallBodyCount": 0,
+       "smallBody": [],
+       "smallLabelCount": 18,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Question 3 of 5"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Income, answered"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", answered"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Cushion, answered"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", answered"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Debt, current"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", current"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Goal, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Risk, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 2,
+       "headingCount": 2,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 3,
+       "radii": [
+        6,
+        16,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 0,
+       "levels": 6,
+       "recipes": []
+      },
+      "states": {
+       "interactiveCount": 6,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 1,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 3,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 54,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.mt-6.inline-flex",
+         "tag": "button",
+         "w": 78,
+         "h": 44,
+         "sample": "Back",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 3,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 6,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": []
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/",
+      "title": "Invest Ready by Cense: am I ready to start investing?",
+      "timestamp": "2026-11-15T18:34:33.288Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 375,
+       "height": 812,
+       "dpr": 1,
+       "isMobile": true,
+       "w": 375,
+       "h": 812
+      },
+      "siteType": "saas",
+      "elementsScanned": 48,
+      "elementsTotal": 75,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 10.9
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 1,
+      "running": 0,
+      "anims": [
+       {
+        "target": "div.rise",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     }
+    },
+    "durationMs": 2240
+   },
+   "designScore": 91,
+   "designGrade": "A",
+   "measuredViewports": [
+    "desktop",
+    "mobile"
+   ],
+   "buckets": {
+    "accessibility": 88,
+    "consistency": 88,
+    "motion": 88,
+    "performance": 100
+   }
+  },
+  "result-gate": {
+   "engineVersion": "1.3.0",
+   "desktop": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 60,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "3 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "p.mt-3.text-sm",
+           "px": 14,
+           "sample": "Carry a credit card balance? Paying it o"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Savings accounts to compare"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Rates read from each bank's site on Nove"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "17 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 17,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "No cushion yet"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 3 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 45,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        40
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 3,
+       "smallBody": [
+        {
+         "sig": "p.mt-3.text-sm",
+         "px": 14,
+         "sample": "Carry a credit card balance? Paying it o"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Savings accounts to compare"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Rates read from each bank's site on Nove"
+        }
+       ],
+       "smallLabelCount": 17,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "No cushion yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No account fees. Insured through partner"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No fees, no minimum deposit."
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 3,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 7,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 7,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 7,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:34:42.609Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 1440,
+       "height": 900,
+       "dpr": 1,
+       "isMobile": false,
+       "w": 1440,
+       "h": 900
+      },
+      "siteType": "saas",
+      "elementsScanned": 82,
+      "elementsTotal": 149,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 12.6
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 7,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 7,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "hoverProbe": [
+      {
+       "label": "Cense",
+       "selector": "a.rounded-md",
+       "changes": false
+      },
+      {
+       "label": "Wealthfront CashNo account fee",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "Marcus by Goldman SachsNo fees",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "SoFi SavingsNeeds direct depos",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "How to open your accountAbout ",
+       "selector": "button.flex",
+       "changes": false
+      }
+     ],
+     "reducedMotion": {
+      "emulated": true,
+      "snapshot": {
+       "count": 7,
+       "running": 0,
+       "anims": [
+        {
+         "target": "section.rounded-3xl.border",
+         "name": "rise",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        }
+       ]
+      },
+      "ungatedCount": 0
+     }
+    },
+    "durationMs": 2248
+   },
+   "mobile": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 54,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "3 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "p.mt-3.text-sm",
+           "px": 14,
+           "sample": "Carry a credit card balance? Paying it o"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Savings accounts to compare"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Rates read from each bank's site on Nove"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "17 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 17,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "No cushion yet"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 3 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 45,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        32
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 3,
+       "smallBody": [
+        {
+         "sig": "p.mt-3.text-sm",
+         "px": 14,
+         "sample": "Carry a credit card balance? Paying it o"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Savings accounts to compare"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Rates read from each bank's site on Nove"
+        }
+       ],
+       "smallLabelCount": 17,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "No cushion yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No account fees. Insured through partner"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No fees, no minimum deposit."
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 3,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 7,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 7,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 54,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 7,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:34:53.901Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 375,
+       "height": 812,
+       "dpr": 1,
+       "isMobile": true,
+       "w": 375,
+       "h": 812
+      },
+      "siteType": "saas",
+      "elementsScanned": 82,
+      "elementsTotal": 149,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 13.2
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 7,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 7,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     }
+    },
+    "durationMs": 2449
+   },
+   "designScore": 85,
+   "designGrade": "B",
+   "measuredViewports": [
+    "desktop",
+    "mobile"
+   ],
+   "buckets": {
+    "accessibility": 76,
+    "consistency": 76,
+    "motion": 88,
+    "performance": 100
+   }
+  },
+  "result-plan": {
+   "engineVersion": "1.3.0",
+   "desktop": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "5 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 5,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 60,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 96,
+           "h": 40,
+           "sample": "What is VT?",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 100,
+           "h": 40,
+           "sample": "What is VTI?",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 123,
+           "h": 40,
+           "sample": "What is FSKAX?",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "7 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 7,
+         "examples": [
+          {
+           "sig": "p.font-bold",
+           "px": 14,
+           "sample": "Only pay from work goes in"
+          },
+          {
+           "sig": "p.mt-4.text-sm",
+           "px": 14,
+           "sample": "Does a job offer a 401(k) match? Put in "
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Vanguard Morningstar Total Stock Market "
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Fidelity Total Market Index Fund"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Vanguard Total World Stock ETF"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Fees from each fund's fact sheet, Septem"
+          },
+          {
+           "sig": "p.mt-4.text-sm",
+           "px": 14,
+           "sample": "At 7% a year, close to what the S&P 500 "
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "24 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 24,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "A month or more saved"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Only debt under 8%"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Retirement"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 5 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 74,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        40
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 7,
+       "smallBody": [
+        {
+         "sig": "p.font-bold",
+         "px": 14,
+         "sample": "Only pay from work goes in"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "Does a job offer a 401(k) match? Put in "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Morningstar Total Stock Market "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Fidelity Total Market Index Fund"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Total World Stock ETF"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Fees from each fund's fact sheet, Septem"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "At 7% a year, close to what the S&P 500 "
+        }
+       ],
+       "smallLabelCount": 24,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "A month or more saved"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Only debt under 8%"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Retirement"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Would wait out a drop"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "div.mt-1",
+         "px": 14,
+         "sample": "A Roth IRA takes only money you earn fro"
+        },
+        {
+         "sig": "span.rounded-full.px-2.5",
+         "px": 13,
+         "sample": "Core"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "fee a year"
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "px": 14,
+         "sample": "What is VTI?"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 5,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 8,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 10,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 5,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 96,
+         "h": 40,
+         "sample": "What is VT?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 100,
+         "h": 40,
+         "sample": "What is VTI?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 123,
+         "h": 40,
+         "sample": "What is FSKAX?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 5,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 8,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:35:05.499Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 1440,
+       "height": 900,
+       "dpr": 1,
+       "isMobile": false,
+       "w": 1440,
+       "h": 900
+      },
+      "siteType": "saas",
+      "elementsScanned": 129,
+      "elementsTotal": 210,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 12.2
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 10,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 10,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "hoverProbe": [
+      {
+       "label": "Cense",
+       "selector": "a.rounded-md",
+       "changes": false
+      },
+      {
+       "label": "What is VTI?",
+       "selector": "button.-ml-2",
+       "changes": false
+      },
+      {
+       "label": "What is FSKAX?",
+       "selector": "button.-ml-2",
+       "changes": false
+      },
+      {
+       "label": "What is VT?",
+       "selector": "button.-ml-2",
+       "changes": false
+      },
+      {
+       "label": "How to open your accountAbout ",
+       "selector": "button.flex",
+       "changes": false
+      }
+     ],
+     "reducedMotion": {
+      "emulated": true,
+      "snapshot": {
+       "count": 10,
+       "running": 0,
+       "anims": [
+        {
+         "target": "section.rounded-3xl.border",
+         "name": "rise",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        }
+       ]
+      },
+      "ungatedCount": 0
+     }
+    },
+    "durationMs": 2647
+   },
+   "mobile": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "5 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 5,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 54,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 96,
+           "h": 40,
+           "sample": "What is VT?",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 100,
+           "h": 40,
+           "sample": "What is VTI?",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          },
+          {
+           "sig": "button.-ml-2.mt-1",
+           "tag": "button",
+           "w": 123,
+           "h": 40,
+           "sample": "What is FSKAX?",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "7 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 7,
+         "examples": [
+          {
+           "sig": "p.font-bold",
+           "px": 14,
+           "sample": "Only pay from work goes in"
+          },
+          {
+           "sig": "p.mt-4.text-sm",
+           "px": 14,
+           "sample": "Does a job offer a 401(k) match? Put in "
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Vanguard Morningstar Total Stock Market "
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Fidelity Total Market Index Fund"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Vanguard Total World Stock ETF"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Fees from each fund's fact sheet, Septem"
+          },
+          {
+           "sig": "p.mt-4.text-sm",
+           "px": 14,
+           "sample": "At 7% a year, close to what the S&P 500 "
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "24 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 24,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "A month or more saved"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Only debt under 8%"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Retirement"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 5 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 74,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        32
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 7,
+       "smallBody": [
+        {
+         "sig": "p.font-bold",
+         "px": 14,
+         "sample": "Only pay from work goes in"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "Does a job offer a 401(k) match? Put in "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Morningstar Total Stock Market "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Fidelity Total Market Index Fund"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Total World Stock ETF"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Fees from each fund's fact sheet, Septem"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "At 7% a year, close to what the S&P 500 "
+        }
+       ],
+       "smallLabelCount": 24,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "A month or more saved"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Only debt under 8%"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Retirement"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Would wait out a drop"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "div.mt-1",
+         "px": 14,
+         "sample": "A Roth IRA takes only money you earn fro"
+        },
+        {
+         "sig": "span.rounded-full.px-2.5",
+         "px": 13,
+         "sample": "Core"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "fee a year"
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "px": 14,
+         "sample": "What is VTI?"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 5,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 8,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 10,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 5,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 54,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 96,
+         "h": 40,
+         "sample": "What is VT?",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 100,
+         "h": 40,
+         "sample": "What is VTI?",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 123,
+         "h": 40,
+         "sample": "What is FSKAX?",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 5,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 8,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:35:19.244Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 375,
+       "height": 812,
+       "dpr": 1,
+       "isMobile": true,
+       "w": 375,
+       "h": 812
+      },
+      "siteType": "saas",
+      "elementsScanned": 129,
+      "elementsTotal": 210,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 7.6
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 10,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 10,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     }
+    },
+    "durationMs": 2837
+   },
+   "designScore": 85,
+   "designGrade": "B",
+   "measuredViewports": [
+    "desktop",
+    "mobile"
+   ],
+   "buckets": {
+    "accessibility": 76,
+    "consistency": 76,
+    "motion": 88,
+    "performance": 100
+   }
+  },
+  "result-savings": {
+   "engineVersion": "1.3.0",
+   "desktop": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 60,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "isMobile": false,
+            "w": 1440,
+            "h": 900
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "3 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Might need it within 5 years"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Savings accounts to compare"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Rates read from each bank's site on Nove"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "16 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 16,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "A month or more saved"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "No debt"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 3 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 46,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        40
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 3,
+       "smallBody": [
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Might need it within 5 years"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Savings accounts to compare"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Rates read from each bank's site on Nove"
+        }
+       ],
+       "smallLabelCount": 16,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "A month or more saved"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "No debt"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No account fees. Insured through partner"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No fees, no minimum deposit."
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "Needs direct deposit or $5,000 in deposi"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 3,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 7,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 9,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 7,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:35:29.841Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 1440,
+       "height": 900,
+       "dpr": 1,
+       "isMobile": false,
+       "w": 1440,
+       "h": 900
+      },
+      "siteType": "saas",
+      "elementsScanned": 83,
+      "elementsTotal": 156,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 5.4
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 9,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 9,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "hoverProbe": [
+      {
+       "label": "Cense",
+       "selector": "a.rounded-md",
+       "changes": false
+      },
+      {
+       "label": "Wealthfront CashNo account fee",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "Marcus by Goldman SachsNo fees",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "SoFi SavingsNeeds direct depos",
+       "selector": "a.flex",
+       "changes": true
+      },
+      {
+       "label": "How to open your accountAbout ",
+       "selector": "button.flex",
+       "changes": false
+      }
+     ],
+     "reducedMotion": {
+      "emulated": true,
+      "snapshot": {
+       "count": 9,
+       "running": 0,
+       "anims": [
+        {
+         "target": "section.rounded-3xl.border",
+         "name": "rise",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rail-fill.block",
+         "name": "rail-fill",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        },
+        {
+         "target": "span.rung-mark.relative",
+         "name": "rung-on",
+         "dur": 0,
+         "infinite": false,
+         "state": "finished"
+        }
+       ]
+      },
+      "ungatedCount": 0
+     }
+    },
+    "durationMs": 2222
+   },
+   "mobile": {
+    "report": {
+     "score": 85,
+     "grade": "B",
+     "buckets": {
+      "accessibility": {
+       "score": 22.8,
+       "max": 30,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "tap-target-comfort",
+         "message": "2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+         "count": 2,
+         "examples": [
+          {
+           "sig": "a.font-semibold.text-slate-900",
+           "tag": "a",
+           "w": 39,
+           "h": 16,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           },
+           "exception": "inline"
+          },
+          {
+           "sig": "a.rounded-md.text-accent-hover",
+           "tag": "a",
+           "w": 54,
+           "h": 28,
+           "sample": "Cense",
+           "viewport": {
+            "width": 375,
+            "height": 812,
+            "dpr": 1,
+            "isMobile": true,
+            "w": 375,
+            "h": 812
+           }
+          }
+         ],
+         "scope": "element",
+         "required": "≥48×48px",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "wcagCriterion": "2.5.8"
+        },
+        {
+         "severity": "warn",
+         "ruleId": "missing-landmarks",
+         "message": "Missing landmark(s): nav.",
+         "landmarks": [
+          "nav"
+         ],
+         "scope": "page",
+         "contributors": [
+          {
+           "selector": "nav, [role=\"navigation\"]",
+           "value": "no matching element"
+          }
+         ]
+        }
+       ]
+      },
+      "consistency": {
+       "score": 15.2,
+       "max": 20,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "small-body-text",
+         "message": "3 reading-copy text node(s) below 16px (or any text below 11px).",
+         "count": 3,
+         "examples": [
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Might need it within 5 years"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Savings accounts to compare"
+          },
+          {
+           "sig": "p.mt-2.text-xs",
+           "px": 13,
+           "sample": "Rates read from each bank's site on Nove"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "required": "≥16px (≥11px absolute)",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "info",
+         "ruleId": "small-ui-labels",
+         "message": "16 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+         "count": 16,
+         "examples": [
+          {
+           "sig": "span.inline-flex.items-center",
+           "px": 13,
+           "sample": "On your device"
+          },
+          {
+           "sig": "p.text-sm.font-semibold",
+           "px": 14,
+           "sample": "Your answer"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Steady pay"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "A month or more saved"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "No debt"
+          },
+          {
+           "sig": "p.mt-0.5.text-sm",
+           "px": 14,
+           "sample": "Not asked yet"
+          }
+         ],
+         "scope": "element",
+         "renderContext": "dom",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "severity": "warn",
+         "ruleId": "radius-off-scale",
+         "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+         "values": [
+          6,
+          24
+         ],
+         "scope": "page",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "contributors": [
+          {
+           "selector": "section.rounded-3xl.border",
+           "value": "24px · 3 node(s)"
+          },
+          {
+           "selector": "a.rounded-md.text-accent-hover",
+           "value": "6px · 1 node(s)"
+          }
+         ]
+        }
+       ]
+      },
+      "motion": {
+       "score": 22,
+       "max": 25,
+       "findings": [
+        {
+         "severity": "warn",
+         "ruleId": "duration-too-short",
+         "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+         "examples": [
+          {
+           "selector": "*, ::after, ::before",
+           "sig": "*, ::after, ::before",
+           "ms": 0
+          }
+         ],
+         "scope": "element",
+         "required": "50–1000ms"
+        }
+       ]
+      },
+      "performance": {
+       "score": 25,
+       "max": 25,
+       "findings": []
+      }
+     },
+     "sections": {
+      "color": {
+       "sampled": 46,
+       "skippedUnknownBg": 0,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "distinctTextColors": 4,
+       "failureCount": 0,
+       "failures": []
+      },
+      "typography": {
+       "distinctFamilies": 2,
+       "families": [
+        "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+        "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+       ],
+       "distinctSizes": 7,
+       "sizes": [
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        32
+       ],
+       "distinctLineHeights": 9,
+       "smallBodyCount": 3,
+       "smallBody": [
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Might need it within 5 years"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Savings accounts to compare"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Rates read from each bank's site on Nove"
+        }
+       ],
+       "smallLabelCount": 16,
+       "smallLabels": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "A month or more saved"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "No debt"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Not asked yet"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your next step"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No account fees. Insured through partner"
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "No fees, no minimum deposit."
+        },
+        {
+         "sig": "span.block.text-xs",
+         "px": 13,
+         "sample": "APY"
+        },
+        {
+         "sig": "span.mt-0.5.block",
+         "px": 14,
+         "sample": "Needs direct deposit or $5,000 in deposi"
+        }
+       ],
+       "tightLeadingCount": 0,
+       "tightLeading": [],
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "distinctHeadingSizes": 3,
+       "headingCount": 3,
+       "skippedRenderContext": 0
+      },
+      "shape": {
+       "distinctRadii": 4,
+       "radii": [
+        6,
+        16,
+        24,
+        9999
+       ],
+       "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        28,
+        9999
+       ],
+       "offScaleValues": [
+        6,
+        24
+       ]
+      },
+      "elevation": {
+       "distinctShadows": 1,
+       "levels": 6,
+       "recipes": [
+        "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+       ]
+      },
+      "states": {
+       "interactiveCount": 7,
+       "hasHoverRules": true,
+       "hasFocusVisibleRules": true,
+       "stylesheetsReachable": true,
+       "sheetsSkipped": 0,
+       "noVisibleFocusCount": 0,
+       "noVisibleFocusExamples": []
+      },
+      "motion": {
+       "hasReducedMotionQuery": true,
+       "reducedMotionStatus": "present",
+       "activeAnimations": 9,
+       "tooShort": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "tooLong": [],
+       "linearMovement": [],
+       "easeInEntrance": [],
+       "layoutAnimated": [],
+       "infiniteLoops": [],
+       "sheetsSkipped": 0
+      },
+      "a11yLayout": {
+       "smallTargetCount": 2,
+       "smallTargets": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 54,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "undersizedCount": 0,
+       "belowComfortCount": 2,
+       "spacingExceptionChecked": true,
+       "spacingExceptionSkipReason": null,
+       "targetCount": 7,
+       "missingAltCount": 0,
+       "missingAlt": [],
+       "headingJumpCount": 0,
+       "headingJumps": [],
+       "h1Count": 1,
+       "missingLandmarks": [
+        "nav"
+       ]
+      }
+     },
+     "meta": {
+      "url": "http://localhost:3201/results",
+      "title": "Your answer | Invest Ready by Cense",
+      "timestamp": "2026-11-15T18:35:43.094Z",
+      "contentFingerprint": "1i2hiw8",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+       "width": 375,
+       "height": 812,
+       "dpr": 1,
+       "isMobile": true,
+       "w": 375,
+       "h": 812
+      },
+      "siteType": "saas",
+      "elementsScanned": 83,
+      "elementsTotal": 156,
+      "sampleCap": 1500,
+      "sampleCapped": false,
+      "sheetsSkipped": 0,
+      "openShadowRoots": 1,
+      "notes": [
+       "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+      ],
+      "durationMs": 5.5
+     }
+    },
+    "probes": {
+     "animationsAtLoad": {
+      "count": 9,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     },
+     "animationsAfterScroll": {
+      "count": 9,
+      "running": 0,
+      "anims": [
+       {
+        "target": "section.rounded-3xl.border",
+        "name": "rise",
+        "dur": 240,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rail-fill.block",
+        "name": "rail-fill",
+        "dur": 500,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       },
+       {
+        "target": "span.rung-mark.relative",
+        "name": "rung-on",
+        "dur": 280,
+        "infinite": false,
+        "state": "finished"
+       }
+      ]
+     }
+    },
+    "durationMs": 2440
+   },
+   "designScore": 85,
+   "designGrade": "B",
+   "measuredViewports": [
+    "desktop",
+    "mobile"
+   ],
+   "buckets": {
+    "accessibility": 76,
+    "consistency": 76,
+    "motion": 88,
+    "performance": 100
+   }
+  }
+ },
+ "notAutoDetectable": [
+  "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+  "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+  "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+  "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+  "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+  "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+  "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+  "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+  "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+ ]
+}

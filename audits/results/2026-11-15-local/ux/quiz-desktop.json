@@ -1,0 +1,1306 @@
+{
+ "state": "quiz",
+ "formFactor": "desktop",
+ "pageContext": {
+  "indexable": true,
+  "siteType": "saas"
+ },
+ "report": {
+  "uxScore": null,
+  "typographyScore": null,
+  "contrastScore": null,
+  "layoutScore": null,
+  "responsiveScore": null,
+  "navigationScore": null,
+  "contentScore": null,
+  "totalIssues": 3,
+  "p1Count": 0,
+  "p2Count": 3,
+  "p3Count": 0,
+  "findings": [
+   {
+    "id": "1944c639-521a-44bb-bead-6b362ec810d7",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "desktop",
+    "title": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "description": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception). Examples: a.font-semibold.text-slate-900 \"Cense\" (39×16px); a.rounded-md.text-accent-hover \"Cense\" (60×28px). Measured at the 1440×900px desktop viewport.",
+    "recommendation": "Fix it once in the shared style or component that produces it, so every instance changes together.",
+    "source": "engine",
+    "themeId": "eng:tap-target-comfort",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "wcagCriterion": "2.5.8",
+    "evidence": {
+     "measured": "39×16px",
+     "required": "≥48×48px",
+     "selector": "a.font-semibold.text-slate-900",
+     "sample": "Cense",
+     "count": 2
+    }
+   },
+   {
+    "id": "79569ef9-c32a-4f03-b63f-0323d93885cc",
+    "severity": "P2",
+    "category": "Design Consistency",
+    "device": "desktop",
+    "title": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+    "description": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+    "recommendation": "Consolidate to a small token set: define CSS variables for the sanctioned values and replace ad-hoc ones.",
+    "source": "engine",
+    "themeId": "eng:radius-off-scale",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "0 matches for a.rounded-md.text-accent-hover",
+     "contributors": [
+      {
+       "selector": "a.rounded-md.text-accent-hover",
+       "value": "6px · 1 node(s)"
+      }
+     ]
+    }
+   },
+   {
+    "id": "6ba04902-b391-4b7c-bf6e-e85bf86ca13e",
+    "severity": "P2",
+    "category": "Motion",
+    "device": "desktop",
+    "title": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+    "description": "1 animation/transition(s) under 50ms (non-instant but too fast to read). Examples: *, ::after, ::before.",
+    "recommendation": "Keep animation durations within the 50–1000ms scale — long enough to read, short enough to feel responsive.",
+    "source": "engine",
+    "themeId": "eng:duration-too-short",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "1 occurrence(s)",
+     "required": "50–1000ms",
+     "selector": "*, ::after, ::before",
+     "count": 1
+    }
+   }
+  ],
+  "pageContext": {
+   "indexable": true,
+   "siteType": "saas"
+  },
+  "scanData": {
+   "domContext": {
+    "textElements": [
+     {
+      "tag": "p",
+      "text": "CenseInvest Ready",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 30,
+      "width": 193,
+      "height": 28
+     },
+     {
+      "tag": "a",
+      "text": "Cense",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(168, 83, 31)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.92,
+      "x": 408,
+      "y": 30,
+      "width": 60,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "Invest Ready",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 474,
+      "y": 30,
+      "width": 126,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "On your device",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(234, 243, 231)",
+      "contrastRatio": 7.05,
+      "x": 897,
+      "y": 28,
+      "width": 135,
+      "height": 31
+     },
+     {
+      "tag": "h1",
+      "text": "Are you ready to start investing?",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "32px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 107,
+      "width": 624,
+      "height": 32
+     },
+     {
+      "tag": "p",
+      "text": "Five questions. You get a yes or a not yet, and on",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 408,
+      "y": 145,
+      "width": 624,
+      "height": 26
+     },
+     {
+      "tag": "p",
+      "text": "Question 1 of 5",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 408,
+      "y": 195,
+      "width": 624,
+      "height": 20
+     },
+     {
+      "tag": "li",
+      "text": "Income, current",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 223,
+      "width": 120,
+      "height": 31
+     },
+     {
+      "tag": "span",
+      "text": "Income, current",
+      "fontSize": "13px",
+      "fontWeight": "700",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 235,
+      "width": 120,
+      "height": 19
+     },
+     {
+      "tag": "span",
+      "text": ", current",
+      "fontSize": "13px",
+      "fontWeight": "700",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 453,
+      "y": 234,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "li",
+      "text": "Cushion, not yet",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 534,
+      "y": 223,
+      "width": 120,
+      "height": 31
+     },
+     {
+      "tag": "span",
+      "text": "Cushion, not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 534,
+      "y": 235,
+      "width": 120,
+      "height": 19
+     },
+     {
+      "tag": "span",
+      "text": ", not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 583,
+      "y": 234,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "li",
+      "text": "Debt, not yet",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 660,
+      "y": 223,
+      "width": 120,
+      "height": 31
+     },
+     {
+      "tag": "span",
+      "text": "Debt, not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 660,
+      "y": 235,
+      "width": 120,
+      "height": 19
+     },
+     {
+      "tag": "span",
+      "text": ", not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 689,
+      "y": 234,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "li",
+      "text": "Goal, not yet",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 786,
+      "y": 223,
+      "width": 120,
+      "height": 31
+     },
+     {
+      "tag": "span",
+      "text": "Goal, not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 786,
+      "y": 235,
+      "width": 120,
+      "height": 19
+     },
+     {
+      "tag": "span",
+      "text": ", not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 813,
+      "y": 234,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "li",
+      "text": "Risk, not yet",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 912,
+      "y": 223,
+      "width": 120,
+      "height": 31
+     },
+     {
+      "tag": "span",
+      "text": "Risk, not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 912,
+      "y": 235,
+      "width": 120,
+      "height": 19
+     },
+     {
+      "tag": "span",
+      "text": ", not yet",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 936,
+      "y": 234,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "h2",
+      "text": "Do you have a regular source of income right now?",
+      "fontSize": "32px",
+      "fontWeight": "700",
+      "lineHeight": "36.8px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 286,
+      "width": 624,
+      "height": 74
+     },
+     {
+      "tag": "p",
+      "text": "Part-time work and work-study count.",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 408,
+      "y": 368,
+      "width": 624,
+      "height": 26
+     },
+     {
+      "tag": "button",
+      "text": "Yes, it's consistentA paycheck, work-study, or a g",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 408,
+      "y": 418,
+      "width": 624,
+      "height": 75
+     },
+     {
+      "tag": "span",
+      "text": "Yes, it's consistentA paycheck, work-study, or a g",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 434,
+      "width": 552,
+      "height": 43
+     },
+     {
+      "tag": "span",
+      "text": "Yes, it's consistent",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 434,
+      "width": 552,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": "A paycheck, work-study, or a grad stipend",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 426,
+      "y": 458,
+      "width": 552,
+      "height": 19
+     },
+     {
+      "tag": "button",
+      "text": "Yes, but it variesGig work, freelance, part-time, ",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 408,
+      "y": 505,
+      "width": 624,
+      "height": 75
+     },
+     {
+      "tag": "span",
+      "text": "Yes, but it variesGig work, freelance, part-time, ",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 521,
+      "width": 552,
+      "height": 43
+     },
+     {
+      "tag": "span",
+      "text": "Yes, but it varies",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 521,
+      "width": 552,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": "Gig work, freelance, part-time, or seasonal",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 426,
+      "y": 545,
+      "width": 552,
+      "height": 19
+     },
+     {
+      "tag": "button",
+      "text": "Only from family or aidAn allowance, scholarships,",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 408,
+      "y": 593,
+      "width": 624,
+      "height": 75
+     },
+     {
+      "tag": "span",
+      "text": "Only from family or aidAn allowance, scholarships,",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 609,
+      "width": 552,
+      "height": 43
+     },
+     {
+      "tag": "span",
+      "text": "Only from family or aid",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 609,
+      "width": 552,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": "An allowance, scholarships, or grants, but no pay ",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 426,
+      "y": 633,
+      "width": 552,
+      "height": 19
+     },
+     {
+      "tag": "button",
+      "text": "Not right nowBetween jobs or not earning",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 408,
+      "y": 680,
+      "width": 624,
+      "height": 75
+     },
+     {
+      "tag": "span",
+      "text": "Not right nowBetween jobs or not earning",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 696,
+      "width": 552,
+      "height": 43
+     },
+     {
+      "tag": "span",
+      "text": "Not right now",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 426,
+      "y": 696,
+      "width": 552,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": "Between jobs or not earning",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 426,
+      "y": 720,
+      "width": 552,
+      "height": 19
+     },
+     {
+      "tag": "a",
+      "text": "Cense",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "21.125px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 766,
+      "y": 826,
+      "width": 39,
+      "height": 16
+     }
+    ],
+    "interactiveElements": [
+     {
+      "tag": "a",
+      "text": "Cense",
+      "width": 60,
+      "height": 28,
+      "x": 408,
+      "y": 30
+     },
+     {
+      "tag": "button",
+      "text": "Yes, it's consistentA paycheck, work-study, or a g",
+      "width": 624,
+      "height": 75,
+      "x": 408,
+      "y": 418
+     },
+     {
+      "tag": "button",
+      "text": "Yes, but it variesGig work, freelance, part-time, ",
+      "width": 624,
+      "height": 75,
+      "x": 408,
+      "y": 505
+     },
+     {
+      "tag": "button",
+      "text": "Only from family or aidAn allowance, scholarships,",
+      "width": 624,
+      "height": 75,
+      "x": 408,
+      "y": 593
+     },
+     {
+      "tag": "button",
+      "text": "Not right nowBetween jobs or not earning",
+      "width": 624,
+      "height": 75,
+      "x": 408,
+      "y": 680
+     },
+     {
+      "tag": "a",
+      "text": "Cense",
+      "width": 39,
+      "height": 16,
+      "x": 766,
+      "y": 826
+     }
+    ],
+    "images": [],
+    "headings": [
+     {
+      "tag": "h1",
+      "text": "Are you ready to start investing?",
+      "fontSize": "24px",
+      "x": 408,
+      "y": 107,
+      "width": 624,
+      "height": 32
+     },
+     {
+      "tag": "h2",
+      "text": "Do you have a regular source of income right now?",
+      "fontSize": "32px",
+      "x": 408,
+      "y": 286,
+      "width": 624,
+      "height": 74
+     }
+    ],
+    "overflowElements": [
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only"
+    ],
+    "stickyElements": [],
+    "documentDimensions": {
+     "scrollHeight": 900,
+     "clientHeight": 900,
+     "scrollWidth": 1440,
+     "clientWidth": 1440
+    }
+   }
+  }
+ },
+ "design": {
+  "report": {
+   "score": 91,
+   "grade": "A",
+   "buckets": {
+    "accessibility": {
+     "score": 26.4,
+     "max": 30,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "tap-target-comfort",
+       "message": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+       "count": 2,
+       "examples": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "scope": "element",
+       "required": "≥48×48px",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "wcagCriterion": "2.5.8"
+      }
+     ]
+    },
+    "consistency": {
+     "score": 17.6,
+     "max": 20,
+     "findings": [
+      {
+       "severity": "info",
+       "ruleId": "small-ui-labels",
+       "message": "18 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+       "count": 18,
+       "examples": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Question 1 of 5"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Income, current"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", current"
+        },
+        {
+         "sig": "span.mt-1.5.block",
+         "px": 13,
+         "sample": "Cushion, not yet"
+        },
+        {
+         "sig": "span.sr-only",
+         "px": 13,
+         "sample": ", not yet"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "severity": "warn",
+       "ruleId": "radius-off-scale",
+       "message": "1 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+       "values": [
+        6
+       ],
+       "scope": "page",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "contributors": [
+        {
+         "selector": "a.rounded-md.text-accent-hover",
+         "value": "6px · 1 node(s)"
+        }
+       ]
+      }
+     ]
+    },
+    "motion": {
+     "score": 22,
+     "max": 25,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "duration-too-short",
+       "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+       "examples": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "scope": "element",
+       "required": "50–1000ms"
+      }
+     ]
+    },
+    "performance": {
+     "score": 25,
+     "max": 25,
+     "findings": []
+    }
+   },
+   "sections": {
+    "color": {
+     "sampled": 28,
+     "skippedUnknownBg": 0,
+     "skippedUnparseable": 0,
+     "skippedRenderContext": 0,
+     "distinctTextColors": 4,
+     "failureCount": 0,
+     "failures": []
+    },
+    "typography": {
+     "distinctFamilies": 2,
+     "families": [
+      "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+      "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+     ],
+     "distinctSizes": 6,
+     "sizes": [
+      13,
+      14,
+      16,
+      20,
+      24,
+      32
+     ],
+     "distinctLineHeights": 7,
+     "smallBodyCount": 0,
+     "smallBody": [],
+     "smallLabelCount": 18,
+     "smallLabels": [
+      {
+       "sig": "span.inline-flex.items-center",
+       "px": 13,
+       "sample": "On your device"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Question 1 of 5"
+      },
+      {
+       "sig": "span.mt-1.5.block",
+       "px": 13,
+       "sample": "Income, current"
+      },
+      {
+       "sig": "span.sr-only",
+       "px": 13,
+       "sample": ", current"
+      },
+      {
+       "sig": "span.mt-1.5.block",
+       "px": 13,
+       "sample": "Cushion, not yet"
+      },
+      {
+       "sig": "span.sr-only",
+       "px": 13,
+       "sample": ", not yet"
+      },
+      {
+       "sig": "span.mt-1.5.block",
+       "px": 13,
+       "sample": "Debt, not yet"
+      },
+      {
+       "sig": "span.sr-only",
+       "px": 13,
+       "sample": ", not yet"
+      },
+      {
+       "sig": "span.mt-1.5.block",
+       "px": 13,
+       "sample": "Goal, not yet"
+      },
+      {
+       "sig": "span.sr-only",
+       "px": 13,
+       "sample": ", not yet"
+      },
+      {
+       "sig": "span.mt-1.5.block",
+       "px": 13,
+       "sample": "Risk, not yet"
+      },
+      {
+       "sig": "span.sr-only",
+       "px": 13,
+       "sample": ", not yet"
+      }
+     ],
+     "tightLeadingCount": 0,
+     "tightLeading": [],
+     "displayLeadingRelaxed": 0,
+     "formattedBlocksSkipped": 0,
+     "distinctHeadingSizes": 2,
+     "headingCount": 2,
+     "skippedRenderContext": 0
+    },
+    "shape": {
+     "distinctRadii": 3,
+     "radii": [
+      6,
+      16,
+      9999
+     ],
+     "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      28,
+      9999
+     ],
+     "offScaleValues": [
+      6
+     ]
+    },
+    "elevation": {
+     "distinctShadows": 0,
+     "levels": 6,
+     "recipes": []
+    },
+    "states": {
+     "interactiveCount": 6,
+     "hasHoverRules": true,
+     "hasFocusVisibleRules": true,
+     "stylesheetsReachable": true,
+     "sheetsSkipped": 0,
+     "noVisibleFocusCount": 0,
+     "noVisibleFocusExamples": []
+    },
+    "motion": {
+     "hasReducedMotionQuery": true,
+     "reducedMotionStatus": "present",
+     "activeAnimations": 1,
+     "tooShort": [
+      {
+       "selector": "*, ::after, ::before",
+       "sig": "*, ::after, ::before",
+       "ms": 0
+      }
+     ],
+     "tooLong": [],
+     "linearMovement": [],
+     "easeInEntrance": [],
+     "layoutAnimated": [],
+     "infiniteLoops": [],
+     "sheetsSkipped": 0
+    },
+    "a11yLayout": {
+     "smallTargetCount": 2,
+     "smallTargets": [
+      {
+       "sig": "a.font-semibold.text-slate-900",
+       "tag": "a",
+       "w": 39,
+       "h": 16,
+       "sample": "Cense",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "exception": "inline"
+      },
+      {
+       "sig": "a.rounded-md.text-accent-hover",
+       "tag": "a",
+       "w": 60,
+       "h": 28,
+       "sample": "Cense",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      }
+     ],
+     "undersizedCount": 0,
+     "belowComfortCount": 2,
+     "spacingExceptionChecked": true,
+     "spacingExceptionSkipReason": null,
+     "targetCount": 6,
+     "missingAltCount": 0,
+     "missingAlt": [],
+     "headingJumpCount": 0,
+     "headingJumps": [],
+     "h1Count": 1,
+     "missingLandmarks": []
+    }
+   },
+   "notAutoDetectable": [
+    "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+    "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+    "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+    "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+    "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+    "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+    "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+    "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+    "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+   ],
+   "meta": {
+    "url": "http://localhost:3201/",
+    "title": "Invest Ready by Cense: am I ready to start investing?",
+    "timestamp": "2026-11-15T18:34:05.279Z",
+    "contentFingerprint": "1i2hiw8",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false,
+     "w": 1440,
+     "h": 900
+    },
+    "siteType": "saas",
+    "elementsScanned": 52,
+    "elementsTotal": 80,
+    "sampleCap": 1500,
+    "sampleCapped": false,
+    "sheetsSkipped": 0,
+    "openShadowRoots": 1,
+    "notes": [
+     "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+    ],
+    "durationMs": 6.3
+   }
+  },
+  "probes": {
+   "animationsAtLoad": {
+    "count": 1,
+    "running": 0,
+    "anims": [
+     {
+      "target": "div.rise",
+      "name": "rise",
+      "dur": 240,
+      "infinite": false,
+      "state": "finished"
+     }
+    ]
+   },
+   "animationsAfterScroll": {
+    "count": 1,
+    "running": 0,
+    "anims": [
+     {
+      "target": "div.rise",
+      "name": "rise",
+      "dur": 240,
+      "infinite": false,
+      "state": "finished"
+     }
+    ]
+   },
+   "hoverProbe": [
+    {
+     "label": "Cense",
+     "selector": "a.rounded-md",
+     "changes": false
+    },
+    {
+     "label": "Yes, it's consistentA paycheck",
+     "selector": "button.group",
+     "changes": false
+    },
+    {
+     "label": "Yes, but it variesGig work, fr",
+     "selector": "button.group",
+     "changes": false
+    },
+    {
+     "label": "Only from family or aidAn allo",
+     "selector": "button.group",
+     "changes": false
+    },
+    {
+     "label": "Not right nowBetween jobs or n",
+     "selector": "button.group",
+     "changes": false
+    },
+    {
+     "label": "Cense",
+     "selector": "a.font-semibold",
+     "changes": false
+    }
+   ],
+   "reducedMotion": {
+    "emulated": true,
+    "snapshot": {
+     "count": 1,
+     "running": 0,
+     "anims": [
+      {
+       "target": "div.rise",
+       "name": "rise",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      }
+     ]
+    },
+    "ungatedCount": 0
+   }
+  },
+  "durationMs": 2228
+ },
+ "extras": [
+  {
+   "id": "93889c19-60e8-45a6-8bcf-0bac646abeb3",
+   "severity": "P3",
+   "category": "Accessibility",
+   "device": "desktop",
+   "title": "Primary controls show no hover feedback",
+   "description": "6 of 6 sampled primary controls showed no visual change on hover (Cense, Yes, it's consistentA paycheck, Yes, but it variesGig work, fr).",
+   "recommendation": "Add :hover feedback (background, color, or elevation change) to interactive elements.",
+   "source": "engine",
+   "scope": "page",
+   "renderContext": "dom",
+   "observedOn": 1,
+   "sampleSize": 1,
+   "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 1,
+    "isMobile": false
+   },
+   "themeId": "eng:hover-no-feedback",
+   "evidence": {
+    "measured": "6/6 unresponsive",
+    "contributors": [
+     {
+      "selector": "a.rounded-md",
+      "value": "Cense"
+     },
+     {
+      "selector": "button.group",
+      "value": "Yes, it's consistentA paycheck"
+     },
+     {
+      "selector": "button.group",
+      "value": "Yes, but it variesGig work, fr"
+     },
+     {
+      "selector": "button.group",
+      "value": "Only from family or aidAn allo"
+     },
+     {
+      "selector": "button.group",
+      "value": "Not right nowBetween jobs or n"
+     }
+    ]
+   }
+  }
+ ]
+}

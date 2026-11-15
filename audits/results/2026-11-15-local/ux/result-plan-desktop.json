@@ -1,0 +1,1923 @@
+{
+ "state": "result-plan",
+ "formFactor": "desktop",
+ "pageContext": {
+  "indexable": false,
+  "robots": "meta robots: noindex, follow",
+  "siteType": "saas"
+ },
+ "report": {
+  "uxScore": null,
+  "typographyScore": null,
+  "contrastScore": null,
+  "layoutScore": null,
+  "responsiveScore": null,
+  "navigationScore": null,
+  "contentScore": null,
+  "totalIssues": 5,
+  "p1Count": 0,
+  "p2Count": 5,
+  "p3Count": 0,
+  "findings": [
+   {
+    "id": "b0cb4da6-073b-4a90-8e59-830d588cc39f",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "desktop",
+    "title": "5 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "description": "5 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception). Examples: a.font-semibold.text-slate-900 \"Cense\" (39×16px); a.rounded-md.text-accent-hover \"Cense\" (60×28px); button.-ml-2.mt-1 \"What is VT?\" (96×40px). Measured at the 1440×900px desktop viewport.",
+    "recommendation": "Fix it once in the shared style or component that produces it, so every instance changes together.",
+    "source": "engine",
+    "themeId": "eng:tap-target-comfort",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "wcagCriterion": "2.5.8",
+    "evidence": {
+     "measured": "39×16px",
+     "required": "≥48×48px",
+     "selector": "a.font-semibold.text-slate-900",
+     "sample": "Cense",
+     "count": 5
+    }
+   },
+   {
+    "id": "8b624db5-6b85-4efe-874f-8720080729de",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "desktop",
+    "title": "Missing landmark(s): nav.",
+    "description": "Missing landmark(s): nav.",
+    "recommendation": "Add the missing landmark elements (main, nav, header, footer) so assistive tech can navigate the page.",
+    "source": "engine",
+    "themeId": "eng:missing-landmarks",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "0 matches for nav, [role=\"navigation\"]",
+     "contributors": [
+      {
+       "selector": "nav, [role=\"navigation\"]",
+       "value": "no matching element"
+      }
+     ]
+    }
+   },
+   {
+    "id": "48de3ecb-4117-4045-b9d4-31d67093baf8",
+    "severity": "P2",
+    "category": "Typography",
+    "device": "desktop",
+    "title": "7 reading-copy text node(s) below 16px (or any text below 11px).",
+    "description": "7 reading-copy text node(s) below 16px (or any text below 11px). Examples: p.font-bold \"Only pay from work goes in\" (14px); p.mt-4.text-sm \"Does a job offer a 401(k) match? Put in \" (14px); p.mt-0.5.text-sm \"Vanguard Morningstar Total Stock Market \" (14px). Measured at the 1440×900px desktop viewport.",
+    "recommendation": "Raise reading copy to at least 16px (12px absolute minimum for any text).",
+    "source": "engine",
+    "themeId": "eng:small-body-text",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "13px",
+     "required": "≥16px (≥11px absolute)",
+     "selector": "p.mt-2.text-xs",
+     "sample": "Fees from each fund's fact sheet, Septem",
+     "count": 7
+    }
+   },
+   {
+    "id": "7547f6e5-d998-4940-8971-02e8f7b9e580",
+    "severity": "P2",
+    "category": "Design Consistency",
+    "device": "desktop",
+    "title": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+    "description": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+    "recommendation": "Consolidate to a small token set: define CSS variables for the sanctioned values and replace ad-hoc ones.",
+    "source": "engine",
+    "themeId": "eng:radius-off-scale",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "0 matches for section.rounded-3xl.border",
+     "contributors": [
+      {
+       "selector": "section.rounded-3xl.border",
+       "value": "24px · 5 node(s)"
+      },
+      {
+       "selector": "a.rounded-md.text-accent-hover",
+       "value": "6px · 1 node(s)"
+      }
+     ]
+    }
+   },
+   {
+    "id": "df01ed2e-0f18-44e3-9cff-586fd35d7f12",
+    "severity": "P2",
+    "category": "Motion",
+    "device": "desktop",
+    "title": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+    "description": "1 animation/transition(s) under 50ms (non-instant but too fast to read). Examples: *, ::after, ::before.",
+    "recommendation": "Keep animation durations within the 50–1000ms scale — long enough to read, short enough to feel responsive.",
+    "source": "engine",
+    "themeId": "eng:duration-too-short",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "1 occurrence(s)",
+     "required": "50–1000ms",
+     "selector": "*, ::after, ::before",
+     "count": 1
+    }
+   }
+  ],
+  "pageContext": {
+   "indexable": false,
+   "robots": "meta robots: noindex, follow",
+   "siteType": "saas"
+  },
+  "scanData": {
+   "domContext": {
+    "textElements": [
+     {
+      "tag": "p",
+      "text": "CenseInvest Ready",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 408,
+      "y": 30,
+      "width": 193,
+      "height": 28
+     },
+     {
+      "tag": "a",
+      "text": "Cense",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(168, 83, 31)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.92,
+      "x": 408,
+      "y": 30,
+      "width": 60,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "Invest Ready",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 474,
+      "y": 30,
+      "width": 126,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "On your device",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(234, 243, 231)",
+      "contrastRatio": 7.05,
+      "x": 897,
+      "y": 28,
+      "width": 135,
+      "height": 31
+     },
+     {
+      "tag": "p",
+      "text": "Your answer",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 437,
+      "y": 136,
+      "width": 270,
+      "height": 20
+     },
+     {
+      "tag": "h1",
+      "text": "You look ready to invest.",
+      "fontSize": "40px",
+      "fontWeight": "800",
+      "lineHeight": "43.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 160,
+      "width": 270,
+      "height": 130
+     },
+     {
+      "tag": "p",
+      "text": "Based on your answers, the basics are in place.",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 437,
+      "y": 302,
+      "width": 270,
+      "height": 52
+     },
+     {
+      "tag": "li",
+      "text": "Money coming in: in place.Steady pay",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 739,
+      "y": 136,
+      "width": 264,
+      "height": 67
+     },
+     {
+      "tag": "p",
+      "text": "Money coming in: in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 787,
+      "y": 140,
+      "width": 216,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": ": in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 915,
+      "y": 139,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "p",
+      "text": "Steady pay",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 787,
+      "y": 164,
+      "width": 216,
+      "height": 19
+     },
+     {
+      "tag": "li",
+      "text": "A cushion: in place.A month or more saved",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 739,
+      "y": 203,
+      "width": 264,
+      "height": 67
+     },
+     {
+      "tag": "p",
+      "text": "A cushion: in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 787,
+      "y": 207,
+      "width": 216,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": ": in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 860,
+      "y": 206,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "p",
+      "text": "A month or more saved",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 787,
+      "y": 231,
+      "width": 216,
+      "height": 19
+     },
+     {
+      "tag": "li",
+      "text": "No debt above 8%: in place.Only debt under 8%",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 739,
+      "y": 271,
+      "width": 264,
+      "height": 67
+     },
+     {
+      "tag": "p",
+      "text": "No debt above 8%: in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 787,
+      "y": 275,
+      "width": 216,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": ": in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 920,
+      "y": 274,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "p",
+      "text": "Only debt under 8%",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 787,
+      "y": 299,
+      "width": 216,
+      "height": 19
+     },
+     {
+      "tag": "li",
+      "text": "Time to grow: in place.Retirement",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 739,
+      "y": 338,
+      "width": 264,
+      "height": 67
+     },
+     {
+      "tag": "p",
+      "text": "Time to grow: in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 787,
+      "y": 342,
+      "width": 216,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": ": in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 885,
+      "y": 341,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "p",
+      "text": "Retirement",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 787,
+      "y": 366,
+      "width": 216,
+      "height": 19
+     },
+     {
+      "tag": "li",
+      "text": "A mix you can hold: in place.Would wait out a drop",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 739,
+      "y": 405,
+      "width": 264,
+      "height": 47
+     },
+     {
+      "tag": "p",
+      "text": "A mix you can hold: in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 787,
+      "y": 409,
+      "width": 216,
+      "height": 22
+     },
+     {
+      "tag": "span",
+      "text": ": in place.",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "22px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 927,
+      "y": 408,
+      "width": 1,
+      "height": 1
+     },
+     {
+      "tag": "p",
+      "text": "Would wait out a drop",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 787,
+      "y": 433,
+      "width": 216,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "Your next step",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 437,
+      "y": 530,
+      "width": 566,
+      "height": 20
+     },
+     {
+      "tag": "h2",
+      "text": "Open a Roth IRA",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "30px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 554,
+      "width": 566,
+      "height": 30
+     },
+     {
+      "tag": "p",
+      "text": "You put in money you have already paid tax on, and",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 592,
+      "width": 566,
+      "height": 52
+     },
+     {
+      "tag": "span",
+      "text": "i",
+      "fontSize": "13px",
+      "fontWeight": "700",
+      "lineHeight": "19.2px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(39, 91, 45)",
+      "contrastRatio": 8.01,
+      "x": 454,
+      "y": 679,
+      "width": 20,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Only pay from work goes in",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "22.75px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 486,
+      "y": 677,
+      "width": 500,
+      "height": 23
+     },
+     {
+      "tag": "p",
+      "text": "Does a job offer a 401(k) match? Put in enough to ",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "22.75px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 437,
+      "y": 805,
+      "width": 566,
+      "height": 23
+     },
+     {
+      "tag": "h2",
+      "text": "Funds to choose from",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "30px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 906,
+      "width": 566,
+      "height": 30
+     },
+     {
+      "tag": "p",
+      "text": "Low-cost index funds. Pick one, or mix them.",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 437,
+      "y": 942,
+      "width": 566,
+      "height": 26
+     },
+     {
+      "tag": "li",
+      "text": "VTICoreVanguard Morningstar Total Stock Market ETF",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 984,
+      "width": 566,
+      "height": 107
+     },
+     {
+      "tag": "p",
+      "text": "VTICore",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 984,
+      "width": 497,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "VTI",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 984,
+      "width": 28,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "Core",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(234, 243, 231)",
+      "contrastRatio": 7.05,
+      "x": 473,
+      "y": 987,
+      "width": 50,
+      "height": 23
+     },
+     {
+      "tag": "p",
+      "text": "Vanguard Morningstar Total Stock Market ETF",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 437,
+      "y": 1014,
+      "width": 497,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "0.03%fee a year",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 946,
+      "y": 984,
+      "width": 57,
+      "height": 43
+     },
+     {
+      "tag": "span",
+      "text": "0.03%",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 946,
+      "y": 984,
+      "width": 57,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "fee a year",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "19.2px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 946,
+      "y": 1008,
+      "width": 57,
+      "height": 19
+     },
+     {
+      "tag": "button",
+      "text": "What is VTI?",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 429,
+      "y": 1037,
+      "width": 100,
+      "height": 40
+     },
+     {
+      "tag": "li",
+      "text": "FSKAXCoreFidelity Total Market Index Fund0.015%fee",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 1091,
+      "width": 566,
+      "height": 122
+     },
+     {
+      "tag": "p",
+      "text": "FSKAXCore",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 1106,
+      "width": 497,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "FSKAX",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 437,
+      "y": 1106,
+      "width": 60,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "Core",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "19.2px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(234, 243, 231)",
+      "contrastRatio": 7.05,
+      "x": 505,
+      "y": 1109,
+      "width": 50,
+      "height": 23
+     },
+     {
+      "tag": "p",
+      "text": "Fidelity Total Market Index Fund",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.25px",
+      "color": "rgb(58, 107, 62)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.35,
+      "x": 437,
+      "y": 1136,
+      "width": 497,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "0.015%fee a year",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 946,
+      "y": 1106,
+      "width": 57,
+      "height": 43
+     }
+    ],
+    "interactiveElements": [
+     {
+      "tag": "a",
+      "text": "Cense",
+      "width": 60,
+      "height": 28,
+      "x": 408,
+      "y": 30
+     },
+     {
+      "tag": "button",
+      "text": "What is VTI?",
+      "width": 100,
+      "height": 40,
+      "x": 429,
+      "y": 1037
+     },
+     {
+      "tag": "button",
+      "text": "What is FSKAX?",
+      "width": 123,
+      "height": 40,
+      "x": 429,
+      "y": 1160
+     },
+     {
+      "tag": "button",
+      "text": "What is VT?",
+      "width": 96,
+      "height": 40,
+      "x": 429,
+      "y": 1282
+     },
+     {
+      "tag": "button",
+      "text": "How to open your accountAbout 10 minutes, online.",
+      "width": 622,
+      "height": 82,
+      "x": 409,
+      "y": 2008
+     },
+     {
+      "tag": "button",
+      "text": "Start over",
+      "width": 624,
+      "height": 50,
+      "x": 408,
+      "y": 2123
+     },
+     {
+      "tag": "a",
+      "text": "Cense",
+      "width": 39,
+      "height": 16,
+      "x": 766,
+      "y": 2229
+     }
+    ],
+    "images": [],
+    "headings": [
+     {
+      "tag": "h1",
+      "text": "You look ready to invest.",
+      "fontSize": "40px",
+      "x": 437,
+      "y": 160,
+      "width": 270,
+      "height": 130
+     },
+     {
+      "tag": "h2",
+      "text": "Open a Roth IRA",
+      "fontSize": "24px",
+      "x": 437,
+      "y": 554,
+      "width": 566,
+      "height": 30
+     },
+     {
+      "tag": "h2",
+      "text": "Funds to choose from",
+      "fontSize": "24px",
+      "x": 437,
+      "y": 906,
+      "width": 566,
+      "height": 30
+     },
+     {
+      "tag": "h2",
+      "text": "How it could grow",
+      "fontSize": "24px",
+      "x": 437,
+      "y": 1519,
+      "width": 566,
+      "height": 30
+     },
+     {
+      "tag": "h2",
+      "text": "How to open your accountAbout 10 minutes, online.",
+      "fontSize": "16px",
+      "x": 409,
+      "y": 2008,
+      "width": 622,
+      "height": 82
+     }
+    ],
+    "overflowElements": [
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only",
+     "span.sr-only",
+     "caption.sr-only"
+    ],
+    "stickyElements": [],
+    "documentDimensions": {
+     "scrollHeight": 2288,
+     "clientHeight": 900,
+     "scrollWidth": 1440,
+     "clientWidth": 1440
+    }
+   }
+  }
+ },
+ "design": {
+  "report": {
+   "score": 85,
+   "grade": "B",
+   "buckets": {
+    "accessibility": {
+     "score": 22.8,
+     "max": 30,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "tap-target-comfort",
+       "message": "5 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum (1 via the inline exception).",
+       "count": 5,
+       "examples": [
+        {
+         "sig": "a.font-semibold.text-slate-900",
+         "tag": "a",
+         "w": 39,
+         "h": 16,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         },
+         "exception": "inline"
+        },
+        {
+         "sig": "a.rounded-md.text-accent-hover",
+         "tag": "a",
+         "w": 60,
+         "h": 28,
+         "sample": "Cense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 96,
+         "h": 40,
+         "sample": "What is VT?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 100,
+         "h": 40,
+         "sample": "What is VTI?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.-ml-2.mt-1",
+         "tag": "button",
+         "w": 123,
+         "h": 40,
+         "sample": "What is FSKAX?",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "scope": "element",
+       "required": "≥48×48px",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "wcagCriterion": "2.5.8"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "missing-landmarks",
+       "message": "Missing landmark(s): nav.",
+       "landmarks": [
+        "nav"
+       ],
+       "scope": "page",
+       "contributors": [
+        {
+         "selector": "nav, [role=\"navigation\"]",
+         "value": "no matching element"
+        }
+       ]
+      }
+     ]
+    },
+    "consistency": {
+     "score": 15.2,
+     "max": 20,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "small-body-text",
+       "message": "7 reading-copy text node(s) below 16px (or any text below 11px).",
+       "count": 7,
+       "examples": [
+        {
+         "sig": "p.font-bold",
+         "px": 14,
+         "sample": "Only pay from work goes in"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "Does a job offer a 401(k) match? Put in "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Morningstar Total Stock Market "
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Fidelity Total Market Index Fund"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Vanguard Total World Stock ETF"
+        },
+        {
+         "sig": "p.mt-2.text-xs",
+         "px": 13,
+         "sample": "Fees from each fund's fact sheet, Septem"
+        },
+        {
+         "sig": "p.mt-4.text-sm",
+         "px": 14,
+         "sample": "At 7% a year, close to what the S&P 500 "
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "required": "≥16px (≥11px absolute)",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "small-ui-labels",
+       "message": "24 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+       "count": 24,
+       "examples": [
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 13,
+         "sample": "On your device"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Your answer"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Steady pay"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "A month or more saved"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Only debt under 8%"
+        },
+        {
+         "sig": "p.mt-0.5.text-sm",
+         "px": 14,
+         "sample": "Retirement"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "severity": "warn",
+       "ruleId": "radius-off-scale",
+       "message": "2 border-radius value(s) off the 7-step scale (0/4/8/12/16/28/full).",
+       "values": [
+        6,
+        24
+       ],
+       "scope": "page",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "contributors": [
+        {
+         "selector": "section.rounded-3xl.border",
+         "value": "24px · 5 node(s)"
+        },
+        {
+         "selector": "a.rounded-md.text-accent-hover",
+         "value": "6px · 1 node(s)"
+        }
+       ]
+      }
+     ]
+    },
+    "motion": {
+     "score": 22,
+     "max": 25,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "duration-too-short",
+       "message": "1 animation/transition(s) under 50ms (non-instant but too fast to read).",
+       "examples": [
+        {
+         "selector": "*, ::after, ::before",
+         "sig": "*, ::after, ::before",
+         "ms": 0
+        }
+       ],
+       "scope": "element",
+       "required": "50–1000ms"
+      }
+     ]
+    },
+    "performance": {
+     "score": 25,
+     "max": 25,
+     "findings": []
+    }
+   },
+   "sections": {
+    "color": {
+     "sampled": 74,
+     "skippedUnknownBg": 0,
+     "skippedUnparseable": 0,
+     "skippedRenderContext": 0,
+     "distinctTextColors": 4,
+     "failureCount": 0,
+     "failures": []
+    },
+    "typography": {
+     "distinctFamilies": 2,
+     "families": [
+      "__Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif",
+      "__Bricolage_Grotesque_2e8889, __Bricolage_Grotesque_Fallback_2e8889, __Instrument_Sans_3f4a4b, __Instrument_Sans_Fallback_3f4a4b, system-ui, sans-serif"
+     ],
+     "distinctSizes": 7,
+     "sizes": [
+      13,
+      14,
+      16,
+      18,
+      20,
+      24,
+      40
+     ],
+     "distinctLineHeights": 9,
+     "smallBodyCount": 7,
+     "smallBody": [
+      {
+       "sig": "p.font-bold",
+       "px": 14,
+       "sample": "Only pay from work goes in"
+      },
+      {
+       "sig": "p.mt-4.text-sm",
+       "px": 14,
+       "sample": "Does a job offer a 401(k) match? Put in "
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Vanguard Morningstar Total Stock Market "
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Fidelity Total Market Index Fund"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Vanguard Total World Stock ETF"
+      },
+      {
+       "sig": "p.mt-2.text-xs",
+       "px": 13,
+       "sample": "Fees from each fund's fact sheet, Septem"
+      },
+      {
+       "sig": "p.mt-4.text-sm",
+       "px": 14,
+       "sample": "At 7% a year, close to what the S&P 500 "
+      }
+     ],
+     "smallLabelCount": 24,
+     "smallLabels": [
+      {
+       "sig": "span.inline-flex.items-center",
+       "px": 13,
+       "sample": "On your device"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Your answer"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Steady pay"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "A month or more saved"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Only debt under 8%"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Retirement"
+      },
+      {
+       "sig": "p.mt-0.5.text-sm",
+       "px": 14,
+       "sample": "Would wait out a drop"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Your next step"
+      },
+      {
+       "sig": "div.mt-1",
+       "px": 14,
+       "sample": "A Roth IRA takes only money you earn fro"
+      },
+      {
+       "sig": "span.rounded-full.px-2.5",
+       "px": 13,
+       "sample": "Core"
+      },
+      {
+       "sig": "span.block.text-xs",
+       "px": 13,
+       "sample": "fee a year"
+      },
+      {
+       "sig": "button.-ml-2.mt-1",
+       "px": 14,
+       "sample": "What is VTI?"
+      }
+     ],
+     "tightLeadingCount": 0,
+     "tightLeading": [],
+     "displayLeadingRelaxed": 0,
+     "formattedBlocksSkipped": 0,
+     "distinctHeadingSizes": 3,
+     "headingCount": 5,
+     "skippedRenderContext": 0
+    },
+    "shape": {
+     "distinctRadii": 4,
+     "radii": [
+      6,
+      16,
+      24,
+      9999
+     ],
+     "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      28,
+      9999
+     ],
+     "offScaleValues": [
+      6,
+      24
+     ]
+    },
+    "elevation": {
+     "distinctShadows": 1,
+     "levels": 6,
+     "recipes": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(39, 91, 45, 0.04) 0px 1px 0px 0px, rgba(39, 91, 45, 0.18) 0px 8px 24px -12px"
+     ]
+    },
+    "states": {
+     "interactiveCount": 8,
+     "hasHoverRules": true,
+     "hasFocusVisibleRules": true,
+     "stylesheetsReachable": true,
+     "sheetsSkipped": 0,
+     "noVisibleFocusCount": 0,
+     "noVisibleFocusExamples": []
+    },
+    "motion": {
+     "hasReducedMotionQuery": true,
+     "reducedMotionStatus": "present",
+     "activeAnimations": 10,
+     "tooShort": [
+      {
+       "selector": "*, ::after, ::before",
+       "sig": "*, ::after, ::before",
+       "ms": 0
+      }
+     ],
+     "tooLong": [],
+     "linearMovement": [],
+     "easeInEntrance": [],
+     "layoutAnimated": [],
+     "infiniteLoops": [],
+     "sheetsSkipped": 0
+    },
+    "a11yLayout": {
+     "smallTargetCount": 5,
+     "smallTargets": [
+      {
+       "sig": "a.font-semibold.text-slate-900",
+       "tag": "a",
+       "w": 39,
+       "h": 16,
+       "sample": "Cense",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "exception": "inline"
+      },
+      {
+       "sig": "a.rounded-md.text-accent-hover",
+       "tag": "a",
+       "w": 60,
+       "h": 28,
+       "sample": "Cense",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "sig": "button.-ml-2.mt-1",
+       "tag": "button",
+       "w": 96,
+       "h": 40,
+       "sample": "What is VT?",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "sig": "button.-ml-2.mt-1",
+       "tag": "button",
+       "w": 100,
+       "h": 40,
+       "sample": "What is VTI?",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "sig": "button.-ml-2.mt-1",
+       "tag": "button",
+       "w": 123,
+       "h": 40,
+       "sample": "What is FSKAX?",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      }
+     ],
+     "undersizedCount": 0,
+     "belowComfortCount": 5,
+     "spacingExceptionChecked": true,
+     "spacingExceptionSkipReason": null,
+     "targetCount": 8,
+     "missingAltCount": 0,
+     "missingAlt": [],
+     "headingJumpCount": 0,
+     "headingJumps": [],
+     "h1Count": 1,
+     "missingLandmarks": [
+      "nav"
+     ]
+    }
+   },
+   "notAutoDetectable": [
+    "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+    "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+    "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+    "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+    "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+    "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+    "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+    "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+    "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+   ],
+   "meta": {
+    "url": "http://localhost:3201/results",
+    "title": "Your answer | Invest Ready by Cense",
+    "timestamp": "2026-11-15T18:35:05.499Z",
+    "contentFingerprint": "1i2hiw8",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false,
+     "w": 1440,
+     "h": 900
+    },
+    "siteType": "saas",
+    "elementsScanned": 129,
+    "elementsTotal": 210,
+    "sampleCap": 1500,
+    "sampleCapped": false,
+    "sheetsSkipped": 0,
+    "openShadowRoots": 1,
+    "notes": [
+     "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+    ],
+    "durationMs": 12.2
+   }
+  },
+  "probes": {
+   "animationsAtLoad": {
+    "count": 10,
+    "running": 0,
+    "anims": [
+     {
+      "target": "section.rounded-3xl.border",
+      "name": "rise",
+      "dur": 240,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     }
+    ]
+   },
+   "animationsAfterScroll": {
+    "count": 10,
+    "running": 0,
+    "anims": [
+     {
+      "target": "section.rounded-3xl.border",
+      "name": "rise",
+      "dur": 240,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rail-fill.block",
+      "name": "rail-fill",
+      "dur": 500,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     },
+     {
+      "target": "span.rung-mark.relative",
+      "name": "rung-on",
+      "dur": 280,
+      "infinite": false,
+      "state": "finished"
+     }
+    ]
+   },
+   "hoverProbe": [
+    {
+     "label": "Cense",
+     "selector": "a.rounded-md",
+     "changes": false
+    },
+    {
+     "label": "What is VTI?",
+     "selector": "button.-ml-2",
+     "changes": false
+    },
+    {
+     "label": "What is FSKAX?",
+     "selector": "button.-ml-2",
+     "changes": false
+    },
+    {
+     "label": "What is VT?",
+     "selector": "button.-ml-2",
+     "changes": false
+    },
+    {
+     "label": "How to open your accountAbout ",
+     "selector": "button.flex",
+     "changes": false
+    }
+   ],
+   "reducedMotion": {
+    "emulated": true,
+    "snapshot": {
+     "count": 10,
+     "running": 0,
+     "anims": [
+      {
+       "target": "section.rounded-3xl.border",
+       "name": "rise",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rail-fill.block",
+       "name": "rail-fill",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rung-mark.relative",
+       "name": "rung-on",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rail-fill.block",
+       "name": "rail-fill",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rung-mark.relative",
+       "name": "rung-on",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rail-fill.block",
+       "name": "rail-fill",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rung-mark.relative",
+       "name": "rung-on",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rail-fill.block",
+       "name": "rail-fill",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rung-mark.relative",
+       "name": "rung-on",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      },
+      {
+       "target": "span.rung-mark.relative",
+       "name": "rung-on",
+       "dur": 0,
+       "infinite": false,
+       "state": "finished"
+      }
+     ]
+    },
+    "ungatedCount": 0
+   }
+  },
+  "durationMs": 2647
+ },
+ "extras": [
+  {
+   "id": "7d1b6634-98ba-4879-bc13-f1c8fcd2bfc7",
+   "severity": "P3",
+   "category": "Accessibility",
+   "device": "desktop",
+   "title": "Primary controls show no hover feedback",
+   "description": "5 of 5 sampled primary controls showed no visual change on hover (Cense, What is VTI?, What is FSKAX?).",
+   "recommendation": "Add :hover feedback (background, color, or elevation change) to interactive elements.",
+   "source": "engine",
+   "scope": "page",
+   "renderContext": "dom",
+   "observedOn": 1,
+   "sampleSize": 1,
+   "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 1,
+    "isMobile": false
+   },
+   "themeId": "eng:hover-no-feedback",
+   "evidence": {
+    "measured": "5/5 unresponsive",
+    "contributors": [
+     {
+      "selector": "a.rounded-md",
+      "value": "Cense"
+     },
+     {
+      "selector": "button.-ml-2",
+      "value": "What is VTI?"
+     },
+     {
+      "selector": "button.-ml-2",
+      "value": "What is FSKAX?"
+     },
+     {
+      "selector": "button.-ml-2",
+      "value": "What is VT?"
+     },
+     {
+      "selector": "button.flex",
+      "value": "How to open your accountAbout "
+     }
+    ]
+   }
+  }
+ ]
+}
