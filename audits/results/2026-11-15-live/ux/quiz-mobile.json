@@ -1,0 +1,1028 @@
+{
+ "state": "quiz",
+ "formFactor": "mobile",
+ "pageContext": {
+  "indexable": true,
+  "siteType": "saas"
+ },
+ "report": {
+  "uxScore": null,
+  "typographyScore": null,
+  "contrastScore": null,
+  "layoutScore": null,
+  "responsiveScore": null,
+  "navigationScore": null,
+  "contentScore": null,
+  "totalIssues": 6,
+  "p1Count": 2,
+  "p2Count": 4,
+  "p3Count": 0,
+  "findings": [
+   {
+    "id": "b8435338-cd04-44c4-bb20-84cf80ab148e",
+    "severity": "P1",
+    "category": "Color/Contrast",
+    "device": "mobile",
+    "title": "4 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "description": "4 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large). Examples: span.text-slate-300 \"/\" (1.44:1); span.text-slate-500.text-sm \"Invest Ready\" (4.38:1); span.text-xs.font-medium \"Step 1 of 5\" (2.49:1).",
+    "recommendation": "Darken the text or lighten the background until the ratio reaches 4.5:1 (3:1 for large text).",
+    "source": "engine",
+    "themeId": "eng:contrast-fail",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "1.4.3",
+    "evidence": {
+     "measured": "1.44:1",
+     "required": "≥4.5:1 (3:1 large)",
+     "selector": "span.text-slate-300",
+     "sample": "/",
+     "count": 4
+    }
+   },
+   {
+    "id": "4d569aab-bcfa-471a-a916-d2dc4faf08bc",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "mobile",
+    "title": "1 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "description": "1 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum. Examples: a.flex.items-center \"CCense\" (85×28px). Measured at the 375×812px mobile viewport.",
+    "recommendation": "Enlarge the control or add padding so its hit area is at least 48×48px.",
+    "source": "engine",
+    "themeId": "eng:tap-target-comfort",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "2.5.8",
+    "evidence": {
+     "measured": "85×28px",
+     "required": "≥48×48px",
+     "selector": "a.flex.items-center",
+     "sample": "CCense",
+     "count": 1
+    }
+   },
+   {
+    "id": "845baed0-06e0-44cb-a4f4-7e3cf5ce3384",
+    "severity": "P2",
+    "category": "Visual Hierarchy",
+    "device": "mobile",
+    "title": "No <h1> found",
+    "description": "No <h1> found — every page should have exactly one top-level heading.",
+    "recommendation": "Keep heading levels sequential and use exactly one h1 per page.",
+    "source": "engine",
+    "themeId": "eng:no-h1",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "evidence": {
+     "measured": "0 matches for h1",
+     "contributors": [
+      {
+       "selector": "h1",
+       "value": "no matching element"
+      }
+     ]
+    }
+   },
+   {
+    "id": "6e324a39-dbe7-4ebf-9d57-bed2dc6986ec",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "mobile",
+    "title": "Missing landmark(s): main, nav, contentinfo.",
+    "description": "Missing landmark(s): main, nav, contentinfo.",
+    "recommendation": "Add the missing landmark elements (main, nav, header, footer) so assistive tech can navigate the page.",
+    "source": "engine",
+    "themeId": "eng:missing-landmarks",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "evidence": {
+     "measured": "0 matches for main, [role=\"main\"]",
+     "contributors": [
+      {
+       "selector": "main, [role=\"main\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "nav, [role=\"navigation\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "footer, [role=\"contentinfo\"]",
+       "value": "no matching element"
+      }
+     ]
+    }
+   },
+   {
+    "id": "a5e04ef1-b018-4bd4-b6c8-edbf61add595",
+    "severity": "P2",
+    "category": "Typography",
+    "device": "mobile",
+    "title": "4 reading-copy text node(s) below 16px (or any text below 11px).",
+    "description": "4 reading-copy text node(s) below 16px (or any text below 11px). Examples: p.text-sm.text-slate-500 \"Even part-time work or work-study counts\" (14px); p.text-xs.text-slate-500 \"Job, stipend, scholarship, or regular al\" (12px); p.text-xs.text-slate-500 \"Gig work, freelance, part-time, or seaso\" (12px). Measured at the 375×812px mobile viewport.",
+    "recommendation": "Raise reading copy to at least 16px (12px absolute minimum for any text).",
+    "source": "engine",
+    "themeId": "eng:small-body-text",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "evidence": {
+     "measured": "12px",
+     "required": "≥16px (≥11px absolute)",
+     "selector": "p.text-xs.text-slate-500",
+     "sample": "Job, stipend, scholarship, or regular al",
+     "count": 4
+    }
+   },
+   {
+    "id": "4e81280a-29c9-425e-8243-c81a0be12063",
+    "severity": "P1",
+    "category": "Motion",
+    "device": "mobile",
+    "title": "No @media (prefers-reduced-motion: reduce) rule found",
+    "description": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+    "recommendation": "Add an @media (prefers-reduced-motion: reduce) block that disables non-essential animation.",
+    "source": "engine",
+    "themeId": "eng:reduced-motion-missing",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "2.3.3",
+    "evidence": {
+     "measured": "0 matches for @media (prefers-reduced-motion: reduce)",
+     "contributors": [
+      {
+       "selector": "@media (prefers-reduced-motion: reduce)",
+       "value": "no rule found"
+      }
+     ]
+    }
+   }
+  ],
+  "pageContext": {
+   "indexable": true,
+   "siteType": "saas"
+  },
+  "scanData": {
+   "domContext": {
+    "textElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 16,
+      "y": 14,
+      "width": 85,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "C",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "16px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 21,
+      "x": 26,
+      "y": 20,
+      "width": 9,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Cense",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 52,
+      "y": 16,
+      "width": 49,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "/",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(191, 220, 184)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 14.14,
+      "x": 109,
+      "y": 16,
+      "width": 6,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "Invest Ready",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 123,
+      "y": 18,
+      "width": 85,
+      "height": 20
+     },
+     {
+      "tag": "span",
+      "text": "Step 1 of 5",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 16,
+      "y": 89,
+      "width": 60,
+      "height": 16
+     },
+     {
+      "tag": "p",
+      "text": "Income",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 16,
+      "y": 151,
+      "width": 343,
+      "height": 16
+     },
+     {
+      "tag": "h2",
+      "text": "Do you have a regular source of income right now?",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "33px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 16,
+      "y": 179,
+      "width": 343,
+      "height": 66
+     },
+     {
+      "tag": "p",
+      "text": "Even part-time work or work-study counts.",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 16,
+      "y": 249,
+      "width": 343,
+      "height": 20
+     },
+     {
+      "tag": "button",
+      "text": "Yes, it's consistentJob, stipend, scholarship, or ",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 16,
+      "y": 293,
+      "width": 343,
+      "height": 71
+     },
+     {
+      "tag": "p",
+      "text": "Yes, it's consistent",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 34,
+      "y": 309,
+      "width": 307,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Job, stipend, scholarship, or regular allowance",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 34,
+      "y": 331,
+      "width": 307,
+      "height": 17
+     },
+     {
+      "tag": "button",
+      "text": "Yes, but it variesGig work, freelance, part-time, ",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 16,
+      "y": 376,
+      "width": 343,
+      "height": 71
+     },
+     {
+      "tag": "p",
+      "text": "Yes, but it varies",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 34,
+      "y": 392,
+      "width": 307,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Gig work, freelance, part-time, or seasonal",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 34,
+      "y": 414,
+      "width": 307,
+      "height": 17
+     },
+     {
+      "tag": "button",
+      "text": "Not right nowBetween jobs or not currently earning",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "contrastRatio": 8.01,
+      "x": 16,
+      "y": 458,
+      "width": 343,
+      "height": 71
+     },
+     {
+      "tag": "p",
+      "text": "Not right now",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 34,
+      "y": 474,
+      "width": 307,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Between jobs or not currently earning",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 34,
+      "y": 496,
+      "width": 307,
+      "height": 17
+     }
+    ],
+    "interactiveElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "width": 85,
+      "height": 28,
+      "x": 16,
+      "y": 14
+     },
+     {
+      "tag": "button",
+      "text": "Yes, it's consistentJob, stipend, scholarship, or ",
+      "width": 343,
+      "height": 71,
+      "x": 16,
+      "y": 293
+     },
+     {
+      "tag": "button",
+      "text": "Yes, but it variesGig work, freelance, part-time, ",
+      "width": 343,
+      "height": 71,
+      "x": 16,
+      "y": 376
+     },
+     {
+      "tag": "button",
+      "text": "Not right nowBetween jobs or not currently earning",
+      "width": 343,
+      "height": 71,
+      "x": 16,
+      "y": 458
+     }
+    ],
+    "images": [],
+    "headings": [
+     {
+      "tag": "h2",
+      "text": "Do you have a regular source of income right now?",
+      "fontSize": "24px",
+      "x": 16,
+      "y": 179,
+      "width": 343,
+      "height": 66
+     }
+    ],
+    "overflowElements": [],
+    "stickyElements": [
+     "header.sticky (sticky)"
+    ],
+    "documentDimensions": {
+     "scrollHeight": 813,
+     "clientHeight": 812,
+     "scrollWidth": 375,
+     "clientWidth": 375
+    }
+   }
+  }
+ },
+ "design": {
+  "report": {
+   "score": 68.1,
+   "grade": "D",
+   "buckets": {
+    "accessibility": {
+     "score": 9,
+     "max": 30,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "contrast-fail",
+       "message": "4 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+       "count": 4,
+       "examples": [
+        {
+         "sig": "span.text-slate-300",
+         "ratio": 1.44,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(191, 220, 184)",
+         "sample": "/"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "ratio": 4.38,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "span.text-xs.font-medium",
+         "ratio": 2.49,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Step 1 of 5"
+        },
+        {
+         "sig": "p.text-sm.text-slate-500",
+         "ratio": 4.38,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Even part-time work or work-study counts"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "wcagCriterion": "1.4.3",
+       "required": "≥4.5:1 (3:1 large)"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "tap-target-comfort",
+       "message": "1 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum.",
+       "count": 1,
+       "examples": [
+        {
+         "sig": "a.flex.items-center",
+         "tag": "a",
+         "w": 85,
+         "h": 28,
+         "sample": "CCense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "scope": "element",
+       "required": "≥48×48px",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       },
+       "wcagCriterion": "2.5.8"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "no-h1",
+       "message": "No <h1> found — every page should have exactly one top-level heading.",
+       "scope": "page",
+       "contributors": [
+        {
+         "selector": "h1",
+         "value": "no matching element"
+        }
+       ]
+      },
+      {
+       "severity": "warn",
+       "ruleId": "missing-landmarks",
+       "message": "Missing landmark(s): main, nav, contentinfo.",
+       "landmarks": [
+        "main",
+        "nav",
+        "contentinfo"
+       ],
+       "scope": "page",
+       "contributors": [
+        {
+         "selector": "main, [role=\"main\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "nav, [role=\"navigation\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "footer, [role=\"contentinfo\"]",
+         "value": "no matching element"
+        }
+       ]
+      }
+     ]
+    },
+    "consistency": {
+     "score": 17.6,
+     "max": 20,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "small-body-text",
+       "message": "4 reading-copy text node(s) below 16px (or any text below 11px).",
+       "count": 4,
+       "examples": [
+        {
+         "sig": "p.text-sm.text-slate-500",
+         "px": 14,
+         "sample": "Even part-time work or work-study counts"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Job, stipend, scholarship, or regular al"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Gig work, freelance, part-time, or seaso"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Between jobs or not currently earning"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "required": "≥16px (≥11px absolute)",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "small-ui-labels",
+       "message": "7 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+       "count": 7,
+       "examples": [
+        {
+         "sig": "span.text-white.text-xs",
+         "px": 12,
+         "sample": "C"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "px": 14,
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "span.text-xs.font-medium",
+         "px": 12,
+         "sample": "Step 1 of 5"
+        },
+        {
+         "sig": "p.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Income"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Yes, it's consistent"
+        },
+        {
+         "sig": "p.text-sm.font-semibold",
+         "px": 14,
+         "sample": "Yes, but it varies"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      }
+     ]
+    },
+    "motion": {
+     "score": 16.5,
+     "max": 25,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "reduced-motion-missing",
+       "message": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+       "scope": "page",
+       "wcagCriterion": "2.3.3",
+       "contributors": [
+        {
+         "selector": "@media (prefers-reduced-motion: reduce)",
+         "value": "no rule found"
+        }
+       ]
+      }
+     ]
+    },
+    "performance": {
+     "score": 25,
+     "max": 25,
+     "findings": []
+    }
+   },
+   "sections": {
+    "color": {
+     "sampled": 14,
+     "skippedUnknownBg": 0,
+     "skippedUnparseable": 0,
+     "skippedRenderContext": 0,
+     "distinctTextColors": 5,
+     "failureCount": 4,
+     "failures": [
+      {
+       "sig": "span.text-slate-300",
+       "ratio": 1.44,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(191, 220, 184)",
+       "sample": "/"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "span.text-xs.font-medium",
+       "ratio": 2.49,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Step 1 of 5"
+      },
+      {
+       "sig": "p.text-sm.text-slate-500",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Even part-time work or work-study counts"
+      }
+     ]
+    },
+    "typography": {
+     "distinctFamilies": 1,
+     "families": [
+      "__Inter_f367f3, __Inter_Fallback_f367f3"
+     ],
+     "distinctSizes": 4,
+     "sizes": [
+      12,
+      14,
+      16,
+      24
+     ],
+     "distinctLineHeights": 4,
+     "smallBodyCount": 4,
+     "smallBody": [
+      {
+       "sig": "p.text-sm.text-slate-500",
+       "px": 14,
+       "sample": "Even part-time work or work-study counts"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Job, stipend, scholarship, or regular al"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Gig work, freelance, part-time, or seaso"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Between jobs or not currently earning"
+      }
+     ],
+     "smallLabelCount": 7,
+     "smallLabels": [
+      {
+       "sig": "span.text-white.text-xs",
+       "px": 12,
+       "sample": "C"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "px": 14,
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "span.text-xs.font-medium",
+       "px": 12,
+       "sample": "Step 1 of 5"
+      },
+      {
+       "sig": "p.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Income"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Yes, it's consistent"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Yes, but it varies"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Not right now"
+      }
+     ],
+     "tightLeadingCount": 0,
+     "tightLeading": [],
+     "displayLeadingRelaxed": 0,
+     "formattedBlocksSkipped": 0,
+     "distinctHeadingSizes": 1,
+     "headingCount": 1,
+     "skippedRenderContext": 0
+    },
+    "shape": {
+     "distinctRadii": 3,
+     "radii": [
+      8,
+      12,
+      9999
+     ],
+     "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      28,
+      9999
+     ],
+     "offScaleValues": []
+    },
+    "elevation": {
+     "distinctShadows": 0,
+     "levels": 6,
+     "recipes": []
+    },
+    "states": {
+     "interactiveCount": 4,
+     "hasHoverRules": true,
+     "hasFocusVisibleRules": true,
+     "stylesheetsReachable": true,
+     "sheetsSkipped": 0,
+     "noVisibleFocusCount": 0,
+     "noVisibleFocusExamples": []
+    },
+    "motion": {
+     "hasReducedMotionQuery": false,
+     "reducedMotionStatus": "missing",
+     "activeAnimations": 0,
+     "tooShort": [],
+     "tooLong": [],
+     "linearMovement": [],
+     "easeInEntrance": [],
+     "layoutAnimated": [],
+     "infiniteLoops": [],
+     "sheetsSkipped": 0
+    },
+    "a11yLayout": {
+     "smallTargetCount": 1,
+     "smallTargets": [
+      {
+       "sig": "a.flex.items-center",
+       "tag": "a",
+       "w": 85,
+       "h": 28,
+       "sample": "CCense",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      }
+     ],
+     "undersizedCount": 0,
+     "belowComfortCount": 1,
+     "spacingExceptionChecked": true,
+     "spacingExceptionSkipReason": null,
+     "targetCount": 4,
+     "missingAltCount": 0,
+     "missingAlt": [],
+     "headingJumpCount": 0,
+     "headingJumps": [],
+     "h1Count": 0,
+     "missingLandmarks": [
+      "main",
+      "nav",
+      "contentinfo"
+     ]
+    }
+   },
+   "notAutoDetectable": [
+    "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+    "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+    "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+    "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+    "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+    "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+    "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+    "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+    "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+   ],
+   "meta": {
+    "url": "https://invest-ready.vercel.app/",
+    "title": "Invest Ready by Cense — Am I ready to start investing?",
+    "timestamp": "2026-11-15T17:59:44.431Z",
+    "contentFingerprint": "16jxixw",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true,
+     "w": 375,
+     "h": 812
+    },
+    "siteType": "saas",
+    "elementsScanned": 40,
+    "elementsTotal": 47,
+    "sampleCap": 1500,
+    "sampleCapped": false,
+    "sheetsSkipped": 0,
+    "openShadowRoots": 1,
+    "notes": [
+     "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+    ],
+    "durationMs": 4.8
+   }
+  },
+  "probes": {
+   "animationsAtLoad": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   },
+   "animationsAfterScroll": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   }
+  },
+  "durationMs": 2230
+ },
+ "extras": []
+}

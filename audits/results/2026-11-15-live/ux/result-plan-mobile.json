@@ -1,0 +1,1840 @@
+{
+ "state": "result-plan",
+ "formFactor": "mobile",
+ "pageContext": {
+  "indexable": true,
+  "siteType": "saas"
+ },
+ "report": {
+  "uxScore": null,
+  "typographyScore": null,
+  "contrastScore": null,
+  "layoutScore": null,
+  "responsiveScore": null,
+  "navigationScore": null,
+  "contentScore": null,
+  "totalIssues": 5,
+  "p1Count": 2,
+  "p2Count": 3,
+  "p3Count": 0,
+  "findings": [
+   {
+    "id": "5bbe9af0-6059-44aa-9bfd-106749368eec",
+    "severity": "P1",
+    "category": "Color/Contrast",
+    "device": "mobile",
+    "title": "10 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "description": "10 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large). Examples: span.text-slate-300 \"/\" (1.44:1); span.text-slate-500.text-sm \"Invest Ready\" (4.38:1); p.text-xs.text-slate-400 \"Fee: 0.03%/yr\" (2.57:1).",
+    "recommendation": "Darken the text or lighten the background until the ratio reaches 4.5:1 (3:1 for large text).",
+    "source": "engine",
+    "themeId": "eng:contrast-fail",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "1.4.3",
+    "evidence": {
+     "measured": "1.44:1",
+     "required": "≥4.5:1 (3:1 large)",
+     "selector": "span.text-slate-300",
+     "sample": "/",
+     "count": 10
+    }
+   },
+   {
+    "id": "7ee3e54b-efc9-405b-b9ff-a205c6e907ab",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "mobile",
+    "title": "6 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "description": "6 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum. Examples: button.group.w-9 \"i\" (36×36px); button.group.w-9 \"i\" (36×36px); button.group.w-9 \"i\" (36×36px). Measured at the 375×812px mobile viewport.",
+    "recommendation": "Enlarge the control or add padding so its hit area is at least 48×48px.",
+    "source": "engine",
+    "themeId": "eng:tap-target-comfort",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "2.5.8",
+    "evidence": {
+     "measured": "36×36px",
+     "required": "≥48×48px",
+     "selector": "button.group.w-9",
+     "sample": "i",
+     "count": 6
+    }
+   },
+   {
+    "id": "b5754768-7f02-434f-af68-e85033de93be",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "mobile",
+    "title": "Missing landmark(s): main, nav, contentinfo.",
+    "description": "Missing landmark(s): main, nav, contentinfo.",
+    "recommendation": "Add the missing landmark elements (main, nav, header, footer) so assistive tech can navigate the page.",
+    "source": "engine",
+    "themeId": "eng:missing-landmarks",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "evidence": {
+     "measured": "0 matches for main, [role=\"main\"]",
+     "contributors": [
+      {
+       "selector": "main, [role=\"main\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "nav, [role=\"navigation\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "footer, [role=\"contentinfo\"]",
+       "value": "no matching element"
+      }
+     ]
+    }
+   },
+   {
+    "id": "eb0132b3-502d-4322-b8e9-3d4d7ed8af9a",
+    "severity": "P2",
+    "category": "Typography",
+    "device": "mobile",
+    "title": "18 reading-copy text node(s) below 16px (or any text below 11px).",
+    "description": "18 reading-copy text node(s) below 16px (or any text below 11px). Examples: p.text-teal-100.text-sm \"You've got income, a cushion, and no hig\" (14px); p.text-sm.text-slate-600 \"A Roth IRA is ideal for retirement savin\" (14px); p.text-sm.text-slate-500 \"These are well-known index funds that co\" (14px). Measured at the 375×812px mobile viewport.",
+    "recommendation": "Raise reading copy to at least 16px (12px absolute minimum for any text).",
+    "source": "engine",
+    "themeId": "eng:small-body-text",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "evidence": {
+     "measured": "10px",
+     "required": "≥16px (≥11px absolute)",
+     "selector": "span.inline-flex.items-center",
+     "sample": "i",
+     "count": 18
+    }
+   },
+   {
+    "id": "50023b12-d2dc-4bbf-9ae9-65c85bed90e5",
+    "severity": "P1",
+    "category": "Motion",
+    "device": "mobile",
+    "title": "No @media (prefers-reduced-motion: reduce) rule found",
+    "description": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+    "recommendation": "Add an @media (prefers-reduced-motion: reduce) block that disables non-essential animation.",
+    "source": "engine",
+    "themeId": "eng:reduced-motion-missing",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true
+    },
+    "wcagCriterion": "2.3.3",
+    "evidence": {
+     "measured": "0 matches for @media (prefers-reduced-motion: reduce)",
+     "contributors": [
+      {
+       "selector": "@media (prefers-reduced-motion: reduce)",
+       "value": "no rule found"
+      }
+     ]
+    }
+   }
+  ],
+  "pageContext": {
+   "indexable": true,
+   "siteType": "saas"
+  },
+  "scanData": {
+   "domContext": {
+    "textElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 16,
+      "y": 14,
+      "width": 85,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "C",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "16px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 21,
+      "x": 26,
+      "y": 20,
+      "width": 9,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Cense",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 52,
+      "y": 16,
+      "width": 49,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "/",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(191, 220, 184)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 14.14,
+      "x": 109,
+      "y": 16,
+      "width": 6,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "Invest Ready",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 123,
+      "y": 18,
+      "width": 85,
+      "height": 20
+     },
+     {
+      "tag": "span",
+      "text": "Your result",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(191, 220, 184)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 14.14,
+      "x": 40,
+      "y": 121,
+      "width": 295,
+      "height": 16
+     },
+     {
+      "tag": "h1",
+      "text": "You're ready to start investing.",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "32px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 21,
+      "x": 40,
+      "y": 145,
+      "width": 295,
+      "height": 64
+     },
+     {
+      "tag": "p",
+      "text": "You've got income, a cushion, and no high-interest",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "22.75px",
+      "color": "rgb(231, 240, 228)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 17.98,
+      "x": 40,
+      "y": 213,
+      "width": 295,
+      "height": 46
+     },
+     {
+      "tag": "p",
+      "text": "Recommended account",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 37,
+      "y": 324,
+      "width": 301,
+      "height": 16
+     },
+     {
+      "tag": "h2",
+      "text": "Roth IRA",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 37,
+      "y": 344,
+      "width": 301,
+      "height": 28
+     },
+     {
+      "tag": "p",
+      "text": "A Roth IRA is ideal for retirement savings when yo",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "22.75px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 37,
+      "y": 380,
+      "width": 301,
+      "height": 137
+     },
+     {
+      "tag": "p",
+      "text": "Fund options",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 37,
+      "y": 578,
+      "width": 301,
+      "height": 16
+     },
+     {
+      "tag": "p",
+      "text": "These are well-known index funds that could fit yo",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 37,
+      "y": 598,
+      "width": 301,
+      "height": 60
+     },
+     {
+      "tag": "span",
+      "text": "i",
+      "fontSize": "10px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgb(220, 231, 216)",
+      "contrastRatio": 4.54,
+      "x": 62,
+      "y": 641,
+      "width": 16,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "VTI",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 54,
+      "y": 689,
+      "width": 25,
+      "height": 20
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 77,
+      "y": 681,
+      "width": 36,
+      "height": 36
+     },
+     {
+      "tag": "span",
+      "text": "i",
+      "fontSize": "10px",
+      "fontWeight": "700",
+      "lineHeight": "15px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgb(220, 231, 216)",
+      "contrastRatio": 4.54,
+      "x": 87,
+      "y": 691,
+      "width": 16,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Core holding",
+      "fontSize": "10px",
+      "fontWeight": "600",
+      "lineHeight": "15px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(39, 91, 45, 0.1)",
+      "contrastRatio": 1,
+      "x": 111,
+      "y": 690,
+      "width": 78,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "Vanguard Total Stock Market ETF",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 54,
+      "y": 711,
+      "width": 267,
+      "height": 17
+     },
+     {
+      "tag": "p",
+      "text": "Fee: 0.03%/yr",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 54,
+      "y": 730,
+      "width": 267,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "FSKAX",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 54,
+      "y": 786,
+      "width": 42,
+      "height": 20
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 94,
+      "y": 778,
+      "width": 36,
+      "height": 36
+     },
+     {
+      "tag": "span",
+      "text": "i",
+      "fontSize": "10px",
+      "fontWeight": "700",
+      "lineHeight": "15px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgb(220, 231, 216)",
+      "contrastRatio": 4.54,
+      "x": 104,
+      "y": 788,
+      "width": 16,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Core holding",
+      "fontSize": "10px",
+      "fontWeight": "600",
+      "lineHeight": "15px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(39, 91, 45, 0.1)",
+      "contrastRatio": 1,
+      "x": 128,
+      "y": 786,
+      "width": 78,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "Fidelity Total Market Index Fund",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 54,
+      "y": 808,
+      "width": 267,
+      "height": 17
+     },
+     {
+      "tag": "p",
+      "text": "Fee: 0.015%/yr",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 54,
+      "y": 826,
+      "width": 267,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "VT",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 54,
+      "y": 882,
+      "width": 17,
+      "height": 20
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 69,
+      "y": 874,
+      "width": 36,
+      "height": 36
+     },
+     {
+      "tag": "span",
+      "text": "i",
+      "fontSize": "10px",
+      "fontWeight": "700",
+      "lineHeight": "15px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgb(220, 231, 216)",
+      "contrastRatio": 4.54,
+      "x": 79,
+      "y": 884,
+      "width": 16,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Core holding",
+      "fontSize": "10px",
+      "fontWeight": "600",
+      "lineHeight": "15px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(39, 91, 45, 0.1)",
+      "contrastRatio": 1,
+      "x": 103,
+      "y": 883,
+      "width": 78,
+      "height": 19
+     },
+     {
+      "tag": "p",
+      "text": "Vanguard Total World Stock ETF",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16.5px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 54,
+      "y": 904,
+      "width": 267,
+      "height": 17
+     },
+     {
+      "tag": "p",
+      "text": "Fee: 0.07%/yr",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 54,
+      "y": 923,
+      "width": 267,
+      "height": 16
+     },
+     {
+      "tag": "p",
+      "text": "Potential mix: For retirement decades away, broad ",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "19.5px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 53,
+      "y": 982,
+      "width": 269,
+      "height": 78
+     },
+     {
+      "tag": "span",
+      "text": "Potential mix:",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "19.5px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 53,
+      "y": 984,
+      "width": 82,
+      "height": 15
+     },
+     {
+      "tag": "h3",
+      "text": "How your money grows",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 37,
+      "y": 1134,
+      "width": 301,
+      "height": 24
+     },
+     {
+      "tag": "p",
+      "text": "Assumes 7% average annual return (S&P 500 historic",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 37,
+      "y": 1162,
+      "width": 301,
+      "height": 32
+     },
+     {
+      "tag": "label",
+      "text": "Monthly investment:",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 37,
+      "y": 1217,
+      "width": 134,
+      "height": 20
+     },
+     {
+      "tag": "span",
+      "text": "$",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 195,
+      "y": 1217,
+      "width": 9,
+      "height": 20
+     },
+     {
+      "tag": "th",
+      "text": "Years",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 38,
+      "y": 1265,
+      "width": 75,
+      "height": 36
+     },
+     {
+      "tag": "th",
+      "text": "You invested",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 113,
+      "y": 1265,
+      "width": 107,
+      "height": 36
+     },
+     {
+      "tag": "th",
+      "text": "Portfolio value",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 221,
+      "y": 1265,
+      "width": 116,
+      "height": 36
+     },
+     {
+      "tag": "td",
+      "text": "10 yrs",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 38,
+      "y": 1301,
+      "width": 75,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$24K",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 113,
+      "y": 1301,
+      "width": 107,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$34,617",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 221,
+      "y": 1301,
+      "width": 116,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "20 yrs",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 38,
+      "y": 1345,
+      "width": 75,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$48K",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 113,
+      "y": 1345,
+      "width": 107,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$104,185",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 221,
+      "y": 1345,
+      "width": 116,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "30 yrs",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 38,
+      "y": 1389,
+      "width": 75,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$72K",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 113,
+      "y": 1389,
+      "width": 107,
+      "height": 44
+     },
+     {
+      "tag": "td",
+      "text": "$243,994",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 221,
+      "y": 1389,
+      "width": 116,
+      "height": 44
+     }
+    ],
+    "interactiveElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "width": 85,
+      "height": 28,
+      "x": 16,
+      "y": 14
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "width": 36,
+      "height": 36,
+      "x": 77,
+      "y": 681
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "width": 36,
+      "height": 36,
+      "x": 94,
+      "y": 778
+     },
+     {
+      "tag": "button",
+      "text": "i",
+      "width": 36,
+      "height": 36,
+      "x": 69,
+      "y": 874
+     },
+     {
+      "tag": "button",
+      "text": "How to open your accountTakes about 10 minutes. Fr",
+      "width": 341,
+      "height": 70,
+      "x": 17,
+      "y": 1547
+     },
+     {
+      "tag": "button",
+      "text": "Start over",
+      "width": 343,
+      "height": 46,
+      "x": 16,
+      "y": 1638
+     }
+    ],
+    "images": [],
+    "headings": [
+     {
+      "tag": "h1",
+      "text": "You're ready to start investing.",
+      "fontSize": "24px",
+      "x": 40,
+      "y": 145,
+      "width": 295,
+      "height": 64
+     },
+     {
+      "tag": "h2",
+      "text": "Roth IRA",
+      "fontSize": "20px",
+      "x": 37,
+      "y": 344,
+      "width": 301,
+      "height": 28
+     },
+     {
+      "tag": "h3",
+      "text": "How your money grows",
+      "fontSize": "16px",
+      "x": 37,
+      "y": 1134,
+      "width": 301,
+      "height": 24
+     }
+    ],
+    "overflowElements": [
+     "div.relative",
+     "div.relative",
+     "div.relative"
+    ],
+    "stickyElements": [
+     "header.sticky (sticky)"
+    ],
+    "documentDimensions": {
+     "scrollHeight": 1793,
+     "clientHeight": 812,
+     "scrollWidth": 375,
+     "clientWidth": 375
+    }
+   }
+  }
+ },
+ "design": {
+  "report": {
+   "score": 71.7,
+   "grade": "C",
+   "buckets": {
+    "accessibility": {
+     "score": 12.6,
+     "max": 30,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "contrast-fail",
+       "message": "10 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+       "count": 10,
+       "examples": [
+        {
+         "sig": "span.text-slate-300",
+         "ratio": 1.44,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(191, 220, 184)",
+         "sample": "/"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "ratio": 4.38,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "p.text-xs.text-slate-400",
+         "ratio": 2.57,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Fee: 0.03%/yr"
+        },
+        {
+         "sig": "p.text-xs.text-slate-400",
+         "ratio": 2.57,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Fee: 0.015%/yr"
+        },
+        {
+         "sig": "p.text-xs.text-slate-400",
+         "ratio": 2.57,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Fee: 0.07%/yr"
+        },
+        {
+         "sig": "td.px-4.py-3",
+         "ratio": 4.26,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "$48K"
+        },
+        {
+         "sig": "td.px-4.py-3",
+         "ratio": 4.26,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "$96K"
+        },
+        {
+         "sig": "p.text-[10px].text-slate-400",
+         "ratio": 2.57,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Past returns do not guarantee future res"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "wcagCriterion": "1.4.3",
+       "required": "≥4.5:1 (3:1 large)"
+      },
+      {
+       "severity": "info",
+       "ruleId": "contrast-coverage",
+       "message": "Contrast skipped for 3 element(s) (background images/gradients, colors not resolvable to sRGB, or <svg>/<canvas> artwork) — check those manually.",
+       "skippedUnknownBg": 3,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "scope": "page"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "tap-target-comfort",
+       "message": "6 tap target(s) smaller than M3's comfortable 48×48px at 375px wide — they clear the WCAG 2.5.8 24px minimum.",
+       "count": 6,
+       "examples": [
+        {
+         "sig": "button.group.w-9",
+         "tag": "button",
+         "w": 36,
+         "h": 36,
+         "sample": "i",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.group.w-9",
+         "tag": "button",
+         "w": 36,
+         "h": 36,
+         "sample": "i",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.group.w-9",
+         "tag": "button",
+         "w": 36,
+         "h": 36,
+         "sample": "i",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "a.flex.items-center",
+         "tag": "a",
+         "w": 85,
+         "h": 28,
+         "sample": "CCense",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "input.pl-6.pr-3",
+         "tag": "input",
+         "w": 96,
+         "h": 34,
+         "sample": "200",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        },
+        {
+         "sig": "button.w-full.py-3",
+         "tag": "button",
+         "w": 343,
+         "h": 46,
+         "sample": "Start over",
+         "viewport": {
+          "width": 375,
+          "height": 812,
+          "dpr": 1,
+          "isMobile": true,
+          "w": 375,
+          "h": 812
+         }
+        }
+       ],
+       "scope": "element",
+       "required": "≥48×48px",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       },
+       "wcagCriterion": "2.5.8"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "missing-landmarks",
+       "message": "Missing landmark(s): main, nav, contentinfo.",
+       "landmarks": [
+        "main",
+        "nav",
+        "contentinfo"
+       ],
+       "scope": "page",
+       "contributors": [
+        {
+         "selector": "main, [role=\"main\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "nav, [role=\"navigation\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "footer, [role=\"contentinfo\"]",
+         "value": "no matching element"
+        }
+       ]
+      }
+     ]
+    },
+    "consistency": {
+     "score": 17.6,
+     "max": 20,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "small-body-text",
+       "message": "18 reading-copy text node(s) below 16px (or any text below 11px).",
+       "count": 18,
+       "examples": [
+        {
+         "sig": "p.text-teal-100.text-sm",
+         "px": 14,
+         "sample": "You've got income, a cushion, and no hig"
+        },
+        {
+         "sig": "p.text-sm.text-slate-600",
+         "px": 14,
+         "sample": "A Roth IRA is ideal for retirement savin"
+        },
+        {
+         "sig": "p.text-sm.text-slate-500",
+         "px": 14,
+         "sample": "These are well-known index funds that co"
+        },
+        {
+         "sig": "span.inline-flex.items-center",
+         "px": 10,
+         "sample": "i"
+        },
+        {
+         "sig": "span.w-4.h-4",
+         "px": 10,
+         "sample": "i"
+        },
+        {
+         "sig": "span.text-[10px].font-semibold",
+         "px": 10,
+         "sample": "Core holding"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Vanguard Total Stock Market ETF"
+        },
+        {
+         "sig": "span.w-4.h-4",
+         "px": 10,
+         "sample": "i"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "required": "≥16px (≥11px absolute)",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "small-ui-labels",
+       "message": "31 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+       "count": 31,
+       "examples": [
+        {
+         "sig": "span.text-white.text-xs",
+         "px": 12,
+         "sample": "C"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "px": 14,
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "span.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Your result"
+        },
+        {
+         "sig": "p.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Recommended account"
+        },
+        {
+         "sig": "p.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Fund options"
+        },
+        {
+         "sig": "span.font-mono.font-bold",
+         "px": 14,
+         "sample": "VTI"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "typography-coverage",
+       "message": "Typography skipped for 2 node(s) inside <svg>/<canvas> artwork — sign lettering, chart labels and diagram callouts are not reading copy.",
+       "skippedRenderContext": 2,
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "scope": "page"
+      }
+     ]
+    },
+    "motion": {
+     "score": 16.5,
+     "max": 25,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "reduced-motion-missing",
+       "message": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+       "scope": "page",
+       "wcagCriterion": "2.3.3",
+       "contributors": [
+        {
+         "selector": "@media (prefers-reduced-motion: reduce)",
+         "value": "no rule found"
+        }
+       ]
+      }
+     ]
+    },
+    "performance": {
+     "score": 25,
+     "max": 25,
+     "findings": []
+    }
+   },
+   "sections": {
+    "color": {
+     "sampled": 51,
+     "skippedUnknownBg": 3,
+     "skippedUnparseable": 0,
+     "skippedRenderContext": 0,
+     "distinctTextColors": 7,
+     "failureCount": 10,
+     "failures": [
+      {
+       "sig": "span.text-slate-300",
+       "ratio": 1.44,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(191, 220, 184)",
+       "sample": "/"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "ratio": 2.57,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Fee: 0.03%/yr"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "ratio": 2.57,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Fee: 0.015%/yr"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "ratio": 2.57,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Fee: 0.07%/yr"
+      },
+      {
+       "sig": "td.px-4.py-3",
+       "ratio": 4.26,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "$48K"
+      },
+      {
+       "sig": "td.px-4.py-3",
+       "ratio": 4.26,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "$96K"
+      },
+      {
+       "sig": "p.text-[10px].text-slate-400",
+       "ratio": 2.57,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Past returns do not guarantee future res"
+      },
+      {
+       "sig": "button.w-full.py-3",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Start over"
+      },
+      {
+       "sig": "p.text-center.text-[11px]",
+       "ratio": 2.49,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "This tool is for educational purposes on"
+      }
+     ]
+    },
+    "typography": {
+     "distinctFamilies": 2,
+     "families": [
+      "__Inter_f367f3, __Inter_Fallback_f367f3",
+      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+     ],
+     "distinctSizes": 7,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      16,
+      20,
+      24
+     ],
+     "distinctLineHeights": 7,
+     "smallBodyCount": 18,
+     "smallBody": [
+      {
+       "sig": "p.text-teal-100.text-sm",
+       "px": 14,
+       "sample": "You've got income, a cushion, and no hig"
+      },
+      {
+       "sig": "p.text-sm.text-slate-600",
+       "px": 14,
+       "sample": "A Roth IRA is ideal for retirement savin"
+      },
+      {
+       "sig": "p.text-sm.text-slate-500",
+       "px": 14,
+       "sample": "These are well-known index funds that co"
+      },
+      {
+       "sig": "span.inline-flex.items-center",
+       "px": 10,
+       "sample": "i"
+      },
+      {
+       "sig": "span.w-4.h-4",
+       "px": 10,
+       "sample": "i"
+      },
+      {
+       "sig": "span.text-[10px].font-semibold",
+       "px": 10,
+       "sample": "Core holding"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Vanguard Total Stock Market ETF"
+      },
+      {
+       "sig": "span.w-4.h-4",
+       "px": 10,
+       "sample": "i"
+      },
+      {
+       "sig": "span.text-[10px].font-semibold",
+       "px": 10,
+       "sample": "Core holding"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Fidelity Total Market Index Fund"
+      },
+      {
+       "sig": "span.w-4.h-4",
+       "px": 10,
+       "sample": "i"
+      },
+      {
+       "sig": "span.text-[10px].font-semibold",
+       "px": 10,
+       "sample": "Core holding"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Vanguard Total World Stock ETF"
+      },
+      {
+       "sig": "p.text-xs.text-slate-600",
+       "px": 12,
+       "sample": "Potential mix: For retirement decades aw"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Assumes 7% average annual return (S&P 50"
+      },
+      {
+       "sig": "p.text-[10px].text-slate-400",
+       "px": 10,
+       "sample": "Past returns do not guarantee future res"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Takes about 10 minutes. Free with no min"
+      },
+      {
+       "sig": "p.text-center.text-[11px]",
+       "px": 11,
+       "sample": "This tool is for educational purposes on"
+      }
+     ],
+     "smallLabelCount": 31,
+     "smallLabels": [
+      {
+       "sig": "span.text-white.text-xs",
+       "px": 12,
+       "sample": "C"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "px": 14,
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "span.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Your result"
+      },
+      {
+       "sig": "p.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Recommended account"
+      },
+      {
+       "sig": "p.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Fund options"
+      },
+      {
+       "sig": "span.font-mono.font-bold",
+       "px": 14,
+       "sample": "VTI"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "px": 12,
+       "sample": "Fee: 0.03%/yr"
+      },
+      {
+       "sig": "span.font-mono.font-bold",
+       "px": 14,
+       "sample": "FSKAX"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "px": 12,
+       "sample": "Fee: 0.015%/yr"
+      },
+      {
+       "sig": "span.font-mono.font-bold",
+       "px": 14,
+       "sample": "VT"
+      },
+      {
+       "sig": "p.text-xs.text-slate-400",
+       "px": 12,
+       "sample": "Fee: 0.07%/yr"
+      },
+      {
+       "sig": "span.font-semibold.text-brand",
+       "px": 12,
+       "sample": "Potential mix:"
+      }
+     ],
+     "tightLeadingCount": 0,
+     "tightLeading": [],
+     "displayLeadingRelaxed": 0,
+     "formattedBlocksSkipped": 0,
+     "distinctHeadingSizes": 3,
+     "headingCount": 3,
+     "skippedRenderContext": 2
+    },
+    "shape": {
+     "distinctRadii": 4,
+     "radii": [
+      8,
+      12,
+      16,
+      9999
+     ],
+     "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      28,
+      9999
+     ],
+     "offScaleValues": []
+    },
+    "elevation": {
+     "distinctShadows": 0,
+     "levels": 6,
+     "recipes": []
+    },
+    "states": {
+     "interactiveCount": 7,
+     "hasHoverRules": true,
+     "hasFocusVisibleRules": true,
+     "stylesheetsReachable": true,
+     "sheetsSkipped": 0,
+     "noVisibleFocusCount": 0,
+     "noVisibleFocusExamples": []
+    },
+    "motion": {
+     "hasReducedMotionQuery": false,
+     "reducedMotionStatus": "missing",
+     "activeAnimations": 0,
+     "tooShort": [],
+     "tooLong": [],
+     "linearMovement": [],
+     "easeInEntrance": [],
+     "layoutAnimated": [],
+     "infiniteLoops": [],
+     "sheetsSkipped": 0
+    },
+    "a11yLayout": {
+     "smallTargetCount": 6,
+     "smallTargets": [
+      {
+       "sig": "button.group.w-9",
+       "tag": "button",
+       "w": 36,
+       "h": 36,
+       "sample": "i",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "sig": "button.group.w-9",
+       "tag": "button",
+       "w": 36,
+       "h": 36,
+       "sample": "i",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "sig": "button.group.w-9",
+       "tag": "button",
+       "w": 36,
+       "h": 36,
+       "sample": "i",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "sig": "a.flex.items-center",
+       "tag": "a",
+       "w": 85,
+       "h": 28,
+       "sample": "CCense",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "sig": "input.pl-6.pr-3",
+       "tag": "input",
+       "w": 96,
+       "h": 34,
+       "sample": "200",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      },
+      {
+       "sig": "button.w-full.py-3",
+       "tag": "button",
+       "w": 343,
+       "h": 46,
+       "sample": "Start over",
+       "viewport": {
+        "width": 375,
+        "height": 812,
+        "dpr": 1,
+        "isMobile": true,
+        "w": 375,
+        "h": 812
+       }
+      }
+     ],
+     "undersizedCount": 0,
+     "belowComfortCount": 6,
+     "spacingExceptionChecked": true,
+     "spacingExceptionSkipReason": null,
+     "targetCount": 7,
+     "missingAltCount": 0,
+     "missingAlt": [],
+     "headingJumpCount": 0,
+     "headingJumps": [],
+     "h1Count": 1,
+     "missingLandmarks": [
+      "main",
+      "nav",
+      "contentinfo"
+     ]
+    }
+   },
+   "notAutoDetectable": [
+    "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+    "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+    "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+    "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+    "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+    "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+    "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+    "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+    "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+   ],
+   "meta": {
+    "url": "https://invest-ready.vercel.app/results",
+    "title": "Invest Ready by Cense — Am I ready to start investing?",
+    "timestamp": "2026-11-15T18:00:48.723Z",
+    "contentFingerprint": "16jxixw",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+     "width": 375,
+     "height": 812,
+     "dpr": 1,
+     "isMobile": true,
+     "w": 375,
+     "h": 812
+    },
+    "siteType": "saas",
+    "elementsScanned": 107,
+    "elementsTotal": 114,
+    "sampleCap": 1500,
+    "sampleCapped": false,
+    "sheetsSkipped": 0,
+    "openShadowRoots": 1,
+    "notes": [
+     "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+    ],
+    "durationMs": 18.9
+   }
+  },
+  "probes": {
+   "animationsAtLoad": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   },
+   "animationsAfterScroll": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   }
+  },
+  "durationMs": 2452
+ },
+ "extras": []
+}

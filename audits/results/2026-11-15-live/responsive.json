@@ -1,0 +1,282 @@
+{
+ "url": "https://invest-ready.vercel.app/",
+ "widths": [
+  {
+   "w": 320,
+   "h": 640,
+   "mobile": true
+  },
+  {
+   "w": 375,
+   "h": 812,
+   "mobile": true
+  },
+  {
+   "w": 768,
+   "h": 1024,
+   "mobile": true
+  },
+  {
+   "w": 1024,
+   "h": 768,
+   "mobile": false
+  },
+  {
+   "w": 1440,
+   "h": 900,
+   "mobile": false
+  }
+ ],
+ "rows": [
+  {
+   "state": "quiz",
+   "width": 320,
+   "viewportHeight": 640,
+   "scrollWidth": 320,
+   "clientWidth": 320,
+   "pageHeight": 641,
+   "overflow": false,
+   "screenshot": "responsive/quiz-320.jpg"
+  },
+  {
+   "state": "quiz",
+   "width": 375,
+   "viewportHeight": 812,
+   "scrollWidth": 375,
+   "clientWidth": 375,
+   "pageHeight": 813,
+   "overflow": false,
+   "screenshot": "responsive/quiz-375.jpg"
+  },
+  {
+   "state": "quiz",
+   "width": 768,
+   "viewportHeight": 1024,
+   "scrollWidth": 768,
+   "clientWidth": 768,
+   "pageHeight": 1025,
+   "overflow": false,
+   "screenshot": "responsive/quiz-768.jpg"
+  },
+  {
+   "state": "quiz",
+   "width": 1024,
+   "viewportHeight": 768,
+   "scrollWidth": 1024,
+   "clientWidth": 1024,
+   "pageHeight": 769,
+   "overflow": false,
+   "screenshot": "responsive/quiz-1024.jpg"
+  },
+  {
+   "state": "quiz",
+   "width": 1440,
+   "viewportHeight": 900,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 901,
+   "overflow": false,
+   "screenshot": "responsive/quiz-1440.jpg"
+  },
+  {
+   "state": "quiz-debt",
+   "width": 320,
+   "viewportHeight": 640,
+   "scrollWidth": 320,
+   "clientWidth": 320,
+   "pageHeight": 650,
+   "overflow": false,
+   "screenshot": "responsive/quiz-debt-320.jpg"
+  },
+  {
+   "state": "quiz-debt",
+   "width": 375,
+   "viewportHeight": 812,
+   "scrollWidth": 375,
+   "clientWidth": 375,
+   "pageHeight": 813,
+   "overflow": false,
+   "screenshot": "responsive/quiz-debt-375.jpg"
+  },
+  {
+   "state": "quiz-debt",
+   "width": 768,
+   "viewportHeight": 1024,
+   "scrollWidth": 768,
+   "clientWidth": 768,
+   "pageHeight": 1025,
+   "overflow": false,
+   "screenshot": "responsive/quiz-debt-768.jpg"
+  },
+  {
+   "state": "quiz-debt",
+   "width": 1024,
+   "viewportHeight": 768,
+   "scrollWidth": 1024,
+   "clientWidth": 1024,
+   "pageHeight": 769,
+   "overflow": false,
+   "screenshot": "responsive/quiz-debt-1024.jpg"
+  },
+  {
+   "state": "quiz-debt",
+   "width": 1440,
+   "viewportHeight": 900,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 901,
+   "overflow": false,
+   "screenshot": "responsive/quiz-debt-1440.jpg"
+  },
+  {
+   "state": "result-gate",
+   "width": 320,
+   "viewportHeight": 640,
+   "scrollWidth": 320,
+   "clientWidth": 320,
+   "pageHeight": 1104,
+   "overflow": false,
+   "screenshot": "responsive/result-gate-320.jpg"
+  },
+  {
+   "state": "result-gate",
+   "width": 375,
+   "viewportHeight": 812,
+   "scrollWidth": 375,
+   "clientWidth": 375,
+   "pageHeight": 1045,
+   "overflow": false,
+   "screenshot": "responsive/result-gate-375.jpg"
+  },
+  {
+   "state": "result-gate",
+   "width": 768,
+   "viewportHeight": 1024,
+   "scrollWidth": 768,
+   "clientWidth": 768,
+   "pageHeight": 1025,
+   "overflow": false,
+   "screenshot": "responsive/result-gate-768.jpg"
+  },
+  {
+   "state": "result-gate",
+   "width": 1024,
+   "viewportHeight": 768,
+   "scrollWidth": 1024,
+   "clientWidth": 1024,
+   "pageHeight": 901,
+   "overflow": false,
+   "screenshot": "responsive/result-gate-1024.jpg"
+  },
+  {
+   "state": "result-gate",
+   "width": 1440,
+   "viewportHeight": 900,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 901,
+   "overflow": false,
+   "screenshot": "responsive/result-gate-1440.jpg"
+  },
+  {
+   "state": "result-plan",
+   "width": 320,
+   "viewportHeight": 640,
+   "scrollWidth": 320,
+   "clientWidth": 320,
+   "pageHeight": 1990,
+   "overflow": false,
+   "screenshot": "responsive/result-plan-320.jpg"
+  },
+  {
+   "state": "result-plan",
+   "width": 375,
+   "viewportHeight": 812,
+   "scrollWidth": 375,
+   "clientWidth": 375,
+   "pageHeight": 1793,
+   "overflow": false,
+   "screenshot": "responsive/result-plan-375.jpg"
+  },
+  {
+   "state": "result-plan",
+   "width": 768,
+   "viewportHeight": 1024,
+   "scrollWidth": 768,
+   "clientWidth": 768,
+   "pageHeight": 1577,
+   "overflow": false,
+   "screenshot": "responsive/result-plan-768.jpg"
+  },
+  {
+   "state": "result-plan",
+   "width": 1024,
+   "viewportHeight": 768,
+   "scrollWidth": 1024,
+   "clientWidth": 1024,
+   "pageHeight": 1577,
+   "overflow": false,
+   "screenshot": "responsive/result-plan-1024.jpg"
+  },
+  {
+   "state": "result-plan",
+   "width": 1440,
+   "viewportHeight": 900,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 1577,
+   "overflow": false,
+   "screenshot": "responsive/result-plan-1440.jpg"
+  },
+  {
+   "state": "result-savings",
+   "width": 320,
+   "viewportHeight": 640,
+   "scrollWidth": 320,
+   "clientWidth": 320,
+   "pageHeight": 1269,
+   "overflow": false,
+   "screenshot": "responsive/result-savings-320.jpg"
+  },
+  {
+   "state": "result-savings",
+   "width": 375,
+   "viewportHeight": 812,
+   "scrollWidth": 375,
+   "clientWidth": 375,
+   "pageHeight": 1111,
+   "overflow": false,
+   "screenshot": "responsive/result-savings-375.jpg"
+  },
+  {
+   "state": "result-savings",
+   "width": 768,
+   "viewportHeight": 1024,
+   "scrollWidth": 768,
+   "clientWidth": 768,
+   "pageHeight": 1025,
+   "overflow": false,
+   "screenshot": "responsive/result-savings-768.jpg"
+  },
+  {
+   "state": "result-savings",
+   "width": 1024,
+   "viewportHeight": 768,
+   "scrollWidth": 1024,
+   "clientWidth": 1024,
+   "pageHeight": 1010,
+   "overflow": false,
+   "screenshot": "responsive/result-savings-1024.jpg"
+  },
+  {
+   "state": "result-savings",
+   "width": 1440,
+   "viewportHeight": 900,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 1010,
+   "overflow": false,
+   "screenshot": "responsive/result-savings-1440.jpg"
+  }
+ ]
+}

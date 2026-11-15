@@ -1,0 +1,218 @@
+{
+ "url": "https://invest-ready.vercel.app/",
+ "siteType": "saas",
+ "viewports": {
+  "desktop": {
+   "width": 1440,
+   "height": 900,
+   "dpr": 1,
+   "isMobile": false
+  },
+  "mobile": {
+   "width": 375,
+   "height": 812,
+   "dpr": 1,
+   "isMobile": true
+  }
+ },
+ "note": "Deterministic findings only. UX scores come from the AI review: it writes ux/ai/<tag>.json, then node lib/merge-ux.mjs <this folder>/ux scores and merges them.",
+ "screens": [
+  {
+   "tag": "quiz-desktop",
+   "state": "quiz",
+   "formFactor": "desktop",
+   "findings": 6,
+   "p1": 2,
+   "p2": 4,
+   "p3": 0,
+   "extras": 1,
+   "designScore": 68.1,
+   "designGrade": "D",
+   "findingTitles": [
+    "P1 5 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 1 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "P2 No <h1> found",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 4 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found",
+    "P3 Primary controls show no hover feedback"
+   ]
+  },
+  {
+   "tag": "quiz-mobile",
+   "state": "quiz",
+   "formFactor": "mobile",
+   "findings": 6,
+   "p1": 2,
+   "p2": 4,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 68.1,
+   "designGrade": "D",
+   "findingTitles": [
+    "P1 4 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 1 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "P2 No <h1> found",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 4 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "quiz-debt-desktop",
+   "state": "quiz-debt",
+   "formFactor": "desktop",
+   "findings": 6,
+   "p1": 2,
+   "p2": 4,
+   "p3": 0,
+   "extras": 1,
+   "designScore": 68.1,
+   "designGrade": "D",
+   "findingTitles": [
+    "P1 6 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "P2 No <h1> found",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 3 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found",
+    "P3 Primary controls show no hover feedback"
+   ]
+  },
+  {
+   "tag": "quiz-debt-mobile",
+   "state": "quiz-debt",
+   "formFactor": "mobile",
+   "findings": 6,
+   "p1": 2,
+   "p2": 4,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 68.1,
+   "designGrade": "D",
+   "findingTitles": [
+    "P1 5 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "P2 No <h1> found",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 3 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "result-gate-desktop",
+   "state": "result-gate",
+   "formFactor": "desktop",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 7 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 6 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "result-gate-mobile",
+   "state": "result-gate",
+   "formFactor": "mobile",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 6 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 6 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "result-plan-desktop",
+   "state": "result-plan",
+   "formFactor": "desktop",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 1,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 11 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 6 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 18 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found",
+    "P3 Primary controls show no hover feedback"
+   ]
+  },
+  {
+   "tag": "result-plan-mobile",
+   "state": "result-plan",
+   "formFactor": "mobile",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 10 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 6 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 18 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "result-savings-desktop",
+   "state": "result-savings",
+   "formFactor": "desktop",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 9 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 8 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  },
+  {
+   "tag": "result-savings-mobile",
+   "state": "result-savings",
+   "formFactor": "mobile",
+   "findings": 5,
+   "p1": 2,
+   "p2": 3,
+   "p3": 0,
+   "extras": 0,
+   "designScore": 71.7,
+   "designGrade": "C",
+   "findingTitles": [
+    "P1 8 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "P2 2 tap target(s) smaller than M3's comfortable 48×48px at 375px wide",
+    "P2 Missing landmark(s): main, nav, contentinfo.",
+    "P2 8 reading-copy text node(s) below 16px (or any text below 11px).",
+    "P1 No @media (prefers-reduced-motion: reduce) rule found"
+   ]
+  }
+ ]
+}

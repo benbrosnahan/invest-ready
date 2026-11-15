@@ -1,0 +1,1422 @@
+{
+ "state": "result-savings",
+ "formFactor": "desktop",
+ "pageContext": {
+  "indexable": true,
+  "siteType": "saas"
+ },
+ "report": {
+  "uxScore": null,
+  "typographyScore": null,
+  "contrastScore": null,
+  "layoutScore": null,
+  "responsiveScore": null,
+  "navigationScore": null,
+  "contentScore": null,
+  "totalIssues": 5,
+  "p1Count": 2,
+  "p2Count": 3,
+  "p3Count": 0,
+  "findings": [
+   {
+    "id": "0bb28e89-d907-4bb4-839e-ae7760308423",
+    "severity": "P1",
+    "category": "Color/Contrast",
+    "device": "desktop",
+    "title": "9 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+    "description": "9 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large). Examples: span.text-slate-300 \"/\" (1.44:1); span.text-slate-500.text-sm \"Invest Ready\" (4.38:1); span.text-xs.text-slate-400 \"No data stored. All calculations run loc\" (2.49:1).",
+    "recommendation": "Darken the text or lighten the background until the ratio reaches 4.5:1 (3:1 for large text).",
+    "source": "engine",
+    "themeId": "eng:contrast-fail",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "wcagCriterion": "1.4.3",
+    "evidence": {
+     "measured": "1.44:1",
+     "required": "≥4.5:1 (3:1 large)",
+     "selector": "span.text-slate-300",
+     "sample": "/",
+     "count": 9
+    }
+   },
+   {
+    "id": "7e8c0e69-e377-4afd-b7c2-23d5f7420b9f",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "desktop",
+    "title": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide",
+    "description": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum. Examples: a.flex.items-center \"CCense\" (85×28px); button.w-full.py-3 \"Start over\" (576×46px). Measured at the 1440×900px desktop viewport.",
+    "recommendation": "Fix it once in the shared style or component that produces it, so every instance changes together.",
+    "source": "engine",
+    "themeId": "eng:tap-target-comfort",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "wcagCriterion": "2.5.8",
+    "evidence": {
+     "measured": "85×28px",
+     "required": "≥48×48px",
+     "selector": "a.flex.items-center",
+     "sample": "CCense",
+     "count": 2
+    }
+   },
+   {
+    "id": "0a1df439-aa2b-4c59-a188-ef46a2172416",
+    "severity": "P2",
+    "category": "Accessibility",
+    "device": "desktop",
+    "title": "Missing landmark(s): main, nav, contentinfo.",
+    "description": "Missing landmark(s): main, nav, contentinfo.",
+    "recommendation": "Add the missing landmark elements (main, nav, header, footer) so assistive tech can navigate the page.",
+    "source": "engine",
+    "themeId": "eng:missing-landmarks",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "0 matches for main, [role=\"main\"]",
+     "contributors": [
+      {
+       "selector": "main, [role=\"main\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "nav, [role=\"navigation\"]",
+       "value": "no matching element"
+      },
+      {
+       "selector": "footer, [role=\"contentinfo\"]",
+       "value": "no matching element"
+      }
+     ]
+    }
+   },
+   {
+    "id": "80e843f9-71f7-4a9d-9b9d-f28dda935438",
+    "severity": "P2",
+    "category": "Typography",
+    "device": "desktop",
+    "title": "8 reading-copy text node(s) below 16px (or any text below 11px).",
+    "description": "8 reading-copy text node(s) below 16px (or any text below 11px). Examples: p.text-teal-100.text-sm \"Your goal is within a few years. A high-\" (14px); p.text-sm.text-slate-600 \"Since you may need this money within the\" (14px); p.text-xs.text-slate-500 \"No minimum deposit, no fees.\" (12px). Measured at the 1440×900px desktop viewport.",
+    "recommendation": "Raise reading copy to at least 16px (12px absolute minimum for any text).",
+    "source": "engine",
+    "themeId": "eng:small-body-text",
+    "scope": "element",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "evidence": {
+     "measured": "10px",
+     "required": "≥16px (≥11px absolute)",
+     "selector": "p.text-[10px].text-slate-400",
+     "sample": "Rates as of June 2026. Rates change freq",
+     "count": 8
+    }
+   },
+   {
+    "id": "5eb6a40b-c82c-4fe0-b89c-13bc5ef4b669",
+    "severity": "P1",
+    "category": "Motion",
+    "device": "desktop",
+    "title": "No @media (prefers-reduced-motion: reduce) rule found",
+    "description": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+    "recommendation": "Add an @media (prefers-reduced-motion: reduce) block that disables non-essential animation.",
+    "source": "engine",
+    "themeId": "eng:reduced-motion-missing",
+    "scope": "page",
+    "renderContext": "dom",
+    "observedOn": 1,
+    "sampleSize": 1,
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false
+    },
+    "wcagCriterion": "2.3.3",
+    "evidence": {
+     "measured": "0 matches for @media (prefers-reduced-motion: reduce)",
+     "contributors": [
+      {
+       "selector": "@media (prefers-reduced-motion: reduce)",
+       "value": "no rule found"
+      }
+     ]
+    }
+   }
+  ],
+  "pageContext": {
+   "indexable": true,
+   "siteType": "saas"
+  },
+  "scanData": {
+   "domContext": {
+    "textElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 296,
+      "y": 14,
+      "width": 85,
+      "height": 28
+     },
+     {
+      "tag": "span",
+      "text": "C",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "16px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 21,
+      "x": 306,
+      "y": 20,
+      "width": 9,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Cense",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 332,
+      "y": 16,
+      "width": 49,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "/",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(191, 220, 184)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 14.14,
+      "x": 389,
+      "y": 16,
+      "width": 6,
+      "height": 24
+     },
+     {
+      "tag": "span",
+      "text": "Invest Ready",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 403,
+      "y": 18,
+      "width": 85,
+      "height": 20
+     },
+     {
+      "tag": "span",
+      "text": "No data stored. All calculations run locally.",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 903,
+      "y": 20,
+      "width": 241,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "Your result",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(191, 220, 184)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 14.14,
+      "x": 456,
+      "y": 121,
+      "width": 528,
+      "height": 16
+     },
+     {
+      "tag": "h1",
+      "text": "Save first, then invest.",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "32px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 21,
+      "x": 456,
+      "y": 145,
+      "width": 528,
+      "height": 32
+     },
+     {
+      "tag": "p",
+      "text": "Your goal is within a few years. A high-yield savi",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "22.75px",
+      "color": "rgb(231, 240, 228)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 17.98,
+      "x": 456,
+      "y": 181,
+      "width": 528,
+      "height": 46
+     },
+     {
+      "tag": "p",
+      "text": "Recommended account",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 453,
+      "y": 292,
+      "width": 534,
+      "height": 16
+     },
+     {
+      "tag": "h2",
+      "text": "High-Yield Savings Account",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "28px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 453,
+      "y": 312,
+      "width": 534,
+      "height": 28
+     },
+     {
+      "tag": "p",
+      "text": "Since you may need this money within the next coup",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "22.75px",
+      "color": "rgb(74, 110, 77)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 3.63,
+      "x": 453,
+      "y": 348,
+      "width": 534,
+      "height": 91
+     },
+     {
+      "tag": "p",
+      "text": "Top accounts to consider",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 453,
+      "y": 501,
+      "width": 534,
+      "height": 16
+     },
+     {
+      "tag": "a",
+      "text": "Wealthfront CashNo minimum deposit, no fees.3.30%",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(234, 243, 231)",
+      "contrastRatio": 7.05,
+      "x": 453,
+      "y": 529,
+      "width": 534,
+      "height": 56
+     },
+     {
+      "tag": "p",
+      "text": "Wealthfront Cash",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 465,
+      "y": 539,
+      "width": 169,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "No minimum deposit, no fees.",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 465,
+      "y": 559,
+      "width": 169,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "3.30%",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 929,
+      "y": 547,
+      "width": 46,
+      "height": 20
+     },
+     {
+      "tag": "a",
+      "text": "Marcus by Goldman SachsNo minimum deposit, no fees",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(246, 243, 225)",
+      "contrastRatio": 7.18,
+      "x": 453,
+      "y": 593,
+      "width": 534,
+      "height": 56
+     },
+     {
+      "tag": "p",
+      "text": "Marcus by Goldman Sachs",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 465,
+      "y": 603,
+      "width": 180,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "No minimum deposit, no fees.",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 465,
+      "y": 623,
+      "width": 180,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "3.40%",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 928,
+      "y": 611,
+      "width": 47,
+      "height": 20
+     },
+     {
+      "tag": "a",
+      "text": "SoFi SavingsHigher rate available with direct depo",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgb(246, 243, 225)",
+      "contrastRatio": 7.18,
+      "x": 453,
+      "y": 657,
+      "width": 534,
+      "height": 56
+     },
+     {
+      "tag": "p",
+      "text": "SoFi Savings",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 465,
+      "y": 667,
+      "width": 228,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Higher rate available with direct deposit.",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 465,
+      "y": 687,
+      "width": 228,
+      "height": 16
+     },
+     {
+      "tag": "span",
+      "text": "3.10%",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 933,
+      "y": 675,
+      "width": 42,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Rates as of June 2026. Rates change frequently, ve",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "lineHeight": "15px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 453,
+      "y": 725,
+      "width": 534,
+      "height": 15
+     },
+     {
+      "tag": "button",
+      "text": "How to open your accountTakes about 10 minutes. Fr",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 433,
+      "y": 782,
+      "width": 574,
+      "height": 70
+     },
+     {
+      "tag": "p",
+      "text": "How to open your account",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "20px",
+      "color": "rgb(39, 91, 45)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 2.62,
+      "x": 453,
+      "y": 798,
+      "width": 274,
+      "height": 20
+     },
+     {
+      "tag": "p",
+      "text": "Takes about 10 minutes. Free with no minimums.",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 453,
+      "y": 820,
+      "width": 274,
+      "height": 16
+     },
+     {
+      "tag": "button",
+      "text": "Start over",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "color": "rgb(92, 127, 95)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 4.66,
+      "x": 432,
+      "y": 873,
+      "width": 576,
+      "height": 46
+     },
+     {
+      "tag": "p",
+      "text": "This tool is for educational purposes only. It is ",
+      "fontSize": "11px",
+      "fontWeight": "400",
+      "lineHeight": "17.875px",
+      "color": "rgb(140, 169, 142)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "contrastRatio": 8.18,
+      "x": 432,
+      "y": 935,
+      "width": 576,
+      "height": 36
+     }
+    ],
+    "interactiveElements": [
+     {
+      "tag": "a",
+      "text": "CCense",
+      "width": 85,
+      "height": 28,
+      "x": 296,
+      "y": 14
+     },
+     {
+      "tag": "a",
+      "text": "Wealthfront CashNo minimum deposit, no fees.3.30%",
+      "width": 534,
+      "height": 56,
+      "x": 453,
+      "y": 529
+     },
+     {
+      "tag": "a",
+      "text": "Marcus by Goldman SachsNo minimum deposit, no fees",
+      "width": 534,
+      "height": 56,
+      "x": 453,
+      "y": 593
+     },
+     {
+      "tag": "a",
+      "text": "SoFi SavingsHigher rate available with direct depo",
+      "width": 534,
+      "height": 56,
+      "x": 453,
+      "y": 657
+     },
+     {
+      "tag": "button",
+      "text": "How to open your accountTakes about 10 minutes. Fr",
+      "width": 574,
+      "height": 70,
+      "x": 433,
+      "y": 782
+     },
+     {
+      "tag": "button",
+      "text": "Start over",
+      "width": 576,
+      "height": 46,
+      "x": 432,
+      "y": 873
+     }
+    ],
+    "images": [],
+    "headings": [
+     {
+      "tag": "h1",
+      "text": "Save first, then invest.",
+      "fontSize": "24px",
+      "x": 456,
+      "y": 145,
+      "width": 528,
+      "height": 32
+     },
+     {
+      "tag": "h2",
+      "text": "High-Yield Savings Account",
+      "fontSize": "20px",
+      "x": 453,
+      "y": 312,
+      "width": 534,
+      "height": 28
+     }
+    ],
+    "overflowElements": [],
+    "stickyElements": [
+     "header.sticky (sticky)"
+    ],
+    "documentDimensions": {
+     "scrollHeight": 1010,
+     "clientHeight": 900,
+     "scrollWidth": 1440,
+     "clientWidth": 1440
+    }
+   }
+  }
+ },
+ "design": {
+  "report": {
+   "score": 71.7,
+   "grade": "C",
+   "buckets": {
+    "accessibility": {
+     "score": 12.6,
+     "max": 30,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "contrast-fail",
+       "message": "9 text node(s) below WCAG contrast (4.5:1 normal / 3:1 large).",
+       "count": 9,
+       "examples": [
+        {
+         "sig": "span.text-slate-300",
+         "ratio": 1.44,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(191, 220, 184)",
+         "sample": "/"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "ratio": 4.38,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "span.text-xs.text-slate-400",
+         "ratio": 2.49,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "No data stored. All calculations run loc"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "ratio": 3.97,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "No minimum deposit, no fees."
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "ratio": 4.04,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "No minimum deposit, no fees."
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "ratio": 4.04,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Higher rate available with direct deposi"
+        },
+        {
+         "sig": "p.text-[10px].text-slate-400",
+         "ratio": 2.57,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(140, 169, 142)",
+         "sample": "Rates as of June 2026. Rates change freq"
+        },
+        {
+         "sig": "button.w-full.py-3",
+         "ratio": 4.38,
+         "threshold": 4.5,
+         "large": false,
+         "fg": "rgb(92, 127, 95)",
+         "sample": "Start over"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "wcagCriterion": "1.4.3",
+       "required": "≥4.5:1 (3:1 large)"
+      },
+      {
+       "severity": "info",
+       "ruleId": "contrast-coverage",
+       "message": "Contrast skipped for 3 element(s) (background images/gradients, colors not resolvable to sRGB, or <svg>/<canvas> artwork) — check those manually.",
+       "skippedUnknownBg": 3,
+       "skippedUnparseable": 0,
+       "skippedRenderContext": 0,
+       "scope": "page"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "tap-target-comfort",
+       "message": "2 pointer target(s) smaller than M3's comfortable 48×48px at 1440px wide — they clear the WCAG 2.5.8 24px minimum.",
+       "count": 2,
+       "examples": [
+        {
+         "sig": "a.flex.items-center",
+         "tag": "a",
+         "w": 85,
+         "h": 28,
+         "sample": "CCense",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        },
+        {
+         "sig": "button.w-full.py-3",
+         "tag": "button",
+         "w": 576,
+         "h": 46,
+         "sample": "Start over",
+         "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "isMobile": false,
+          "w": 1440,
+          "h": 900
+         }
+        }
+       ],
+       "scope": "element",
+       "required": "≥48×48px",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       },
+       "wcagCriterion": "2.5.8"
+      },
+      {
+       "severity": "warn",
+       "ruleId": "missing-landmarks",
+       "message": "Missing landmark(s): main, nav, contentinfo.",
+       "landmarks": [
+        "main",
+        "nav",
+        "contentinfo"
+       ],
+       "scope": "page",
+       "contributors": [
+        {
+         "selector": "main, [role=\"main\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "nav, [role=\"navigation\"]",
+         "value": "no matching element"
+        },
+        {
+         "selector": "footer, [role=\"contentinfo\"]",
+         "value": "no matching element"
+        }
+       ]
+      }
+     ]
+    },
+    "consistency": {
+     "score": 17.6,
+     "max": 20,
+     "findings": [
+      {
+       "severity": "warn",
+       "ruleId": "small-body-text",
+       "message": "8 reading-copy text node(s) below 16px (or any text below 11px).",
+       "count": 8,
+       "examples": [
+        {
+         "sig": "p.text-teal-100.text-sm",
+         "px": 14,
+         "sample": "Your goal is within a few years. A high-"
+        },
+        {
+         "sig": "p.text-sm.text-slate-600",
+         "px": 14,
+         "sample": "Since you may need this money within the"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "No minimum deposit, no fees."
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "No minimum deposit, no fees."
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Higher rate available with direct deposi"
+        },
+        {
+         "sig": "p.text-[10px].text-slate-400",
+         "px": 10,
+         "sample": "Rates as of June 2026. Rates change freq"
+        },
+        {
+         "sig": "p.text-xs.text-slate-500",
+         "px": 12,
+         "sample": "Takes about 10 minutes. Free with no min"
+        },
+        {
+         "sig": "p.text-center.text-[11px]",
+         "px": 11,
+         "sample": "This tool is for educational purposes on"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "required": "≥16px (≥11px absolute)",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "small-ui-labels",
+       "message": "14 UI label(s) at 12-15.9px — legitimate M3 label roles (not scored); verify their tap targets meet 48px.",
+       "count": 14,
+       "examples": [
+        {
+         "sig": "span.text-white.text-xs",
+         "px": 12,
+         "sample": "C"
+        },
+        {
+         "sig": "span.text-slate-500.text-sm",
+         "px": 14,
+         "sample": "Invest Ready"
+        },
+        {
+         "sig": "span.text-xs.text-slate-400",
+         "px": 12,
+         "sample": "No data stored. All calculations run loc"
+        },
+        {
+         "sig": "span.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Your result"
+        },
+        {
+         "sig": "p.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Recommended account"
+        },
+        {
+         "sig": "p.text-xs.font-semibold",
+         "px": 12,
+         "sample": "Top accounts to consider"
+        }
+       ],
+       "scope": "element",
+       "renderContext": "dom",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "severity": "info",
+       "ruleId": "typography-coverage",
+       "message": "Typography skipped for 2 node(s) inside <svg>/<canvas> artwork — sign lettering, chart labels and diagram callouts are not reading copy.",
+       "skippedRenderContext": 2,
+       "displayLeadingRelaxed": 0,
+       "formattedBlocksSkipped": 0,
+       "scope": "page"
+      }
+     ]
+    },
+    "motion": {
+     "score": 16.5,
+     "max": 25,
+     "findings": [
+      {
+       "severity": "error",
+       "ruleId": "reduced-motion-missing",
+       "message": "No @media (prefers-reduced-motion: reduce) rule found — motion is not gated for reduced-motion users.",
+       "scope": "page",
+       "wcagCriterion": "2.3.3",
+       "contributors": [
+        {
+         "selector": "@media (prefers-reduced-motion: reduce)",
+         "value": "no rule found"
+        }
+       ]
+      }
+     ]
+    },
+    "performance": {
+     "score": 25,
+     "max": 25,
+     "findings": []
+    }
+   },
+   "sections": {
+    "color": {
+     "sampled": 23,
+     "skippedUnknownBg": 3,
+     "skippedUnparseable": 0,
+     "skippedRenderContext": 0,
+     "distinctTextColors": 7,
+     "failureCount": 9,
+     "failures": [
+      {
+       "sig": "span.text-slate-300",
+       "ratio": 1.44,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(191, 220, 184)",
+       "sample": "/"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "span.text-xs.text-slate-400",
+       "ratio": 2.49,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "No data stored. All calculations run loc"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "ratio": 3.97,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "No minimum deposit, no fees."
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "ratio": 4.04,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "No minimum deposit, no fees."
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "ratio": 4.04,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Higher rate available with direct deposi"
+      },
+      {
+       "sig": "p.text-[10px].text-slate-400",
+       "ratio": 2.57,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "Rates as of June 2026. Rates change freq"
+      },
+      {
+       "sig": "button.w-full.py-3",
+       "ratio": 4.38,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(92, 127, 95)",
+       "sample": "Start over"
+      },
+      {
+       "sig": "p.text-center.text-[11px]",
+       "ratio": 2.49,
+       "threshold": 4.5,
+       "large": false,
+       "fg": "rgb(140, 169, 142)",
+       "sample": "This tool is for educational purposes on"
+      }
+     ]
+    },
+    "typography": {
+     "distinctFamilies": 1,
+     "families": [
+      "__Inter_f367f3, __Inter_Fallback_f367f3"
+     ],
+     "distinctSizes": 7,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      16,
+      20,
+      24
+     ],
+     "distinctLineHeights": 5,
+     "smallBodyCount": 8,
+     "smallBody": [
+      {
+       "sig": "p.text-teal-100.text-sm",
+       "px": 14,
+       "sample": "Your goal is within a few years. A high-"
+      },
+      {
+       "sig": "p.text-sm.text-slate-600",
+       "px": 14,
+       "sample": "Since you may need this money within the"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "No minimum deposit, no fees."
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "No minimum deposit, no fees."
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Higher rate available with direct deposi"
+      },
+      {
+       "sig": "p.text-[10px].text-slate-400",
+       "px": 10,
+       "sample": "Rates as of June 2026. Rates change freq"
+      },
+      {
+       "sig": "p.text-xs.text-slate-500",
+       "px": 12,
+       "sample": "Takes about 10 minutes. Free with no min"
+      },
+      {
+       "sig": "p.text-center.text-[11px]",
+       "px": 11,
+       "sample": "This tool is for educational purposes on"
+      }
+     ],
+     "smallLabelCount": 14,
+     "smallLabels": [
+      {
+       "sig": "span.text-white.text-xs",
+       "px": 12,
+       "sample": "C"
+      },
+      {
+       "sig": "span.text-slate-500.text-sm",
+       "px": 14,
+       "sample": "Invest Ready"
+      },
+      {
+       "sig": "span.text-xs.text-slate-400",
+       "px": 12,
+       "sample": "No data stored. All calculations run loc"
+      },
+      {
+       "sig": "span.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Your result"
+      },
+      {
+       "sig": "p.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Recommended account"
+      },
+      {
+       "sig": "p.text-xs.font-semibold",
+       "px": 12,
+       "sample": "Top accounts to consider"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Wealthfront Cash"
+      },
+      {
+       "sig": "span.text-brand.font-bold",
+       "px": 14,
+       "sample": "3.30%"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "Marcus by Goldman Sachs"
+      },
+      {
+       "sig": "span.text-brand.font-bold",
+       "px": 14,
+       "sample": "3.40%"
+      },
+      {
+       "sig": "p.text-sm.font-semibold",
+       "px": 14,
+       "sample": "SoFi Savings"
+      },
+      {
+       "sig": "span.text-brand.font-bold",
+       "px": 14,
+       "sample": "3.10%"
+      }
+     ],
+     "tightLeadingCount": 0,
+     "tightLeading": [],
+     "displayLeadingRelaxed": 0,
+     "formattedBlocksSkipped": 0,
+     "distinctHeadingSizes": 2,
+     "headingCount": 2,
+     "skippedRenderContext": 2
+    },
+    "shape": {
+     "distinctRadii": 3,
+     "radii": [
+      8,
+      12,
+      16
+     ],
+     "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      28,
+      9999
+     ],
+     "offScaleValues": []
+    },
+    "elevation": {
+     "distinctShadows": 0,
+     "levels": 6,
+     "recipes": []
+    },
+    "states": {
+     "interactiveCount": 6,
+     "hasHoverRules": true,
+     "hasFocusVisibleRules": true,
+     "stylesheetsReachable": true,
+     "sheetsSkipped": 0,
+     "noVisibleFocusCount": 0,
+     "noVisibleFocusExamples": []
+    },
+    "motion": {
+     "hasReducedMotionQuery": false,
+     "reducedMotionStatus": "missing",
+     "activeAnimations": 0,
+     "tooShort": [],
+     "tooLong": [],
+     "linearMovement": [],
+     "easeInEntrance": [],
+     "layoutAnimated": [],
+     "infiniteLoops": [],
+     "sheetsSkipped": 0
+    },
+    "a11yLayout": {
+     "smallTargetCount": 2,
+     "smallTargets": [
+      {
+       "sig": "a.flex.items-center",
+       "tag": "a",
+       "w": 85,
+       "h": 28,
+       "sample": "CCense",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      },
+      {
+       "sig": "button.w-full.py-3",
+       "tag": "button",
+       "w": 576,
+       "h": 46,
+       "sample": "Start over",
+       "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "isMobile": false,
+        "w": 1440,
+        "h": 900
+       }
+      }
+     ],
+     "undersizedCount": 0,
+     "belowComfortCount": 2,
+     "spacingExceptionChecked": true,
+     "spacingExceptionSkipReason": null,
+     "targetCount": 6,
+     "missingAltCount": 0,
+     "missingAlt": [],
+     "headingJumpCount": 0,
+     "headingJumps": [],
+     "h1Count": 1,
+     "missingLandmarks": [
+      "main",
+      "nav",
+      "contentinfo"
+     ]
+    }
+   },
+   "notAutoDetectable": [
+    "Spatial coherence — whether elements enter/exit from where they logically belong (a menu growing from its anchor, a sheet rising from the edge it docks to). The audit sees durations and easings, not spatial origin.",
+    "Clean fades — whether opacity transitions are free of mid-fade color shifts, banding, or double-compositing. Only a human eye (or pixel diff) can judge fade quality.",
+    "Jump cuts — abrupt state changes with no transition where one is expected (content swaps, route changes). Absence of animation is not itself in the DOM.",
+    "Unified direction — whether a group of elements animates along a consistent axis/choreography rather than each doing its own thing.",
+    "Perceived hierarchy / emphasis — whether motion draws the eye to the right thing at the right time.",
+    "Content-appropriate personality — expressive vs. standard scheme being the right call for the brand and context.",
+    "Interruptibility & continuity — whether in-flight animations respond gracefully to new input rather than snapping.",
+    "Real contrast under imagery/gradients — text over photos or gradient backgrounds (the audit samples solid computed backgrounds only).",
+    "Closed shadow roots — their internals are structurally unreachable from script and are not scanned."
+   ],
+   "meta": {
+    "url": "https://invest-ready.vercel.app/results",
+    "title": "Invest Ready by Cense — Am I ready to start investing?",
+    "timestamp": "2026-11-15T18:00:58.991Z",
+    "contentFingerprint": "16jxixw",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+     "width": 1440,
+     "height": 900,
+     "dpr": 1,
+     "isMobile": false,
+     "w": 1440,
+     "h": 900
+    },
+    "siteType": "saas",
+    "elementsScanned": 55,
+    "elementsTotal": 61,
+    "sampleCap": 1500,
+    "sampleCapped": false,
+    "sheetsSkipped": 0,
+    "openShadowRoots": 1,
+    "notes": [
+     "1 open shadow root(s) traversed. Closed shadow roots (if any) cannot be scanned."
+    ],
+    "durationMs": 6.5
+   }
+  },
+  "probes": {
+   "animationsAtLoad": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   },
+   "animationsAfterScroll": {
+    "count": 0,
+    "running": 0,
+    "anims": []
+   },
+   "hoverProbe": [
+    {
+     "label": "CCense",
+     "selector": "a.flex",
+     "changes": false
+    },
+    {
+     "label": "Wealthfront CashNo minimum dep",
+     "selector": "a.flex",
+     "changes": true
+    },
+    {
+     "label": "Marcus by Goldman SachsNo mini",
+     "selector": "a.flex",
+     "changes": true
+    },
+    {
+     "label": "SoFi SavingsHigher rate availa",
+     "selector": "a.flex",
+     "changes": true
+    },
+    {
+     "label": "How to open your accountTakes ",
+     "selector": "button.w-full",
+     "changes": false
+    },
+    {
+     "label": "Start over",
+     "selector": "button.w-full",
+     "changes": true
+    }
+   ],
+   "reducedMotion": {
+    "emulated": true,
+    "snapshot": {
+     "count": 0,
+     "running": 0,
+     "anims": []
+    },
+    "ungatedCount": 0
+   }
+  },
+  "durationMs": 2234
+ },
+ "extras": []
+}

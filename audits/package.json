@@ -1,0 +1,23 @@
+{
+  "name": "invest-ready-audits",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Audit kit for Invest Ready by Cense, adapted from the Loan Desk kit: performance, UX/UI, accessibility, best practices, SEO, and the money tests. Isolated from the app dependencies.",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "setup": "playwright install chromium",
+    "audit": "node run.mjs",
+    "audit:live": "node run.mjs --target live",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "cheerio": "1.2.0",
+    "lighthouse": "13.6.0",
+    "puppeteer-core": "25.16.0"
+  }
+}
