@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/shared/Nav";
+import Footer from "@/components/shared/Footer";
 import { Card, Label, Notice, buttonClass } from "@/components/shared/ui";
 import Ladder from "@/components/results/Ladder";
 import SavingsList from "@/components/results/SavingsList";
@@ -37,7 +38,7 @@ export default function ResultsPage() {
   return (
     <>
       <Nav />
-      <main className="mx-auto w-full max-w-2xl space-y-5 px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+      <main className="mx-auto w-full max-w-2xl space-y-5 px-4 pb-8 pt-8 sm:px-6 sm:pt-12">
         <Card className="rise grid gap-6 md:grid-cols-[minmax(0,1fr)_16.5rem] md:gap-8">
           <div>
             <Label>Your answer</Label>
@@ -55,12 +56,9 @@ export default function ResultsPage() {
           <button type="button" onClick={() => router.push("/")} className={`${buttonClass.secondary} w-full`}>
             Start over
           </button>
-          <p className="mt-5 text-center text-xs leading-relaxed text-slate-600">
-            For learning, not personal financial advice. Rates and fees change, so check with the provider before you
-            open anything.
-          </p>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

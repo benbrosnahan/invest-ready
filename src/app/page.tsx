@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/shared/Nav";
+import Footer from "@/components/shared/Footer";
 import ProgressLadder from "@/components/quiz/ProgressLadder";
 import QuestionStep from "@/components/quiz/QuestionStep";
 import { QUESTIONS } from "@/lib/questions";
@@ -94,7 +95,7 @@ export default function QuizPage() {
   return (
     <>
       <Nav />
-      <main className="mx-auto w-full max-w-2xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+      <main className="mx-auto w-full max-w-2xl px-4 pb-12 pt-8 sm:px-6 sm:pt-12">
         <h1 className="font-display text-xl font-bold leading-tight text-slate-900 sm:text-2xl">
           Are you ready to start investing?
         </h1>
@@ -126,6 +127,7 @@ export default function QuizPage() {
           </button>
         )}
       </main>
+      <Footer />
     </>
   );
 }

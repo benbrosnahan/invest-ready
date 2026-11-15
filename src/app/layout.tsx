@@ -6,7 +6,7 @@ import "./globals.css";
 // Instrument Sans carries everything that is read or compared, and has true tabular figures.
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["700", "800"],
   variable: "--font-display",
   display: "swap",
 });
