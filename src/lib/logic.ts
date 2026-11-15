@@ -23,8 +23,8 @@ import {
 
 const VALID: { [K in Question]: readonly QuizAnswers[K][] } = {
   income: ["consistent", "variable", "unearned", "none"],
-  emergency: ["funded", "partial", "none"],
   debt: ["high_interest", "low_interest", "none"],
+  emergency: ["funded", "partial", "none"],
   goal: ["retirement", "big_goal", "wealth", "soon"],
   risk: ["conservative", "moderate", "growth"],
 };
@@ -45,10 +45,10 @@ export function endsQuiz<K extends Question>(question: K, value: QuizAnswers[K])
   switch (question) {
     case "income":
       return value === "none";
-    case "emergency":
-      return value !== "funded";
     case "debt":
       return value === "high_interest";
+    case "emergency":
+      return value !== "funded";
     case "goal":
       return value === "soon";
     default:
@@ -90,6 +90,21 @@ export function getResult(answers: Answers): QuizResult | null {
     };
   }
 
+  if (debt === undefined) return null;
+  if (debt === "high_interest") {
+    return {
+      type: "gate",
+      gate: "high_debt",
+      headline: "Not yet. Pay off the costly debt first.",
+      message: `Paying off a card at ${CARD_RATE} is like earning a sure ${CARD_RATE} on that money. Investing rarely beats that.`,
+      nextTitle: "Pay down the costly debt",
+      nextStep: `Put extra money toward the highest rate first. When nothing above ${HIGH_RATE_LINE} is left, take the quiz again.`,
+      // FINRA: with costly debt, balance paying it off against building savings. SEC: the cushion comes after.
+      aside:
+        "No savings yet? Set a little aside as you pay it down, so a surprise bill does not go back on the card. Once the debt is gone, build a cushion of at least a month before you invest.",
+    };
+  }
+
   if (emergency === undefined) return null;
   if (emergency !== "funded") {
     return {
@@ -101,19 +116,6 @@ export function getResult(answers: Answers): QuizResult | null {
       nextTitle: "Save one month of expenses",
       nextStep:
         "Open a high-yield savings account and build up one month of expenses. One month is the minimum to start. Keep going toward three to six months, or more if your pay varies.",
-      aside: `Carry a credit card balance? Paying it off comes next, before investing. Cards average about ${CARD_RATE} interest.`,
-    };
-  }
-
-  if (debt === undefined) return null;
-  if (debt === "high_interest") {
-    return {
-      type: "gate",
-      gate: "high_debt",
-      headline: "Not yet. Pay off the costly debt first.",
-      message: `Paying off a card at ${CARD_RATE} is like earning a sure ${CARD_RATE} on that money. Investing rarely beats that.`,
-      nextTitle: "Pay down the costly debt",
-      nextStep: `Put extra money toward the highest rate first. When nothing above ${HIGH_RATE_LINE} is left, take the quiz again.`,
     };
   }
 

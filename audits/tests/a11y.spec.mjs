@@ -6,10 +6,10 @@ const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-prac
 
 const SCREENS = {
   'quiz, first question': async page => page.goto('/'),
-  'quiz, debt question': async page => answers(page, A.steady, A.month),
-  'not yet, cushion': async page => resultFor(page, A.steady, A.noCushion),
-  'not yet, debt': async page => resultFor(page, A.steady, A.month, A.highDebt),
-  'save it for now': async page => resultFor(page, A.steady, A.month, A.noDebt, A.soon),
+  'quiz, debt question': async page => answers(page, A.steady),
+  'not yet, cushion': async page => resultFor(page, A.steady, A.noDebt, A.noCushion),
+  'not yet, debt': async page => resultFor(page, A.steady, A.highDebt),
+  'save it for now': async page => resultFor(page, A.steady, A.noDebt, A.month, A.soon),
   'Roth plan, guide and a fund open': async page => {
     await resultFor(page, ...ROTH);
     await page.getByRole('button', { name: /How to open your account/ }).click();
@@ -66,7 +66,7 @@ test('after answering, keyboard focus moves to the next question', async ({ page
   await page.keyboard.press('Tab'); // the first answer
   await page.keyboard.press('Enter');
   await page.waitForTimeout(600);
-  await expect(page.locator(':focus')).toHaveText('Do you have a cushion saved?');
+  await expect(page.locator(':focus')).toHaveText('Do you owe anything above 8% interest?');
 });
 
 test('A11Y-08 each fund control is named for its fund', async ({ page }) => {

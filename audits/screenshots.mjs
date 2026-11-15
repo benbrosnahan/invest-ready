@@ -17,25 +17,25 @@ const pick = async (page, re) => {
 
 const STATES = {
   'quiz-step1': async () => {},
-  'quiz-step3': async page => {
+  'quiz-step2': async page => {
     await pick(page, /^Yes, it.s consistent/);
-    await pick(page, /^Yes, I have at least one month/);
   },
   'result-gate': async page => {
     await pick(page, /^Yes, it.s consistent/);
+    await pick(page, /^No debt/);
     await pick(page, /^No savings cushion yet/);
   },
   'result-plan': async page => {
     await pick(page, /^Yes, it.s consistent/);
-    await pick(page, /^Yes, I have at least one month/);
     await pick(page, /^Only (low-interest debt|debt under 8%)/);
+    await pick(page, /^Yes, I have at least one month/);
     await pick(page, /^Retirement/);
     await pick(page, /^Leave it and wait/);
   },
   'result-savings': async page => {
     await pick(page, /^Yes, it.s consistent/);
-    await pick(page, /^Yes, I have at least one month/);
     await pick(page, /^No debt/);
+    await pick(page, /^Yes, I have at least one month/);
     await pick(page, /^Might need it within/);
   },
 };

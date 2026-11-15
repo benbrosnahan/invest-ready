@@ -40,26 +40,6 @@ export const QUESTIONS: QuestionConfig[] = [
     ],
   },
   {
-    id: "emergency",
-    rung: "A cushion",
-    short: "Cushion",
-    title: "Do you have a cushion saved?",
-    hint: "Money that would cover rent, food, and bills if something went wrong.",
-    options: [
-      {
-        value: "funded",
-        label: "Yes, I have at least one month covered",
-        description: "Enough for a month of rent, food, and bills",
-      },
-      {
-        value: "partial",
-        label: "I have some savings, but not a full month",
-        description: "Something saved, but it would not last a month",
-      },
-      { value: "none", label: "No savings cushion yet", description: "Starting from zero or close to it" },
-    ],
-  },
-  {
     id: "debt",
     rung: `No debt above ${HIGH_RATE_LINE}`,
     short: "Debt",
@@ -77,6 +57,26 @@ export const QUESTIONS: QuestionConfig[] = [
         description: `Like federal undergrad loans, ${UNDERGRAD_LOAN_RATE} for 2026-27`,
       },
       { value: "none", label: "No debt", description: "Nothing owed" },
+    ],
+  },
+  {
+    id: "emergency",
+    rung: "A cushion",
+    short: "Cushion",
+    title: "Do you have a cushion saved?",
+    hint: "Money that would cover rent, food, and bills if something went wrong.",
+    options: [
+      {
+        value: "funded",
+        label: "Yes, I have at least one month covered",
+        description: "Enough for a month of rent, food, and bills",
+      },
+      {
+        value: "partial",
+        label: "I have some savings, but not a full month",
+        description: "Something saved, but it would not last a month",
+      },
+      { value: "none", label: "No savings cushion yet", description: "Starting from zero or close to it" },
     ],
   },
   {
@@ -128,15 +128,15 @@ export const ANSWER_SUMMARY: { [K in Question]: Record<QuizAnswers[K], string> }
     unearned: "Family or aid, no pay from work",
     none: "No income right now",
   },
-  emergency: {
-    funded: "A month or more saved",
-    partial: "Less than a month saved",
-    none: "No cushion yet",
-  },
   debt: {
     none: "No debt",
     low_interest: `Only debt under ${HIGH_RATE_LINE}`,
     high_interest: `Debt above ${HIGH_RATE_LINE}`,
+  },
+  emergency: {
+    funded: "A month or more saved",
+    partial: "Less than a month saved",
+    none: "No cushion yet",
   },
   goal: {
     retirement: "Retirement",

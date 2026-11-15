@@ -8,8 +8,8 @@ export type RiskAnswer = "conservative" | "moderate" | "growth";
 
 export interface QuizAnswers {
   income: IncomeAnswer;
-  emergency: EmergencyAnswer;
   debt: DebtAnswer;
+  emergency: EmergencyAnswer;
   goal: GoalAnswer;
   risk: RiskAnswer;
 }
@@ -17,8 +17,12 @@ export interface QuizAnswers {
 export type Answers = Partial<QuizAnswers>;
 export type Question = keyof QuizAnswers;
 
-/** The order of the questions, which is also the order money should go. */
-export const QUESTION_ORDER: Question[] = ["income", "emergency", "debt", "goal", "risk"];
+/**
+ * The order of the questions, which is also the order money should go. Costly debt comes before the cushion, as the
+ * SEC's roadmap orders it ("After paying off credit cards or other high interest debt", an emergency fund), so a
+ * student without savings is never sent away before card debt is mentioned (audits/REPORT.md, MONEY-17).
+ */
+export const QUESTION_ORDER: Question[] = ["income", "debt", "emergency", "goal", "risk"];
 export const TOTAL_STEPS = QUESTION_ORDER.length;
 
 export interface Fund {
@@ -39,7 +43,7 @@ export interface SavingsAccount {
 
 export interface GateResult {
   type: "gate";
-  gate: "no_income" | "no_emergency" | "high_debt";
+  gate: "no_income" | "high_debt" | "no_emergency";
   headline: string;
   message: string;
   /** The next step as a short action, the heading of the next-step card. */

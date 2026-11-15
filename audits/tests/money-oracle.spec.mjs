@@ -1,7 +1,7 @@
 // The app against the independent oracle in support/money-oracle.mjs: the growth table's figures, and which account
 // realistic students are pointed to. Expected values come from the oracle, never from the app's code.
 import { test, expect, A, ROTH, resultFor, PHONE } from './helpers.mjs';
-import { dollars, expectedAccount, futureValue } from './support/money-oracle.mjs';
+import { dollars, expectedAccount, expectedStop, futureValue } from './support/money-oracle.mjs';
 
 test.use({ viewport: PHONE });
 
@@ -42,14 +42,16 @@ test('growth table caps a pasted monthly amount instead of overflowing', async (
 // Realistic students. Labels for the quiz, facts for the oracle.
 const PROFILES = [
   { who: 'Maya, campus job, federal loan, retirement', labels: ROTH, facts: { income: 'steady', cushion: 'month', debt: 'low', goal: 'retirement' } },
-  { who: 'Sam, allowance only, retirement', labels: [A.family, A.month, A.noDebt, A.retirement, A.wait], facts: { income: 'family', cushion: 'month', debt: 'none', goal: 'retirement' } },
-  { who: 'Priya, 11.5% private loan', labels: [A.steady, A.month, A.highDebt], facts: { income: 'steady', cushion: 'month', debt: 'high' } },
-  { who: 'Jordan, car in four years', labels: [A.varies, A.month, A.noDebt, A.soon], facts: { income: 'varies', cushion: 'month', debt: 'none', goal: 'soon' } },
-  { who: 'Alex, card balance, no savings', labels: [A.steady, A.noCushion], facts: { income: 'steady', cushion: 'none' } },
-  { who: 'Lee, gig work, house in 7 years', labels: [A.varies, A.month, A.lowDebt, A.bigGoal, A.pullOut], facts: { income: 'varies', cushion: 'month', debt: 'low', goal: 'big' } },
+  { who: 'Sam, allowance only, retirement', labels: [A.family, A.noDebt, A.month, A.retirement, A.wait], facts: { income: 'family', cushion: 'month', debt: 'none', goal: 'retirement' } },
+  { who: 'Priya, 11.5% private loan', labels: [A.steady, A.highDebt], facts: { income: 'steady', debt: 'high' } },
+  { who: 'Jordan, car in four years', labels: [A.varies, A.noDebt, A.month, A.soon], facts: { income: 'varies', cushion: 'month', debt: 'none', goal: 'soon' } },
+  { who: 'Alex, card balance, no savings', labels: [A.steady, A.highDebt], facts: { income: 'steady', debt: 'high' } },
+  { who: 'Lee, gig work, house in 7 years', labels: [A.varies, A.lowDebt, A.month, A.bigGoal, A.pullOut], facts: { income: 'varies', cushion: 'month', debt: 'low', goal: 'big' } },
   { who: 'Kai, between jobs', labels: [A.noIncome], facts: { income: 'none' } },
-  { who: 'Rae, some savings', labels: [A.varies, A.some], facts: { income: 'varies', cushion: 'some' } },
+  { who: 'Rae, some savings, no debt', labels: [A.varies, A.noDebt, A.some], facts: { income: 'varies', debt: 'none', cushion: 'some' } },
 ];
+
+const STOP = { income: /Income comes first/, debt: /Pay off the costly debt first/, cushion: /Build a cushion first/ };
 
 const SHOWN = {
   roth: /Open a Roth IRA/,
@@ -62,7 +64,10 @@ for (const p of PROFILES) {
   test(`routing: ${p.who}`, async ({ page }) => {
     await resultFor(page, ...p.labels);
     const expected = expectedAccount(p.facts);
-    if (expected === 'not-yet') await expect(page.locator('h1')).toHaveText(SHOWN[expected]);
+    if (expected === 'not-yet') {
+      await expect(page.locator('h1')).toHaveText(SHOWN[expected]);
+      await expect(page.locator('h1')).toHaveText(STOP[expectedStop(p.facts)]);
+    }
     else await expect(page.getByRole('heading', { name: SHOWN[expected] })).toBeVisible();
   });
 }

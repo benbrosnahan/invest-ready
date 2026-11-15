@@ -6,11 +6,24 @@ test.use({ viewport: PHONE });
 
 test('MONEY-01 a double-click answers once: the debt question is never skipped', async ({ page }) => {
   await page.goto('/');
+  await option(page, A.steady).dblclick();
+  await page.waitForTimeout(900);
+  await expect(page.getByText(/(Question|Step) 2 of 5/)).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2 })).toContainText(/debt|interest/i);
+});
+
+test('MONEY-01 and MONEY-17 a double-click on the debt answer never skips the cushion question', async ({ page }) => {
+  await page.goto('/');
   await pick(page, A.steady);
-  await option(page, A.month).dblclick();
+  await option(page, A.noDebt).dblclick();
   await page.waitForTimeout(900);
   await expect(page.getByText(/(Question|Step) 3 of 5/)).toBeVisible();
-  await expect(page.getByRole('heading', { level: 2 })).toContainText(/debt|interest/i);
+  await expect(page.getByRole('heading', { level: 2 })).toContainText(/cushion/i);
+  // And a double-click on the cushion answer lands on the goal question, not past it.
+  await option(page, A.month).dblclick();
+  await page.waitForTimeout(900);
+  await expect(page.getByText(/(Question|Step) 4 of 5/)).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2 })).toContainText(/need this money/i);
 });
 
 test('MONEY-01 a quick second click on another answer does not skip ahead either', async ({ page }) => {
@@ -34,7 +47,7 @@ test('MONEY-02 a student whose only money is an allowance is not sent to a Roth 
   // Whichever card mentions an allowance: before the fix it was "Yes, it's consistent".
   await page.getByRole('button', { name: /allowance/i }).or(page.getByRole('radio', { name: /allowance/i })).first().click();
   await page.waitForTimeout(500);
-  for (const label of [A.month, A.noDebt, A.retirement, A.wait]) await pick(page, label);
+  for (const label of [A.noDebt, A.month, A.retirement, A.wait]) await pick(page, label);
   await page.waitForURL('**/results');
   const body = await text(page);
   expect(body).not.toMatch(/Open a Roth IRA|Recommended account Roth IRA/);
@@ -50,14 +63,14 @@ test('MONEY-03 and MONEY-11 the Roth result states the cap as $7,500 or pay from
 });
 
 test('MONEY-04 the debt question asks by rate and puts private student loans on the high side', async ({ page }) => {
-  await answers(page, A.steady, A.month);
+  await answers(page, A.steady);
   await expect(option(page, A.lowDebt)).not.toHaveAccessibleName(/student loans,/i);
   await expect(option(page, A.lowDebt)).toHaveAccessibleName(/federal undergrad loans/i);
   await expect(option(page, A.highDebt)).toHaveAccessibleName(/private student/i);
 });
 
 test('MONEY-05 money needed within 5 years goes to savings, and a big goal means 5 to 10 years away', async ({ page }) => {
-  await answers(page, A.steady, A.month, A.noDebt);
+  await answers(page, A.steady, A.noDebt, A.month);
   await expect(option(page, A.bigGoal)).toHaveAccessibleName(/5 to 10 years/);
   await expect(option(page, A.soon)).toHaveAccessibleName(/^Might need it within 5 years/);
   await pick(page, A.soon);
@@ -66,7 +79,7 @@ test('MONEY-05 money needed within 5 years goes to savings, and a big goal means
 });
 
 test('MONEY-06 savings rates are current, dated, and SoFi shows its direct-deposit condition', async ({ page }) => {
-  await resultFor(page, A.steady, A.noCushion);
+  await resultFor(page, A.steady, A.noDebt, A.noCushion);
   const body = await text(page);
   expect(body).toContain('3.55%');
   expect(body).toContain('3.50%');
@@ -84,7 +97,7 @@ test('MONEY-08 the growth assumption is called an after-inflation figure, with a
 });
 
 test('MONEY-09 the cushion result says one month is a start and three to six months is the aim', async ({ page }) => {
-  await resultFor(page, A.steady, A.some);
+  await resultFor(page, A.steady, A.noDebt, A.some);
   await expect(page.getByText(/three to six months/)).toBeVisible();
 });
 
@@ -131,13 +144,33 @@ test('MONEY-16 savings are not called risk-free and the list is not called "top"
   expect(body).toMatch(/FDIC insured/);
 });
 
-test('MONEY-17 the cushion result tells a student with a card balance that paying it comes next', async ({ page }) => {
-  await resultFor(page, A.steady, A.noCushion);
-  await expect(page.getByText(/credit card balance/i)).toBeVisible();
+test('MONEY-17 the quiz asks about costly debt before the cushion, in the SEC roadmap order', async ({ page }) => {
+  await page.goto('/');
+  const rungs = page.getByRole('navigation', { name: 'Questions' }).getByRole('listitem');
+  await expect(rungs).toHaveText([/^Income/, /^Debt/, /^Cushion/, /^Goal/, /^Risk/]);
+  await pick(page, A.steady);
+  await expect(page.getByRole('heading', { level: 2 })).toContainText(/above 8% interest/);
+});
+
+test('MONEY-17 a student with a card balance and no savings is told to pay the card first, and to keep a little aside', async ({ page }) => {
+  await resultFor(page, A.steady, A.highDebt);
+  await expect(page.locator('main h1')).toHaveText(/^Not yet\. Pay off the costly debt first\./);
+  const body = await text(page);
+  expect(body).toMatch(/No savings yet\? Set a little aside as you pay it down/);
+  expect(body).toMatch(/build a cushion of at least a month before you invest/);
+  // The cushion was never asked, so the ladder says so rather than guessing.
+  const ladder = page.getByRole('list', { name: 'Your steps, in order' });
+  await expect(ladder.getByRole('listitem').nth(2)).toContainText('Not asked yet');
+});
+
+test('MONEY-17 the cushion result no longer tells someone without costly debt to pay a card off', async ({ page }) => {
+  await resultFor(page, A.steady, A.lowDebt, A.noCushion);
+  await expect(page.locator('main h1')).toHaveText(/^Not yet\. Build a cushion first\./);
+  expect(await text(page)).not.toMatch(/credit card balance/i);
 });
 
 test("MONEY-18 the debt question quotes the Fed's average card rate", async ({ page }) => {
-  await answers(page, A.steady, A.month);
+  await answers(page, A.steady);
   await expect(page.getByText(/average about 22%/)).toBeVisible();
 });
 

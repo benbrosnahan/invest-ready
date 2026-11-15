@@ -8,8 +8,8 @@ first.
 ## Why it works this way
 
 "Should I invest?" is almost never the real question for someone in their twenties. The real question is whether
-investing is the right next dollar, and often it is not. Money coming in comes first, then a cushion, then paying
-off anything above 8% interest. Money needed within five years stays in savings. An employer match, when there is
+investing is the right next dollar, and often it is not. Money coming in comes first, then paying off anything above
+8% interest, then a cushion of at least a month (three to six is the aim). Money needed within five years stays in savings. An employer match, when there is
 one, comes before everything else.
 
 So the tool is built to tell a meaningful share of people **not yet**, and to show where they stopped: the result

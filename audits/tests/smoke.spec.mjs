@@ -12,11 +12,11 @@ test('the quiz opens on the first question with a page heading', async ({ page }
 
 const PATHS = [
   ['no income', [A.noIncome], /^Not yet\. Income comes first\./],
-  ['no cushion', [A.steady, A.noCushion], /^Not yet\. Build a cushion first\./],
-  ['costly debt', [A.steady, A.month, A.highDebt], /^Not yet\. Pay off the costly debt first\./],
-  ['money needed soon', [A.steady, A.month, A.noDebt, A.soon], /^Save it for now\./],
+  ['costly debt', [A.steady, A.highDebt], /^Not yet\. Pay off the costly debt first\./],
+  ['no cushion', [A.steady, A.noDebt, A.noCushion], /^Not yet\. Build a cushion first\./],
+  ['money needed soon', [A.steady, A.noDebt, A.month, A.soon], /^Save it for now\./],
   ['ready, Roth IRA', ROTH, /^You look ready to invest\./],
-  ['ready, brokerage', [A.varies, A.month, A.noDebt, A.bigGoal, A.buyMore], /^You look ready to invest\./],
+  ['ready, brokerage', [A.varies, A.noDebt, A.month, A.bigGoal, A.buyMore], /^You look ready to invest\./],
 ];
 
 for (const [name, labels, headline] of PATHS) {
@@ -29,10 +29,10 @@ for (const [name, labels, headline] of PATHS) {
 }
 
 test('Back returns to the last question with the answer still marked', async ({ page }) => {
-  await answers(page, A.steady, A.month);
+  await answers(page, A.steady, A.lowDebt);
   await page.getByRole('button', { name: 'Back' }).click();
   await expect(page.getByText('Question 2 of 5')).toBeVisible();
-  await expect(option(page, A.month)).toHaveAttribute('aria-pressed', 'true');
+  await expect(option(page, A.lowDebt)).toHaveAttribute('aria-pressed', 'true');
 });
 
 test('a result survives a reload, and Start over returns to the first question', async ({ page }) => {

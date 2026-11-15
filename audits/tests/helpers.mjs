@@ -64,9 +64,10 @@ export async function resultFor(page, ...labels) {
   await expect(page.locator('h1').first()).toBeVisible();
 }
 
-export const ROTH = [A.steady, A.month, A.lowDebt, A.retirement, A.wait];
-export const GROWTH_BROKERAGE = [A.steady, A.month, A.noDebt, A.wealth, A.buyMore];
-export const CONSERVATIVE = [A.steady, A.month, A.noDebt, A.wealth, A.pullOut];
+// Answers go in the quiz's order: income, debt, cushion, goal, risk.
+export const ROTH = [A.steady, A.lowDebt, A.month, A.retirement, A.wait];
+export const GROWTH_BROKERAGE = [A.steady, A.noDebt, A.month, A.wealth, A.buyMore];
+export const CONSERVATIVE = [A.steady, A.noDebt, A.month, A.wealth, A.pullOut];
 
 /** The page's visible text, whitespace collapsed. */
 export const text = async page => (await page.locator('body').innerText()).replace(/\s+/g, ' ');

@@ -5,7 +5,7 @@ export const alt = "Invest Ready by Cense: five questions on whether you are rea
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const RUNGS = ["Money coming in", "A cushion", "No debt above 8%", "Time to grow", "A mix you can hold"];
+const RUNGS = ["Money coming in", "No debt above 8%", "A cushion", "Time to grow", "A mix you can hold"];
 
 export default function OpengraphImage() {
   return new ImageResponse(

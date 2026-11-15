@@ -7,8 +7,8 @@ Five-step quiz answering one question: is investing this person's right next dol
 ## Product rules that are not negotiable
 
 1. **The tool must be willing to answer no.** The quiz stops at the first step that is not in place: money coming
-   in, a cushion of at least one month, no debt above 8%, and a goal at least five years away. If an earlier step
-   is unmet the answer is "not yet", with the reason. A recommender that always recommends the thing it is named
+   in, no debt above 8%, a cushion of at least one month, and a goal at least five years away (debt before the
+   cushion, as the SEC's roadmap orders them). If an earlier step is unmet the answer is "not yet", with the reason. A recommender that always recommends the thing it is named
    after is marketing.
 2. **Never leave a yes at a blank page.** If the answer is yes, `AccountOpenGuide` walks the account opening.
    Stopping at "you're ready" is where people drop off.
@@ -37,7 +37,6 @@ pill buttons, 24px card radius. Entrances are CSS keyframes, never framer-motion
 ## Open decisions (see audits/REPORT.md)
 
 - Whether one month is the right cushion floor (guidance is three to six).
-- Whether the cushion should be asked after debt, as the SEC orders it.
 - Whether results should be shareable by URL (hash, so answers never reach a server log).
 - When to move from Next 14 to 16.
 

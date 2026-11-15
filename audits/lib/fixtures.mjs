@@ -75,8 +75,8 @@ export async function answer(page, ...keys) {
  */
 export const STATES = {
   quiz: { seeded: false, enter: async () => {} },
-  'quiz-debt': { seeded: false, enter: async page => answer(page, 'consistent', 'funded') },
-  'result-gate': { seeded: false, enter: async page => { await answer(page, 'consistent', 'noCushion'); await sleep(800); } },
-  'result-plan': { seeded: false, enter: async page => { await answer(page, 'consistent', 'funded', 'lowDebt', 'retirement', 'moderate'); await sleep(800); } },
-  'result-savings': { seeded: false, enter: async page => { await answer(page, 'consistent', 'funded', 'noDebt', 'soon'); await sleep(800); } },
+  'quiz-debt': { seeded: false, enter: async page => answer(page, 'consistent') },
+  'result-gate': { seeded: false, enter: async page => { await answer(page, 'consistent', 'noDebt', 'noCushion'); await sleep(800); } },
+  'result-plan': { seeded: false, enter: async page => { await answer(page, 'consistent', 'lowDebt', 'funded', 'retirement', 'moderate'); await sleep(800); } },
+  'result-savings': { seeded: false, enter: async page => { await answer(page, 'consistent', 'noDebt', 'funded', 'soon'); await sleep(800); } },
 };
