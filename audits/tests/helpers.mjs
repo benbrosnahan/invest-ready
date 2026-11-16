@@ -60,7 +60,7 @@ export async function answers(page, ...labels) {
 /** Answers, then waits for the result page to render its headline. */
 export async function resultFor(page, ...labels) {
   await answers(page, ...labels);
-  await page.waitForURL('**/results');
+  await page.waitForURL(url => url.pathname === '/results');
   await expect(page.locator('h1').first()).toBeVisible();
 }
 

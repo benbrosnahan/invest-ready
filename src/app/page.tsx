@@ -8,6 +8,7 @@ import ProgressLadder from "@/components/quiz/ProgressLadder";
 import QuestionStep from "@/components/quiz/QuestionStep";
 import { QUESTIONS } from "@/lib/questions";
 import { endsQuiz } from "@/lib/logic";
+import { encodeAnswers } from "@/lib/share";
 import { ANSWERS_KEY, storage } from "@/lib/utils";
 import { TOTAL_STEPS, type Answers, type Question, type QuizAnswers } from "@/types";
 
@@ -64,7 +65,8 @@ export default function QuizPage() {
           const order = QUESTIONS.map((x) => x.id);
           const kept = Object.fromEntries(order.slice(0, step).map((k) => [k, answers[k]]));
           storage.set(ANSWERS_KEY, JSON.stringify(kept));
-          router.push("/results");
+          // The answers ride in the fragment, so the result's address is also its share link (SCOPE-01).
+          router.push(`/results#${encodeAnswers(kept as Answers)}`);
         } else {
           dispatch({ type: "NEXT", from: step });
         }

@@ -28,6 +28,10 @@ is where the drop-off happens.
   was checked, `src/lib/compound.ts` the growth math
 - Entirely client side. No login, no backend, nothing sent anywhere: the answers stay in the browser tab
   (sessionStorage) and a Content Security Policy keeps the page from talking to any other site
+- Every result has its own link, and Copy link (or Share, on a phone) hands it on. The link holds only the choices
+  picked, after the `#`, for example `/results#income=consistent&debt=none&emergency=funded&goal=retirement&risk=moderate`.
+  Browsers never send that part to a server, so nothing is stored or logged, and whoever opens the link sees the
+  same answer worked out again in their own browser. A link that was cut short or edited shows no answer at all
 
 ## Run it
 

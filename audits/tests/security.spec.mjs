@@ -31,9 +31,10 @@ test('the answers never leave the browser: a full journey requests nothing from 
   expect(elsewhere).toEqual([]);
 });
 
-test('the answers are kept for this tab only, as answers, not in the URL', async ({ page }) => {
+test('the answers are kept for this tab only, and in the URL only after the # (SCOPE-01), never as a query', async ({ page }) => {
   await resultFor(page, ...ROTH);
-  expect(page.url()).not.toMatch(/[?#]/);
+  expect(new URL(page.url()).search).toBe('');
+  expect(new URL(page.url()).hash).toMatch(/^#income=/);
   const local = await page.evaluate(() => Object.keys(localStorage));
   expect(local).toEqual([]);
   const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('invest-ready-answers')));

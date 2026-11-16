@@ -11,57 +11,123 @@ import FundCard from "@/components/results/FundCard";
 import GrowthTable from "@/components/results/GrowthTable";
 import AccountOpenGuide from "@/components/results/AccountOpenGuide";
 import { cleanAnswers, getResult } from "@/lib/logic";
+import { decodeHash, encodeAnswers, sameAnswers } from "@/lib/share";
+import ShareResult from "@/components/results/ShareResult";
 import { FEES_CHECKED } from "@/lib/data";
 import { ANSWERS_KEY, storage } from "@/lib/utils";
-import type { Answers, GateResult, PlanResult } from "@/types";
+import type { Answers, GateResult, PlanResult, QuizResult } from "@/types";
 
-// The stored answers are read after hydration: undefined on the server and in the first client render, then the
-// tab's value (or null). Nothing in this tab changes them while the page is open, so there is nothing to subscribe to.
-const noSubscribe = () => () => {};
+// What the page answers from: the link's fragment first (a shared or reloaded result), then this tab's stored answers.
+// Both are read after hydration: undefined on the server and in the first client render. The fragment can change
+// while the page is open (an edited link, back and forward), so the page listens for that.
+const subscribe = (onChange: () => void) => {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+};
+const SEP = "\u0000";
+const snapshot = () => `${window.location.hash}${SEP}${storage.get(ANSWERS_KEY) ?? ""}`;
+
+type View =
+  | { kind: "loading" }
+  | { kind: "none" }
+  | { kind: "invalid" }
+  | { kind: "result"; answers: Answers; result: QuizResult; shared: boolean; fromStorage: boolean };
+
+function readView(snap: string | undefined): View {
+  if (snap === undefined) return { kind: "loading" };
+  const [hash, stored] = snap.split(SEP);
+  let mine: Answers = {};
+  try {
+    mine = cleanAnswers(JSON.parse(stored || "null"));
+  } catch {}
+
+  const decoded = decodeHash(hash);
+  if (decoded.status === "invalid") return { kind: "invalid" };
+  if (decoded.status === "ok") {
+    // A link opened in the tab that answered it is this student's own result; anywhere else it was shared.
+    const shared = !getResult(mine) || !sameAnswers(mine, decoded.answers);
+    return { kind: "result", answers: decoded.answers, result: decoded.result, shared, fromStorage: false };
+  }
+  const result = getResult(mine);
+  return result ? { kind: "result", answers: mine, result, shared: false, fromStorage: true } : { kind: "none" };
+}
 
 export default function ResultsPage() {
   const router = useRouter();
-  const raw = useSyncExternalStore(noSubscribe, () => storage.get(ANSWERS_KEY), () => undefined);
-
-  const state = useMemo(() => {
-    if (raw === undefined) return undefined;
-    let answers: Answers = {};
-    try {
-      answers = cleanAnswers(JSON.parse(raw ?? "null"));
-    } catch {}
-    const result = getResult(answers);
-    return result ? { answers, result } : null;
-  }, [raw]);
+  const snap = useSyncExternalStore(subscribe, snapshot, () => undefined);
+  const view = useMemo(() => readView(snap), [snap]);
+  const fragment = view.kind === "result" ? encodeAnswers(view.answers) : "";
+  const shareUrl = typeof window === "undefined" || !fragment ? "" : `${window.location.origin}/results#${fragment}`;
 
   useEffect(() => {
-    if (state === null) router.replace("/");
-  }, [state, router]);
+    if (view.kind === "none") router.replace("/");
+    // A result reached without a fragment gets one, so the address bar is the share link too.
+    if (view.kind === "result" && view.fromStorage) window.history.replaceState(null, "", `#${fragment}`);
+  }, [view, fragment, router]);
 
-  if (!state) return <Nav />;
-  const { answers, result } = state;
+  if (view.kind === "loading" || view.kind === "none") return <Nav />;
+  if (view.kind === "invalid") return <InvalidLink onStart={() => router.push("/")} />;
+  const { answers, result, shared } = view;
 
   return (
     <>
       <Nav />
       <main className="mx-auto w-full max-w-2xl space-y-5 px-4 pb-8 pt-8 sm:px-6 sm:pt-12">
+        {shared && (
+          <Notice title="Someone shared this answer with you">
+            It comes from their answers, not yours. Take the five questions to get your own.
+          </Notice>
+        )}
         <Card className="rise grid gap-6 md:grid-cols-[minmax(0,1fr)_16.5rem] md:gap-8">
           <div>
-            <Label>Your answer</Label>
+            <Label>{shared ? "Their answer" : "Your answer"}</Label>
             <h1 className="mt-1 text-balance font-display text-[2rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 sm:text-[2.5rem]">
               {result.headline}
             </h1>
-            <p className="mt-3 text-base leading-relaxed text-slate-700">{result.message}</p>
+            <p className="mt-3 text-base leading-relaxed text-slate-700">
+              {shared ? result.message.replace("Based on your answers", "Based on their answers") : result.message}
+            </p>
           </div>
           <Ladder answers={answers} result={result} />
         </Card>
 
         {result.type === "gate" ? <GateNext result={result} /> : <PlanNext result={result} risk={answers.risk} />}
 
+        {shareUrl && <ShareResult url={shareUrl} />}
+
         <div className="pt-3">
-          <button type="button" onClick={() => router.push("/")} className={`${buttonClass.secondary} w-full`}>
-            Start over
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className={`${shared ? buttonClass.primary : buttonClass.secondary} w-full`}
+          >
+            {shared ? "Take the quiz yourself" : "Start over"}
           </button>
         </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+/** A link that was cut short or changed. It gets no verdict, and says how to get one. */
+function InvalidLink({ onStart }: { onStart: () => void }) {
+  return (
+    <>
+      <Nav />
+      <main className="mx-auto w-full max-w-2xl px-4 pb-8 pt-8 sm:px-6 sm:pt-12">
+        <Card className="rise">
+          <h1 className="text-balance font-display text-[2rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900">
+            This link does not hold a full answer
+          </h1>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            Part of it is missing or was changed, so it cannot show a result. Ask for the link again, or take the five
+            questions to get your own answer.
+          </p>
+          <button type="button" onClick={onStart} className={`${buttonClass.primary} mt-6 w-full sm:w-auto`}>
+            Take the quiz
+          </button>
+        </Card>
       </main>
       <Footer />
     </>

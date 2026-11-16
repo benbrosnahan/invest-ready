@@ -48,7 +48,7 @@ test('MONEY-02 a student whose only money is an allowance is not sent to a Roth 
   await page.getByRole('button', { name: /allowance/i }).or(page.getByRole('radio', { name: /allowance/i })).first().click();
   await page.waitForTimeout(500);
   for (const label of [A.noDebt, A.month, A.retirement, A.wait]) await pick(page, label);
-  await page.waitForURL('**/results');
+  await page.waitForURL(url => url.pathname === '/results');
   const body = await text(page);
   expect(body).not.toMatch(/Open a Roth IRA|Recommended account Roth IRA/);
   expect(body).toMatch(/brokerage account/i);
@@ -74,7 +74,7 @@ test('MONEY-05 money needed within 5 years goes to savings, and a big goal means
   await expect(option(page, A.bigGoal)).toHaveAccessibleName(/5 to 10 years/);
   await expect(option(page, A.soon)).toHaveAccessibleName(/^Might need it within 5 years/);
   await pick(page, A.soon);
-  await page.waitForURL('**/results');
+  await page.waitForURL(url => url.pathname === '/results');
   await expect(page.getByText(/high-yield savings account/i).first()).toBeVisible();
 });
 

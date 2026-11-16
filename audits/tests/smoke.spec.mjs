@@ -1,5 +1,5 @@
 // Smoke: every path through the quiz reaches a readable result, and the things that worked before still work.
-import { test, expect, A, ROTH, option, pick, answers, resultFor, knownIssue, PHONE } from './helpers.mjs';
+import { test, expect, A, ROTH, option, pick, answers, resultFor, PHONE } from './helpers.mjs';
 
 test.use({ viewport: PHONE });
 
@@ -87,7 +87,7 @@ for (const width of [320, 375]) {
     const over = () => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(await over()).toBe(0);
     for (const label of ROTH) await pick(page, label);
-    await page.waitForURL('**/results');
+    await page.waitForURL(url => url.pathname === '/results');
     await page.getByRole('button', { name: /How to open your account/ }).click();
     expect(await over()).toBe(0);
   });
@@ -103,7 +103,6 @@ test('no console errors through a full journey', async ({ page }) => {
 });
 
 test('SCOPE-01 a result can be shared by link', async ({ page, browser }) => {
-  knownIssue('SCOPE-01');
   await resultFor(page, ...ROTH);
   const other = await browser.newPage();
   await other.goto(page.url());

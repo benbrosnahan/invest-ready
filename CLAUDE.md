@@ -12,8 +12,10 @@ Five-step quiz answering one question: is investing this person's right next dol
    after is marketing.
 2. **Never leave a yes at a blank page.** If the answer is yes, `AccountOpenGuide` walks the account opening.
    Stopping at "you're ready" is where people drop off.
-3. **No accounts, no backend, nothing sent.** Client-side only. Answers stay in the tab's sessionStorage; the CSP in
-   `next.config.mjs` blocks requests to other sites.
+3. **No accounts, no backend, nothing sent.** Client-side only. Answers stay in the tab's sessionStorage and in the
+   result's URL fragment (`/results#income=...`), which browsers never send to a server; the CSP in
+   `next.config.mjs` blocks requests to other sites. `src/lib/share.ts` refuses any fragment the quiz could not
+   have produced, so a tampered or partial link gets no verdict.
 4. **A Roth IRA only with pay from work.** IRA contributions need taxable compensation, capped at the lesser of the
    year's limit and what was earned. Money from family or aid goes to a brokerage account.
 
@@ -22,10 +24,11 @@ Five-step quiz answering one question: is investing this person's right next dol
 - `src/lib/logic.ts`: the readiness rules. The product lives here.
 - `src/lib/data.ts`: every outside figure (rates, fees, limits) with its source and the date it was checked.
 - `src/lib/questions.ts`: the five questions and how each answer reads on the result's ladder.
+- `src/lib/share.ts`: the share link, encoding answers into the URL fragment and refusing anything tampered.
 - `src/lib/compound.ts`: growth projections at 7% a year, compounded monthly at (1.07)^(1/12) - 1.
 - `src/components/quiz/`: `QuestionStep` and `ProgressLadder`.
 - `src/components/results/Ladder.tsx`: the signature element, the five steps lit up to where the answer stopped.
-- `src/components/results/AccountOpenGuide.tsx`: the yes path.
+- `src/components/results/AccountOpenGuide.tsx`: the yes path. `ShareResult.tsx`: Copy link and Share.
 - `audits/`: the audit kit, the Playwright suite (`knownIssue()` marks open items) and the money oracle.
 
 ## Design
@@ -34,11 +37,12 @@ The Cense system shared with Loan Desk and Decode: cream #FFFCEC, green #275B2D,
 #C1652E for marks, Bricolage Grotesque for headlines, Instrument Sans for reading, 13px floor, 48px primary buttons,
 pill buttons, 24px card radius. Entrances are CSS keyframes, never framer-motion.
 
-## Open decisions (see audits/REPORT.md)
+## Decisions (2026-11-15, see audits/REPORT.md)
 
-- Whether one month is the right cushion floor (guidance is three to six).
-- Whether results should be shareable by URL (hash, so answers never reach a server log).
-- When to move from Next 14 to 16.
+- The cushion gate stays at one month; the copy points to three to six months as the aim.
+- Costly debt is asked before the cushion, in the SEC roadmap's order.
+- Results are shareable by link, with the answers in the URL fragment only.
+- Next 16 and React 19. `npm run lint` is plain ESLint with `eslint.config.mjs`, since Next 16 dropped `next lint`.
 
 ## History
 
@@ -46,4 +50,4 @@ Scaffolded from the Loan Lab folder, which is why an earlier version of this fil
 spec describing the wrong product. Replaced 2026-08-26. Audited and rebuilt on the Cense design system 2026-11-15.
 Loan Lab is a separate product at https://loan-lab.vercel.app.
 
-Stack: Next.js App Router, TypeScript, Tailwind.
+Stack: Next.js 16 App Router, React 19, TypeScript, Tailwind.
