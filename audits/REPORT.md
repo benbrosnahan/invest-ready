@@ -127,3 +127,23 @@ Direction: Loan Desk's calm cream and green, built around one element, with Loan
 - **Money.** Every figure and claim in `src/` was checked against the sources above. `tests/support/money-oracle.mjs` is written from the annuity formula, the IRS rule and the SEC guidance, never from the app's code.
 - **Scans.** The Loan Desk kit with its fixtures rewritten for the quiz. The audited states are the first question, the debt question, a not-yet result, a Roth plan and a savings result. The user flow answers all five questions, types a monthly amount and opens the account guide. The INP probe drives Loan Desk's tabs and is not run.
 - **Accessibility.** axe-core (WCAG 2.2 A/AA plus best practices) on 7 screens at 375x812 and 1440x900, plus checks for the 13px type floor, the 40px tap targets, reduced motion and keyboard focus.
+
+## Follow-ups, 2026-11-15 (deployed the same day)
+
+| ID | Was | Now |
+|---|---|---|
+| MONEY-05 | Cutoff moved from 3 to 5 years; needed Ben's sign-off | Signed off: 5 years stays |
+| MONEY-09 | The gate threshold needed Ben | Decided: the gate stays at one month, and the copy keeps three to six months as the aim |
+| MONEY-17 | Question order needed Ben | Fixed: income, debt, cushion, goal, risk |
+| SCOPE-01 | Known issue | Fixed: every result has its own link |
+| SEC-02 | Known issue | Fixed: Next 16.4.6 and React 19.3.1 |
+
+**MONEY-17, the new order.** The SEC roadmap (https://www.investor.gov/sites/investorgov/files/2019-02/Saving-and-Investing.pdf) lists "Pay off any high interest debts" before saving and investing, and puts an emergency fund "After paying off credit cards or other high interest debt". A student with card debt and no savings now gets "Pay off the costly debt first", plus one line from FINRA's Financial Foundations page (https://www.finra.org/investors/investing/investing-basics/financial-foundations): set a little aside while paying the debt down, then build a cushion of at least a month before investing. The only verdict that changed: debt above 8% with no cushion was "build a cushion" and is now "pay off the debt". Both are "not yet". All 76 distinct answer paths are checked against the oracle. The double-click guard holds on questions 1 to 3.
+
+**SEC-02.** Next 16.4.6 (Turbopack), React 19.3.1, ESLint 9 flat config; `npm run lint` runs `eslint .`; /results uses useSyncExternalStore; every route still prerendered static; headers unchanged. `npm audit --omit=dev`: 0 vulnerabilities.
+
+**SCOPE-01, shareable results.** The answers live after the # (`/results#income=consistent&debt=none&emergency=funded&goal=retirement&risk=moderate`), which browsers never send to a server, so nothing is stored, logged or sent in a Referer header. The verdict is worked out again in the viewer's browser. A link is accepted only if the quiz could have produced it (`src/lib/share.ts`); anything partial, edited, oversized or malformed shows "This link does not hold a full answer" and never a verdict. A "Share this answer" card has Copy link (and Share on touch screens), with a copy-by-hand fallback. A viewer sees "Someone shared this answer with you" and "Take the quiz yourself"; opening a link writes nothing to their storage. /results stays noindex with a canonical to /, and its HTML is identical for every result, so link previews never show a verdict. Tests: `share.spec.mjs` (15 cases).
+
+Playwright: 95 pass locally and on the production build.
+
+Not verified: Share on a real phone, and link previews in iMessage, Slack or LinkedIn (tags checked in the built HTML only).
