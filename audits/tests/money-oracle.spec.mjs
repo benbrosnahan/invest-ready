@@ -43,9 +43,9 @@ test('growth table caps a pasted monthly amount instead of overflowing', async (
 const PROFILES = [
   { who: 'Maya, campus job, federal loan, retirement', labels: ROTH, facts: { income: 'steady', cushion: 'month', debt: 'low', goal: 'retirement' } },
   { who: 'Sam, allowance only, retirement', labels: [A.family, A.noDebt, A.month, A.retirement, A.wait], facts: { income: 'family', cushion: 'month', debt: 'none', goal: 'retirement' } },
-  { who: 'Priya, 11.5% private loan', labels: [A.steady, A.highDebt], facts: { income: 'steady', debt: 'high' } },
+  { who: 'Priya, 11.5% private loan, a month saved', labels: [A.steady, A.highDebt, A.month], facts: { income: 'steady', debt: 'high', cushion: 'month' } },
   { who: 'Jordan, car in four years', labels: [A.varies, A.noDebt, A.month, A.soon], facts: { income: 'varies', cushion: 'month', debt: 'none', goal: 'soon' } },
-  { who: 'Alex, card balance, no savings', labels: [A.steady, A.highDebt], facts: { income: 'steady', debt: 'high' } },
+  { who: 'Alex, card balance, no savings', labels: [A.steady, A.highDebt, A.noCushion], facts: { income: 'steady', debt: 'high', cushion: 'none' } },
   { who: 'Lee, gig work, house in 7 years', labels: [A.varies, A.lowDebt, A.month, A.bigGoal, A.pullOut], facts: { income: 'varies', cushion: 'month', debt: 'low', goal: 'big' } },
   { who: 'Kai, between jobs', labels: [A.noIncome], facts: { income: 'none' } },
   { who: 'Rae, some savings, no debt', labels: [A.varies, A.noDebt, A.some], facts: { income: 'varies', debt: 'none', cushion: 'some' } },

@@ -8,7 +8,8 @@ const SCREENS = {
   'quiz, first question': async page => page.goto('/'),
   'quiz, debt question': async page => answers(page, A.steady),
   'not yet, cushion': async page => resultFor(page, A.steady, A.noDebt, A.noCushion),
-  'not yet, debt': async page => resultFor(page, A.steady, A.highDebt),
+  'not yet, debt': async page => resultFor(page, A.steady, A.highDebt, A.month),
+  'not yet, cushion before debt': async page => resultFor(page, A.steady, A.highDebt, A.noCushion),
   'save it for now': async page => resultFor(page, A.steady, A.noDebt, A.month, A.soon),
   'Roth plan, guide and a fund open': async page => {
     await resultFor(page, ...ROTH);

@@ -59,7 +59,7 @@ export default function QuizPage() {
       if (pending.current) clearTimeout(pending.current);
       pending.current = setTimeout(() => {
         pending.current = null;
-        if (endsQuiz(q, value as QuizAnswers[typeof q])) {
+        if (endsQuiz(q, value as QuizAnswers[typeof q], answers)) {
           finishing.current = true;
           // Only the answers on the way to this result are kept, so an earlier run's later answers never leak in.
           const order = QUESTIONS.map((x) => x.id);

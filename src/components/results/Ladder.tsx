@@ -1,7 +1,15 @@
 import { answeredPath } from "@/lib/logic";
 import { ANSWER_SUMMARY, QUESTIONS } from "@/lib/questions";
 import { cn } from "@/lib/utils";
-import type { Answers, QuizResult } from "@/types";
+import type { Answers, Question, QuizResult } from "@/types";
+
+/**
+ * The order money should go, which differs from the order the questions are asked: debt is asked before the
+ * cushion so it is always mentioned, but a one-month cushion comes first (Ben, 2026-11-16).
+ */
+const MONEY_ORDER: Question[] = ["income", "emergency", "debt", "goal", "risk"];
+
+const GATE_QUESTION: Record<string, Question> = { no_income: "income", no_emergency: "emergency", high_debt: "debt" };
 
 /**
  * The signature element: the five steps in the order money should go, lit up to the rung where this student's
@@ -10,16 +18,26 @@ import type { Answers, QuizResult } from "@/types";
  */
 export default function Ladder({ answers, result }: { answers: Answers; result: QuizResult }) {
   const path = answeredPath(answers);
-  const stoppedAt = result.type === "gate" || (result.type === "plan" && result.accountType === "hysa") ? path[path.length - 1] : null;
+  const stoppedAt: Question | null =
+    result.type === "gate"
+      ? GATE_QUESTION[result.gate]
+      : result.type === "plan" && result.accountType === "hysa"
+        ? path[path.length - 1]
+        : null;
+  const stopIndex = stoppedAt ? MONEY_ORDER.indexOf(stoppedAt) : -1;
+  const rungs = MONEY_ORDER.map((id) => QUESTIONS.find((q) => q.id === id)!);
 
   return (
     <ol className="relative" aria-label="Your steps, in order">
-      {QUESTIONS.map((q, i) => {
+      {rungs.map((q, i) => {
         const value = answers[q.id];
-        const reached = path.includes(q.id);
+        const answered = path.includes(q.id);
         const stop = q.id === stoppedAt;
+        // Answered, but a step that comes after the one this student stopped at (costly debt with no cushion yet).
+        const later = answered && stopIndex !== -1 && i > stopIndex;
+        const reached = answered && !later;
         const clear = reached && !stop;
-        const last = i === QUESTIONS.length - 1;
+        const last = i === rungs.length - 1;
         const status = stop ? "stopped here" : "in place";
         return (
           <li key={q.id} className="relative flex gap-4 pb-5 last:pb-0">
@@ -52,10 +70,11 @@ export default function Ladder({ answers, result }: { answers: Answers; result: 
               <p className={cn("text-base font-semibold leading-snug", reached ? "text-slate-900" : "text-slate-600")}>
                 {q.rung}
                 {reached && <span className="sr-only">: {status}.</span>}
+                {later && <span className="sr-only">: next.</span>}
               </p>
               <p className={cn("mt-0.5 text-sm leading-snug", stop ? "font-semibold text-accent-hover" : "text-slate-700")}>
-                {reached && value !== undefined
-                  ? (ANSWER_SUMMARY[q.id] as Record<string, string>)[value]
+                {answered && value !== undefined
+                  ? (ANSWER_SUMMARY[q.id] as Record<string, string>)[value] + (later ? ". Next, after the step above." : "")
                   : "Not asked yet"}
               </p>
             </div>

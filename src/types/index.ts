@@ -18,9 +18,9 @@ export type Answers = Partial<QuizAnswers>;
 export type Question = keyof QuizAnswers;
 
 /**
- * The order of the questions, which is also the order money should go. Costly debt comes before the cushion, as the
- * SEC's roadmap orders it ("After paying off credit cards or other high interest debt", an emergency fund), so a
- * student without savings is never sent away before card debt is mentioned (audits/REPORT.md, MONEY-17).
+ * The order the questions are asked. Debt is asked before the cushion so a student without savings is never sent
+ * away before card debt is mentioned (audits/REPORT.md, MONEY-17). The order money should go is different: a
+ * one-month cushion comes before paying down costly debt (Ben, 2026-11-16; MONEY-22), see endsQuiz and the Ladder.
  */
 export const QUESTION_ORDER: Question[] = ["income", "debt", "emergency", "goal", "risk"];
 export const TOTAL_STEPS = QUESTION_ORDER.length;

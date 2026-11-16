@@ -152,15 +152,26 @@ test('MONEY-17 the quiz asks about costly debt before the cushion, in the SEC ro
   await expect(page.getByRole('heading', { level: 2 })).toContainText(/above 8% interest/);
 });
 
-test('MONEY-17 a student with a card balance and no savings is told to pay the card first, and to keep a little aside', async ({ page }) => {
-  await resultFor(page, A.steady, A.highDebt);
+test('MONEY-22 a student with a card balance and no savings builds a month of cushion first, paying at least the minimum (Ben, 2026-11-16)', async ({ page }) => {
+  await resultFor(page, A.steady, A.highDebt, A.noCushion);
+  await expect(page.locator('main h1')).toHaveText(/^Not yet\. Build a cushion first\./);
+  const body = await text(page);
+  expect(body).toMatch(/surprise bill does not go back on the card/);
+  expect(body).toMatch(/Keep paying at least the minimum on every card/);
+  expect(body).toMatch(/Once you have a month saved, put extra money toward the debt above 8%/);
+});
+
+test('MONEY-22 with a month saved, the same student is told to pay the costly debt next and keep the cushion', async ({ page }) => {
+  await resultFor(page, A.steady, A.highDebt, A.month);
   await expect(page.locator('main h1')).toHaveText(/^Not yet\. Pay off the costly debt first\./);
   const body = await text(page);
-  expect(body).toMatch(/No savings yet\? Set a little aside as you pay it down/);
-  expect(body).toMatch(/build a cushion of at least a month before you invest/);
-  // The cushion was never asked, so the ladder says so rather than guessing.
-  const ladder = page.getByRole('list', { name: 'Your steps, in order' });
-  await expect(ladder.getByRole('listitem').nth(2)).toContainText('Not asked yet');
+  expect(body).toMatch(/Your cushion is in place/);
+  expect(body).toMatch(/Keep the cushion where it is/);
+});
+
+test('MONEY-22 costly debt never ends the quiz before the cushion is asked', async ({ page }) => {
+  await answers(page, A.steady, A.highDebt);
+  await expect(page.getByText('Question 3 of 5')).toBeVisible();
 });
 
 test('MONEY-17 the cushion result no longer tells someone without costly debt to pay a card off', async ({ page }) => {
@@ -187,4 +198,20 @@ test('MONEY-20 fund descriptions do not overreach', async ({ page }) => {
   const html = await page.content();
   expect(html).toMatch(/more than 47 countries/);
   expect(html).not.toMatch(/every country/);
+});
+
+test('MONEY-22 the results ladder runs in money order and never marks costly debt as in place', async ({ page }) => {
+  // No cushion, card debt: the cushion is the step, and the debt is shown as next, not ticked.
+  await resultFor(page, A.steady, A.highDebt, A.noCushion);
+  const ladder = page.getByRole('list', { name: 'Your steps, in order' });
+  const rungs = ladder.getByRole('listitem');
+  await expect(rungs).toHaveText([/Money coming in/, /A cushion/, /No debt above 8%/, /Time to grow/, /A mix you can hold/]);
+  await expect(rungs.nth(1)).toContainText('stopped here');
+  await expect(rungs.nth(2)).not.toContainText('in place');
+  await expect(rungs.nth(2)).toContainText('Next, after the step above.');
+
+  // A month saved, card debt: the cushion is ticked and the debt is the step.
+  await resultFor(page, A.steady, A.highDebt, A.month);
+  await expect(rungs.nth(1)).toContainText('in place');
+  await expect(rungs.nth(2)).toContainText('stopped here');
 });

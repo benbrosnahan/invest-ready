@@ -12,7 +12,8 @@ test('the quiz opens on the first question with a page heading', async ({ page }
 
 const PATHS = [
   ['no income', [A.noIncome], /^Not yet\. Income comes first\./],
-  ['costly debt', [A.steady, A.highDebt], /^Not yet\. Pay off the costly debt first\./],
+  ['costly debt, cushion in place', [A.steady, A.highDebt, A.month], /^Not yet\. Pay off the costly debt first\./],
+  ['costly debt, no cushion', [A.steady, A.highDebt, A.noCushion], /^Not yet\. Build a cushion first\./],
   ['no cushion', [A.steady, A.noDebt, A.noCushion], /^Not yet\. Build a cushion first\./],
   ['money needed soon', [A.steady, A.noDebt, A.month, A.soon], /^Save it for now\./],
   ['ready, Roth IRA', ROTH, /^You look ready to invest\./],

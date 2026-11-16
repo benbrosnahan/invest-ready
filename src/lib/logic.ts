@@ -40,15 +40,19 @@ export function cleanAnswers(raw: unknown): Answers {
   return out;
 }
 
-/** True when this answer ends the quiz: a step that is not in place, a short-term goal, or the last question. */
-export function endsQuiz<K extends Question>(question: K, value: QuizAnswers[K]): boolean {
+/**
+ * True when this answer ends the quiz: a step that is not in place, a short-term goal, or the last question.
+ * Debt is asked before the cushion so it is always mentioned, but it never ends the quiz on its own: a one-month
+ * cushion comes first (Ben, 2026-11-16), so the cushion question decides what a student with costly debt hears.
+ */
+export function endsQuiz<K extends Question>(question: K, value: QuizAnswers[K], answers: Answers = {}): boolean {
   switch (question) {
     case "income":
       return value === "none";
     case "debt":
-      return value === "high_interest";
+      return false;
     case "emergency":
-      return value !== "funded";
+      return value !== "funded" || answers.debt === "high_interest";
     case "goal":
       return value === "soon";
     default:
@@ -63,7 +67,7 @@ export function answeredPath(answers: Answers): Question[] {
     const v = answers[q];
     if (v === undefined) break;
     path.push(q);
-    if (endsQuiz(q, v as never)) break;
+    if (endsQuiz(q, v as never, answers)) break;
   }
   return path;
 }
@@ -91,31 +95,41 @@ export function getResult(answers: Answers): QuizResult | null {
   }
 
   if (debt === undefined) return null;
-  if (debt === "high_interest") {
+  if (emergency === undefined) return null;
+  const costlyDebt = debt === "high_interest";
+
+  // Ben, 2026-11-16: being able to afford an emergency comes before paying down costly debt. Without a cushion, the
+  // next surprise bill goes back on the card. Minimum payments always continue: a missed one costs a late fee and
+  // can raise the rate. Once a month is saved, extra money goes to the debt, then to investing.
+  if (emergency !== "funded") {
+    return {
+      type: "gate",
+      gate: "no_emergency",
+      headline: "Not yet. Build a cushion first.",
+      message: costlyDebt
+        ? "A month of expenses saved means a surprise bill does not go back on the card. Then the debt can only shrink."
+        : "With a month of expenses saved, a surprise bill will not force you to sell investments at a loss.",
+      nextTitle: "Save one month of expenses",
+      nextStep: costlyDebt
+        ? "Keep paying at least the minimum on every card, and put the rest into a high-yield savings account until you have one month of expenses."
+        : "Open a high-yield savings account and build up one month of expenses. One month is the minimum to start. Keep going toward three to six months, or more if your pay varies.",
+      ...(costlyDebt
+        ? {
+            aside: `Once you have a month saved, put extra money toward the debt above ${HIGH_RATE_LINE}, highest rate first. Then take the quiz again.`,
+          }
+        : {}),
+    };
+  }
+
+  if (costlyDebt) {
     return {
       type: "gate",
       gate: "high_debt",
       headline: "Not yet. Pay off the costly debt first.",
       message: `Paying off a card at ${CARD_RATE} is like earning a sure ${CARD_RATE} on that money. Investing rarely beats that.`,
       nextTitle: "Pay down the costly debt",
-      nextStep: `Put extra money toward the highest rate first. When nothing above ${HIGH_RATE_LINE} is left, take the quiz again.`,
-      // FINRA: with costly debt, balance paying it off against building savings. SEC: the cushion comes after.
-      aside:
-        "No savings yet? Set a little aside as you pay it down, so a surprise bill does not go back on the card. Once the debt is gone, build a cushion of at least a month before you invest.",
-    };
-  }
-
-  if (emergency === undefined) return null;
-  if (emergency !== "funded") {
-    return {
-      type: "gate",
-      gate: "no_emergency",
-      headline: "Not yet. Build a cushion first.",
-      message:
-        "With a month of expenses saved, a surprise bill will not force you to sell investments at a loss.",
-      nextTitle: "Save one month of expenses",
-      nextStep:
-        "Open a high-yield savings account and build up one month of expenses. One month is the minimum to start. Keep going toward three to six months, or more if your pay varies.",
+      nextStep: `Your cushion is in place. Put extra money toward the highest rate first. When nothing above ${HIGH_RATE_LINE} is left, take the quiz again.`,
+      aside: "Keep the cushion where it is. If you dip into it for a surprise, refill it before you go back to the debt.",
     };
   }
 

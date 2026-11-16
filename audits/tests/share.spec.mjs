@@ -16,16 +16,16 @@ const CHOICES = {
 };
 const ORDER = Object.keys(CHOICES);
 
-// Where the quiz stops, from the rules the oracle encodes: no income, debt above 8%, under a month saved, money
-// needed within five years, or the last question.
+// Where the quiz stops, from the rules the oracle encodes: no income; at the cushion question, under a month saved or
+// debt above 8% (debt is asked first but never ends the quiz on its own); money needed within five years; or the
+// last question.
 const stopsAt = (q, facts) =>
   (q === 'income' && facts.income === 'none') ||
-  (q === 'debt' && facts.debt === 'high') ||
-  (q === 'emergency' && facts.cushion !== 'month') ||
+  (q === 'emergency' && (facts.cushion !== 'month' || facts.debt === 'high')) ||
   (q === 'goal' && facts.goal === 'soon') ||
   q === 'risk';
 
-/** Every distinct way through the quiz: 76 answer sets, each as the pairs a link carries and the oracle's facts. */
+/** Every distinct way through the quiz: 82 answer sets, each as the pairs a link carries and the oracle's facts. */
 function allPaths() {
   const out = [];
   const walk = (i, pairs, facts) => {
@@ -47,7 +47,9 @@ const ACCOUNT = { roth: 'Open a Roth IRA', brokerage: 'Open a brokerage account'
 
 test('SCOPE-01 every possible link opens to the verdict the rules give, read fresh by someone else', async ({ page }) => {
   const paths = allPaths();
-  expect(paths).toHaveLength(76);
+  // 76 before 2026-11-16; costly debt now goes on to the cushion question, adding two endings for each of the three
+  // incomes that continue.
+  expect(paths).toHaveLength(82);
   let first = true;
   for (const { pairs, facts } of paths) {
     // The first link is a fresh load; the rest change only the fragment, as an edited or followed link would.
@@ -71,7 +73,7 @@ const TAMPERED = {
   'only the first answer': 'income=consistent',
   'stops before a result': 'income=consistent&debt=none&emergency=funded&goal=retirement',
   'a choice the quiz does not offer': 'income=consistent&debt=none&emergency=funded&goal=retirement&risk=yolo',
-  'an answer past where the quiz stops': 'income=consistent&debt=high_interest&emergency=funded',
+  'an answer past where the quiz stops': 'income=consistent&debt=high_interest&emergency=funded&goal=retirement',
   'the same question twice': 'income=none&income=consistent&debt=none&emergency=funded&goal=soon',
   'an extra field': 'income=none&name=Sam',
   'a script': 'income=%3Cscript%3Ealert(1)%3C%2Fscript%3E',
@@ -120,14 +122,14 @@ test('SCOPE-01 Copy link copies the address of this result, and the copy opens t
 });
 
 test('SCOPE-01 when the clipboard is blocked, the link is shown to copy by hand', async ({ page }) => {
-  await resultFor(page, A.steady, A.highDebt);
+  await resultFor(page, A.steady, A.highDebt, A.month);
   await page.evaluate(() => {
     Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new Error('blocked')) } });
   });
   await page.getByRole('button', { name: 'Copy link' }).click();
   const field = page.getByLabel('Copy this link');
   await expect(field).toHaveValue(page.url());
-  await expect(field).toHaveValue(/#income=consistent&debt=high_interest$/);
+  await expect(field).toHaveValue(/#income=consistent&debt=high_interest&emergency=funded$/);
 });
 
 test('SCOPE-01 a result opened without a link gets one in the address bar', async ({ page }) => {
